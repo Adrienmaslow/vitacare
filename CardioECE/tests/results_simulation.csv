@@ -1,0 +1,16 @@
+# RESULTATS DE SIMULATION (PPGSimulator) - PAS DES MESURES CAPTEUR
+scenario,bpm_reference,bpm_calcule_moyen,erreur_absolue_bpm,erreur_relative_pct,temps_valide_pct
+60 BPM régulier,60.0,60.00,0.000,0.000,100.0
+80 BPM régulier,80.0,80.00,0.000,0.000,100.0
+120 BPM régulier,120.0,120.00,0.000,0.000,100.0
+45 BPM régulier,45.0,45.00,0.000,0.000,100.0
+180 BPM régulier,180.0,179.97,0.030,0.017,100.0
+Rampe 60->120->70 (ecart max),-,-,5.667,-,100.0
+72 BPM + dérive ±200 ADC / 8 s,72.0,72.00,0.002,0.003,100.0
+80 BPM + bruit ±8 ADC,80.0,79.99,0.007,0.009,100.0
+80 BPM + bruit ±20 ADC,80.0,80.00,0.002,0.003,100.0
+70 BPM faible amplitude (30 ADC),70.0,70.00,0.000,0.000,100.0
+70 BPM + pics parasites /2,3 s,70.0,70.00,0.003,0.004,100.0
+70 BPM + impulsions 300 ADC /0,7 s,70.0,70.01,0.007,0.010,100.0
+70 BPM + impulsions 600 ADC /0,7 s,70.0,70.01,0.006,0.009,100.0
+Fonctionnement 2h (ecart max),68,-,0.100,-,100.0

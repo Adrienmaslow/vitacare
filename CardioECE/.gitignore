@@ -1,0 +1,6 @@
+# binaires de test et de compilation
+tests/test_algorithms
+tests/avr_sim/cardio_avr_sim
+build/
+build_sim/
+__pycache__/

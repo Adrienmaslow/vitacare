@@ -1,0 +1,28 @@
+=== Binaire SIMULATION_MODE=1 ===
+Loaded 29902 .text at address 0x0
+Loaded 230 .data
+  [t=  0.67s] UART> === CARDIO ECE ===
+  [t=  0.68s] UART> !!! SIMULATION : signal synthetique !!!
+  [t=  0.68s] UART> EEPROM initialisee
+  [t=  0.68s] UART> Enreg. 0
+  [t=  0.68s] UART> RTC non reglee -> SET
+  [t=  0.68s] UART> Tapez HELP
+  OK    bannière série « SIMULATION »
+  [t= 15.00s] UART> SIMULATION
+  [t= 15.01s] UART> bpm_x10=750 classe=2 signal_ok=1 amp_adc=97 acc=16 rej=0 ibi=800 refr=400 
+  [t= 15.02s] UART> fifo=0 fifo_max=3 perdus=0 eeprom=0 lang=0 buz=1 oled1=1 oled2=1 echelle_s=5 ram_libre=340 pile_marge_min=206 lignes_perdues=0 
+  OK    BPM du générateur interne (75) : 75.0
+  RAM libre : 340 o, marge de pile minimale : 206 o
+  OK    marge de pile > 100 octets (build simulation)
+  [t= 15.50s] UART> SIM bpm_x10=1100 
+  [t= 30.00s] UART> SIMULATION
+  [t= 30.01s] UART> bpm_x10=1100 classe=3 signal_ok=1 amp_adc=86 acc=39 rej=4 ibi=545 refr=272 
+  [t= 30.02s] UART> fifo=0 fifo_max=3 perdus=0 eeprom=0 lang=0 buz=1 oled1=1 oled2=1 echelle_s=5 ram_libre=340 pile_marge_min=198 lignes_perdues=0 
+  OK    commande SIM BPM 110 : 110.0
+  [t= 30.50s] UART> SIM bpm_x10=1100 
+  [t= 36.00s] UART> SIMULATION
+  [t= 36.01s] UART> bpm_x10=0 classe=0 signal_ok=1 amp_adc=17 acc=42 rej=4 ibi=0 refr=250 
+  [t= 36.02s] UART> fifo=0 fifo_max=3 perdus=0 eeprom=0 lang=0 buz=1 oled1=1 oled2=1 echelle_s=5 ram_libre=340 pile_marge_min=198 lignes_perdues=0 
+  OK    SIM FINGER 0 -> mesure invalide
+  OK    aucune LED
+RÉSULTAT ÉMULATION (build simulation) : 6 OK, 0 ÉCHEC(S)
