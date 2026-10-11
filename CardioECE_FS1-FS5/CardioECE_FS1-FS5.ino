@@ -40,8 +40,8 @@
  *     Bouton beep      D4 -> bouton -> GND
  *     Encodeur         CLK -> D2   DT -> D8    SW -> D7
  *     Bouton enregistrer D3 (réservé à FS6, non utilisé dans ce programme)
- *     LED              D10 -> 220 ohm -> ROUGE,  D11 -> 220 ohm -> JAUNE,
- *                      D12 -> 220 ohm -> VERTE   (cathodes à GND)
+ *     LED              D10 -> 220 ohm -> ROUGE,  D11 -> 220 ohm -> VERTE,
+ *                      D12 -> 220 ohm -> JAUNE   (cathodes à GND)
  *     OLED 1 (0x3C) et OLED 2 (0x3D)   SDA -> A4   SCL -> A5
  *
  *  Timers : Timer0 = millis(), Timer1 = échantillonnage FS1 (1 kHz),
@@ -117,8 +117,8 @@ const uint8_t PIN_CAPTEUR   = A0;    // FS1 : sortie S du WPSE340
 #define DS1302_DAT_PIN A2            //                       (I/O)
 #define DS1302_RST_PIN 13
 const uint8_t PIN_LED_ROUGE = 10;    // FS3
-const uint8_t PIN_LED_JAUNE = 11;
-const uint8_t PIN_LED_VERTE = 12;
+const uint8_t PIN_LED_VERTE = 11;
+const uint8_t PIN_LED_JAUNE = 12;
 const uint8_t PIN_BUZZER    = 5;     // FS4
 const uint8_t PIN_BOUTON    = 4;
 const uint8_t PIN_ENC_CLK   = 2;     // FS5 : encodeur (D2 -> PCINT2, D8 -> PCINT0)
