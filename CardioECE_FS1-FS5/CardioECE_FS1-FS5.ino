@@ -20,9 +20,7 @@
  *      sinon l'heure serait remise à 18:56:01 à chaque démarrage.
  *    - FS5 : son propre pilote DS1302 est supprimé ; l'écran 1 lit l'heure
  *      par l'objet RTC de FS2 (fonction rtc_lire).
- *    - Broches alignées sur le tableau d'architecture : RTC SCLK A1, IO A2,
- *      CE D13 ; encodeur CLK D2 (au lieu de D9) -> l'encodeur utilise deux
- *      vecteurs d'interruption (PCINT2 pour D2, PCINT0 pour D8).
+ *    - Broches : RTC CLK D2, DAT D3, RST D13 ; encodeur CLK D9, DT D8, SW D7.
  *    - FS1 : la LED D13 de battement du test est retirée (D13 = RST du DS1302).
  *    - FS3 / FS4 : une seule commande de simulation "S <bpm>" pour les deux.
  *    - RAM (2 Ko) : le tampon d'image OLED de 1 Ko ne tenait plus. D'où :
@@ -35,11 +33,10 @@
  *
  *  Câblage :
  *     Capteur WPSE340  S -> A0     + -> 5V     - -> GND
- *     RTC DS1302       CLK -> A1   DAT -> A2   RST -> D13
+ *     RTC DS1302       CLK -> D2   DAT -> D3   RST -> D13
  *     Buzzer passif    + -> D5     - -> GND
  *     Bouton beep      D4 -> bouton -> GND
- *     Encodeur         CLK -> D2   DT -> D8    SW -> D7
- *     Bouton enregistrer D3 (réservé à FS6, non utilisé dans ce programme)
+ *     Encodeur         CLK -> D9   DT -> D8    SW -> D7
  *     LED              D10 -> 220 ohm -> ROUGE,  D11 -> 220 ohm -> VERTE,
  *                      D12 -> 220 ohm -> JAUNE   (cathodes à GND)
  *     OLED 1 (0x3C) et OLED 2 (0x3D)   SDA -> A4   SCL -> A5
@@ -75,6 +72,8 @@ struct DateHeure {
   uint8_t  sec, min, heure, jour, mois;
   uint16_t annee;
 };
+
+void fs4_bouton();   // FS4 (défini plus bas), appelé aussi par les écrans FS5
 
 // ============================================================================
 //  Liaison série légère
@@ -113,15 +112,15 @@ ISR(USART_RX_vect) { serieLegere.recu[serieLegere.tete++ & 7] = UDR0; }
 //  Broches
 // ============================================================================
 const uint8_t PIN_CAPTEUR   = A0;    // FS1 : sortie S du WPSE340
-#define DS1302_CLK_PIN A1            // FS2 : horloge DS1302 (SCLK)
-#define DS1302_DAT_PIN A2            //                       (I/O)
+#define DS1302_CLK_PIN 2             // FS2 : horloge DS1302 (SCLK) -> D2
+#define DS1302_DAT_PIN 3             //                       (I/O)  -> D3
 #define DS1302_RST_PIN 13
 const uint8_t PIN_LED_ROUGE = 10;    // FS3
 const uint8_t PIN_LED_VERTE = 11;
 const uint8_t PIN_LED_JAUNE = 12;
 const uint8_t PIN_BUZZER    = 5;     // FS4
 const uint8_t PIN_BOUTON    = 4;
-const uint8_t PIN_ENC_CLK   = 2;     // FS5 : encodeur (D2 -> PCINT2, D8 -> PCINT0)
+const uint8_t PIN_ENC_CLK   = 9;     // FS5 : encodeur (D9 et D8 : port B -> PCINT0)
 const uint8_t PIN_ENC_DT    = 8;
 const uint8_t PIN_ENC_SW    = 7;
 const uint8_t ADR_ECRAN_1   = 0x3C;  // FS5 : écrans I2C (SDA A4, SCL A5)
@@ -565,7 +564,7 @@ void calculTime(){
 
       RTC.updateTime();
       if (!heureValide()) {
-        Serial.println(F("RTC sans reponse : verifier CLK->A1, DAT->A2, RST->D13, VCC, GND"));
+        Serial.println(F("RTC sans reponse : verifier CLK->D2, DAT->D3, RST->D13, VCC, GND"));
         return;
       }
 	    Serial.print(RTC.year);
@@ -588,7 +587,7 @@ void calculTime(){
 void fs2_init() {
   // DS1302 absent ou mal câblé : registres à 0xFF -> rien à régler
   if (RTC.DS1302_read(0x80) == 0xFF && RTC.DS1302_read(0x8C) == 0xFF) {
-    Serial.println(F("RTC DS1302 sans reponse : verifier CLK->A1, DAT->A2, RST->D13"));
+    Serial.println(F("RTC DS1302 sans reponse : verifier CLK->D2, DAT->D3, RST->D13"));
     return;
   }
   // Bit CH (bit 7 du registre des secondes, adresse 0x80) : 1 = oscillateur
@@ -717,8 +716,7 @@ void fs4_beep(EtatCardiaque e) {
 
 // ============================================================================
 //  Encodeur rotatif (type KY-040) lu par interruption "pin change"
-//  CLK sur D2 (port D -> vecteur PCINT2), DT sur D8 (port B -> PCINT0) :
-//  les deux vecteurs appellent le même décodage.
+//  CLK (D9) et DT (D8) sont sur le port B -> un seul vecteur : PCINT0.
 //  Si le sens est inversé : SENS_ENCODEUR = -1.
 //  Si un cran fait avancer de 2 : TRANSITIONS_PAR_CRAN = 2.
 // ============================================================================
@@ -731,7 +729,7 @@ volatile uint8_t encEtat = 0;
 
 // Décodage en quadrature : index = (ancien état AB << 2) | nouvel état AB
 // +1 / -1 pour une transition valide dans un sens ou l'autre, 0 sinon (rebond).
-ISR(PCINT0_vect) {                          // DT  (D8)
+ISR(PCINT0_vect) {                          // CLK (D9) et DT (D8)
   static const int8_t TABLE[16] PROGMEM = { 0, -1, 1, 0, 1, 0, 0, -1, -1, 0, 0, 1, 0, 1, -1, 0 };   // en Flash
   // Lecture directe du port (même résultat que digitalRead, mais sans appel
   // de fonction : l'interruption utilise beaucoup moins de pile)
@@ -742,7 +740,6 @@ ISR(PCINT0_vect) {                          // DT  (D8)
   if (encAccu >= TRANSITIONS_PAR_CRAN)       { encPas++; encAccu = 0; }
   else if (encAccu <= -TRANSITIONS_PAR_CRAN) { encPas--; encAccu = 0; }
 }
-ISR(PCINT2_vect, ISR_ALIASOF(PCINT0_vect)); // CLK (D2) : même code, sans appel de fonction
 
 void encodeur_init() {
   pinMode(PIN_ENC_CLK, INPUT_PULLUP);
@@ -750,7 +747,7 @@ void encodeur_init() {
   encEtat = (digitalRead(PIN_ENC_CLK) << 1) | digitalRead(PIN_ENC_DT);
   *digitalPinToPCMSK(PIN_ENC_CLK) |= bit(digitalPinToPCMSKbit(PIN_ENC_CLK));
   *digitalPinToPCMSK(PIN_ENC_DT)  |= bit(digitalPinToPCMSKbit(PIN_ENC_DT));
-  PCICR |= bit(digitalPinToPCICRbit(PIN_ENC_CLK)) | bit(digitalPinToPCICRbit(PIN_ENC_DT));
+  PCICR |= bit(digitalPinToPCICRbit(PIN_ENC_CLK));
 }
 
 // Nombre de crans tournés depuis le dernier appel (+ horaire, - anti-horaire)
@@ -877,6 +874,7 @@ void afficherEcran1() {
   ecran.setCursor(102, 48);
   ecran.print(F("bpm"));
 
+  fs4_bouton();                // lecture du bouton entre le dessin et l'envoi
   ecran.choisirEcran(ADR_ECRAN_1);
   ecran.display();
 }
@@ -937,10 +935,21 @@ void afficherEcran2() {
     }
   }
 
+  fs4_bouton();                // lecture du bouton entre le dessin et l'envoi
   ecran.choisirEcran(ADR_ECRAN_2);
   ecran.display();
 }
 
+
+// FS4 : bouton marche / arrêt du beep (code d'origine de FS4, appelé deux fois
+// par tour de loop() : avant et après le rafraîchissement des écrans)
+void fs4_bouton() {
+  if (bouton_appui(boutonBeep)) {
+    beepActif = !beepActif;
+    if (!beepActif) noTone(PIN_BUZZER);
+    Serial.println(beepActif ? F("Beep : MARCHE") : F("Beep : ARRET"));
+  }
+}
 
 // ============================================================================
 //  Programme principal
@@ -994,11 +1003,7 @@ void loop() {
   fs3_afficher(e);
 
   // ---- FS4 : bouton marche / arrêt et beeps simulés ------------------------------
-  if (bouton_appui(boutonBeep)) {
-    beepActif = !beepActif;
-    if (!beepActif) noTone(PIN_BUZZER);
-    Serial.println(beepActif ? F("Beep : MARCHE") : F("Beep : ARRET"));
-  }
+  fs4_bouton();
   if (bpmSimule > 0 && millis() - tBeepSimule >= 60000UL / bpmSimule) {
     tBeepSimule = millis();
     fs4_beep(classer(bpmSimule, bpmSimule >= BPM_MIN && bpmSimule <= BPM_MAX));
@@ -1019,6 +1024,8 @@ void loop() {
   static uint32_t t1 = 0, t2 = 0;
   if (millis() - t2 >= 60)       { t2 = millis(); afficherEcran2(); }
   else if (millis() - t1 >= 200) { t1 = millis(); afficherEcran1(); }
+  fs4_bouton();       // 2e lecture du bouton : un appui bref n'est pas manqué
+                      // pendant le rafraîchissement d'un écran (~30 à 60 ms)
 
   // ---- FS2 + résumé : une fois par seconde ---------------------------------------
 #if SORTIE_SERIE == 0

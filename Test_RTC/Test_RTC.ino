@@ -1,5 +1,5 @@
 // Test du câblage du DS1302 (lecture seule : l'heure n'est PAS modifiée)
-// Broches du tableau d'architecture : CLK (SCLK) -> A1, DAT (IO) -> A2, RST (CE) -> D13
+// Broches du tableau d'architecture : CLK (SCLK) -> D2, DAT (IO) -> D3, RST (CE) -> D13
 // Moniteur série : 115200 bauds
 //
 // Lecture du registre des secondes (octet brut) :
@@ -8,15 +8,15 @@
 //   autre valeur qui change chaque seconde -> tout fonctionne
 #include "virtuabotixRTC.h"
 
-#define DS1302_CLK_PIN A1
-#define DS1302_DAT_PIN A2
+#define DS1302_CLK_PIN 2
+#define DS1302_DAT_PIN 3
 #define DS1302_RST_PIN 13
 
 virtuabotixRTC RTC(DS1302_CLK_PIN, DS1302_DAT_PIN, DS1302_RST_PIN);
 
 void setup() {
   Serial.begin(115200);
-  Serial.println(F("Test DS1302 : CLK A1, DAT A2, RST D13"));
+  Serial.println(F("Test DS1302 : CLK D2, DAT D3, RST D13"));
 }
 
 void loop() {
