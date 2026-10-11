@@ -18,8 +18,11 @@
  *  Seules modifications par rapport aux tests unitaires (nécessaires à l'intégration) :
  *    - FS2 : setDS1302Time() n'est appelé que si l'horloge est arrêtée (bit CH),
  *      sinon l'heure serait remise à 18:56:01 à chaque démarrage.
- *    - FS5 : son propre pilote DS1302 (D2/D3/D6) est supprimé ; l'écran 1 lit
- *      l'heure par l'objet RTC de FS2 (fonction rtc_lire). D6 est libre.
+ *    - FS5 : son propre pilote DS1302 est supprimé ; l'écran 1 lit l'heure
+ *      par l'objet RTC de FS2 (fonction rtc_lire).
+ *    - Broches alignées sur le tableau d'architecture : RTC SCLK A1, IO A2,
+ *      CE D13 ; encodeur CLK D2 (au lieu de D9) -> l'encodeur utilise deux
+ *      vecteurs d'interruption (PCINT2 pour D2, PCINT0 pour D8).
  *    - FS1 : la LED D13 de battement du test est retirée (D13 = RST du DS1302).
  *    - FS3 / FS4 : une seule commande de simulation "S <bpm>" pour les deux.
  *    - RAM (2 Ko) : le tampon d'image OLED de 1 Ko ne tenait plus. D'où :
@@ -32,10 +35,11 @@
  *
  *  Câblage :
  *     Capteur WPSE340  S -> A0     + -> 5V     - -> GND
- *     RTC DS1302       CLK -> D2   DAT -> D3   RST -> D13
+ *     RTC DS1302       CLK -> A1   DAT -> A2   RST -> D13
  *     Buzzer passif    + -> D5     - -> GND
  *     Bouton beep      D4 -> bouton -> GND
- *     Encodeur         CLK -> D9   DT -> D8    SW -> D7
+ *     Encodeur         CLK -> D2   DT -> D8    SW -> D7
+ *     Bouton enregistrer D3 (réservé à FS6, non utilisé dans ce programme)
  *     LED              D10 -> 220 ohm -> ROUGE,  D11 -> 220 ohm -> JAUNE,
  *                      D12 -> 220 ohm -> VERTE   (cathodes à GND)
  *     OLED 1 (0x3C) et OLED 2 (0x3D)   SDA -> A4   SCL -> A5
@@ -109,15 +113,15 @@ ISR(USART_RX_vect) { serieLegere.recu[serieLegere.tete++ & 7] = UDR0; }
 //  Broches
 // ============================================================================
 const uint8_t PIN_CAPTEUR   = A0;    // FS1 : sortie S du WPSE340
-#define DS1302_CLK_PIN 2             // FS2 : horloge DS1302
-#define DS1302_DAT_PIN 3
+#define DS1302_CLK_PIN A1            // FS2 : horloge DS1302 (SCLK)
+#define DS1302_DAT_PIN A2            //                       (I/O)
 #define DS1302_RST_PIN 13
 const uint8_t PIN_LED_ROUGE = 10;    // FS3
 const uint8_t PIN_LED_JAUNE = 11;
 const uint8_t PIN_LED_VERTE = 12;
 const uint8_t PIN_BUZZER    = 5;     // FS4
 const uint8_t PIN_BOUTON    = 4;
-const uint8_t PIN_ENC_CLK   = 9;     // FS5 : encodeur (port B -> PCINT0)
+const uint8_t PIN_ENC_CLK   = 2;     // FS5 : encodeur (D2 -> PCINT2, D8 -> PCINT0)
 const uint8_t PIN_ENC_DT    = 8;
 const uint8_t PIN_ENC_SW    = 7;
 const uint8_t ADR_ECRAN_1   = 0x3C;  // FS5 : écrans I2C (SDA A4, SCL A5)
@@ -693,7 +697,8 @@ void fs4_beep(EtatCardiaque e) {
 
 // ============================================================================
 //  Encodeur rotatif (type KY-040) lu par interruption "pin change"
-//  CLK et DT doivent être sur le port B (D8 à D13) -> vecteur PCINT0.
+//  CLK sur D2 (port D -> vecteur PCINT2), DT sur D8 (port B -> PCINT0) :
+//  les deux vecteurs appellent le même décodage.
 //  Si le sens est inversé : SENS_ENCODEUR = -1.
 //  Si un cran fait avancer de 2 : TRANSITIONS_PAR_CRAN = 2.
 // ============================================================================
@@ -706,7 +711,7 @@ volatile uint8_t encEtat = 0;
 
 // Décodage en quadrature : index = (ancien état AB << 2) | nouvel état AB
 // +1 / -1 pour une transition valide dans un sens ou l'autre, 0 sinon (rebond).
-ISR(PCINT0_vect) {
+ISR(PCINT0_vect) {                          // DT  (D8)
   static const int8_t TABLE[16] PROGMEM = { 0, -1, 1, 0, 1, 0, 0, -1, -1, 0, 0, 1, 0, 1, -1, 0 };   // en Flash
   // Lecture directe du port (même résultat que digitalRead, mais sans appel
   // de fonction : l'interruption utilise beaucoup moins de pile)
@@ -717,6 +722,7 @@ ISR(PCINT0_vect) {
   if (encAccu >= TRANSITIONS_PAR_CRAN)       { encPas++; encAccu = 0; }
   else if (encAccu <= -TRANSITIONS_PAR_CRAN) { encPas--; encAccu = 0; }
 }
+ISR(PCINT2_vect, ISR_ALIASOF(PCINT0_vect)); // CLK (D2) : même code, sans appel de fonction
 
 void encodeur_init() {
   pinMode(PIN_ENC_CLK, INPUT_PULLUP);
@@ -724,7 +730,7 @@ void encodeur_init() {
   encEtat = (digitalRead(PIN_ENC_CLK) << 1) | digitalRead(PIN_ENC_DT);
   *digitalPinToPCMSK(PIN_ENC_CLK) |= bit(digitalPinToPCMSKbit(PIN_ENC_CLK));
   *digitalPinToPCMSK(PIN_ENC_DT)  |= bit(digitalPinToPCMSKbit(PIN_ENC_DT));
-  PCICR |= bit(digitalPinToPCICRbit(PIN_ENC_CLK));
+  PCICR |= bit(digitalPinToPCICRbit(PIN_ENC_CLK)) | bit(digitalPinToPCICRbit(PIN_ENC_DT));
 }
 
 // Nombre de crans tournés depuis le dernier appel (+ horaire, - anti-horaire)
