@@ -553,9 +553,21 @@ void afficherPoint() {
 virtuabotixRTC RTC(DS1302_CLK_PIN, DS1302_DAT_PIN, DS1302_RST_PIN);
 unsigned long temps_precedent = 0;
 
+// Heure plausible ? Si le DS1302 ne répond pas (câblage, alimentation), la
+// ligne DAT reste à 1 et tous les registres valent 0xFF : la bibliothèque
+// renvoie alors 2165/25/45 45:85:85. On ne doit pas afficher ces valeurs.
+bool heureValide() {
+  return RTC.seconds <= 59 && RTC.minutes <= 59 && RTC.hours <= 23 &&
+         RTC.month >= 1 && RTC.month <= 12 && RTC.dayofmonth >= 1 && RTC.dayofmonth <= 31;
+}
+
 void calculTime(){
 
       RTC.updateTime();
+      if (!heureValide()) {
+        Serial.println(F("RTC sans reponse : verifier CLK->A1, DAT->A2, RST->D13, VCC, GND"));
+        return;
+      }
 	    Serial.print(RTC.year);
 	    Serial.print("/");
 	    Serial.print(RTC.month);
@@ -574,6 +586,11 @@ void calculTime(){
 }
 
 void fs2_init() {
+  // DS1302 absent ou mal câblé : registres à 0xFF -> rien à régler
+  if (RTC.DS1302_read(0x80) == 0xFF && RTC.DS1302_read(0x8C) == 0xFF) {
+    Serial.println(F("RTC DS1302 sans reponse : verifier CLK->A1, DAT->A2, RST->D13"));
+    return;
+  }
   // Bit CH (bit 7 du registre des secondes, adresse 0x80) : 1 = oscillateur
   // arrêté. On ne règle l'heure que dans ce cas : après une coupure, la pile
   // a gardé l'heure, elle n'est pas écrasée à chaque démarrage.
@@ -590,6 +607,8 @@ void fs2_init() {
   }
 }
 
+bool heureOk = false;                     // dernière lecture de l'heure plausible
+
 // Liaison FS2 -> FS5 : l'écran 1 lit l'heure à travers l'objet RTC de FS2
 void rtc_lire(DateHeure &d) {
   RTC.updateTime();
@@ -599,6 +618,7 @@ void rtc_lire(DateHeure &d) {
   d.jour  = RTC.dayofmonth;
   d.mois  = RTC.month;
   d.annee = RTC.year;
+  heureOk = heureValide();
 }
 // ========================= fin du bloc FS2 ==================================
 
@@ -840,7 +860,8 @@ void afficherEcran1() {
   ecran.clearDisplay();
   ecran.setTextColor(SSD1306_WHITE);
   ecran.setTextSize(2);
-  snprintf_P(txt, sizeof(txt), PSTR("%02u:%02u:%02u"), d.heure, d.min, d.sec);
+  if (heureOk) snprintf_P(txt, sizeof(txt), PSTR("%02u:%02u:%02u"), d.heure, d.min, d.sec);
+  else         strcpy_P(txt, PSTR("--:--:--"));      // RTC sans réponse
   ecran.setCursor(16, 4);
   ecran.print(txt);
   ecran.drawFastHLine(0, 25, 128, SSD1306_WHITE);
