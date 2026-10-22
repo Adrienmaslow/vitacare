@@ -21,12 +21,25 @@ export const TD1: Exercise[] = [
     statement:
       'Une ligne électrique de longueur ℓ doit relier deux villes en limitant au maximum les pertes par effet Joule. La masse de métal utilisée est imposée (constante). On hésite entre le cuivre et l’aluminium.',
     data: [
-      { label: 'Aluminium (20 °C)', value: r`$m_0 = 2{,}7\ \text{g/cm}^3$, $\rho = 2{,}85\ \mu\Omega\cdot\text{cm}$` },
-      { label: 'Cuivre (20 °C)', value: r`$m_0 = 8{,}96\ \text{g/cm}^3$, $\rho = 1{,}73\ \mu\Omega\cdot\text{cm}$` },
-      { label: 'Notation', value: r`$m_0$ : masse volumique (pour ne pas la confondre avec la résistivité $\rho$)` },
+      {
+        label: 'Aluminium (20 °C)',
+        value: r`$m_0 = 2{,}7\ \text{g/cm}^3$, $\rho = 2{,}85\ \mu\Omega\cdot\text{cm}$`,
+      },
+      {
+        label: 'Cuivre (20 °C)',
+        value: r`$m_0 = 8{,}96\ \text{g/cm}^3$, $\rho = 1{,}73\ \mu\Omega\cdot\text{cm}$`,
+      },
+      {
+        label: 'Notation',
+        value: r`$m_0$ : masse volumique (pour ne pas la confondre avec la résistivité $\rho$)`,
+      },
     ],
     objective: 'Comparer deux conducteurs à masse égale plutôt qu’à section égale.',
-    skills: ['Exprimer une contrainte (masse constante)', 'Utiliser R = ρℓ/S', 'Raisonner par identification'],
+    skills: [
+      'Exprimer une contrainte (masse constante)',
+      'Utiliser R = ρℓ/S',
+      'Raisonner par identification',
+    ],
     prerequisiteLessonIds: ['c1-l4'],
     conceptIds: ['c1-resistivite'],
     difficulty: 2,
@@ -41,10 +54,19 @@ export const TD1: Exercise[] = [
           difficulty: 2,
           prompt: 'Quel matériau choisir, à masse de métal imposée ?',
           choices: [
-            ['L’aluminium', r`Oui : le produit $\rho m_0$ est le plus faible (7,69 contre 15,5 µΩ·g/cm²).`],
-            ['Le cuivre', 'Il a la plus faible résistivité, mais à masse égale sa section est 3,3 fois plus petite.'],
+            [
+              'L’aluminium',
+              r`Oui : le produit $\rho m_0$ est le plus faible (7,69 contre 15,5 µΩ·g/cm²).`,
+            ],
+            [
+              'Le cuivre',
+              'Il a la plus faible résistivité, mais à masse égale sa section est 3,3 fois plus petite.',
+            ],
             ['Les deux se valent', r`Les produits $\rho m_0$ diffèrent d’un facteur 2.`],
-            ['On ne peut pas conclure sans ℓ', 'ℓ est commune aux deux lignes : elle s’élimine dans la comparaison.'],
+            [
+              'On ne peut pas conclure sans ℓ',
+              'ℓ est commune aux deux lignes : elle s’élimine dans la comparaison.',
+            ],
           ],
           correct: 0,
           explanation: r`À masse $m = m_0 S \ell$ imposée, $R/\ell = \rho m_0 / K$ : il faut minimiser $\rho m_0$.`,
@@ -57,10 +79,22 @@ export const TD1: Exercise[] = [
           r`Remplace S par $K/m_0$ dans $R/\ell = \rho/S$ : tu obtiens $R/\ell = \rho m_0/K$. Il reste à comparer $\rho m_0$ pour les deux métaux.`,
         ],
         steps: [
-          { title: 'Contrainte de masse', md: r`$m = m_0 V = m_0 S\ell$, d’où $\dfrac{m}{\ell} = m_0 S = K$ (masse par unité de longueur, constante).` },
-          { title: 'Résistance linéique', md: r`$R = \rho\dfrac{\ell}{S}$ donc $\dfrac{R}{\ell} = \dfrac{\rho}{S} = \dfrac{\rho\,m_0}{K}$.` },
-          { title: 'Comparaison', md: r`$(\rho m_0)_{Al} = 2{,}85 \times 2{,}7 \approx 7{,}69\ \mu\Omega\cdot\text{g/cm}^2$ ; $(\rho m_0)_{Cu} = 1{,}73\times8{,}96 \approx 15{,}5\ \mu\Omega\cdot\text{g/cm}^2$.` },
-          { title: 'Conclusion', md: 'À masse égale, la ligne en aluminium a une résistance environ deux fois plus faible : on choisit l’aluminium (c’est le cas des lignes à haute tension réelles).' },
+          {
+            title: 'Contrainte de masse',
+            md: r`$m = m_0 V = m_0 S\ell$, d’où $\dfrac{m}{\ell} = m_0 S = K$ (masse par unité de longueur, constante).`,
+          },
+          {
+            title: 'Résistance linéique',
+            md: r`$R = \rho\dfrac{\ell}{S}$ donc $\dfrac{R}{\ell} = \dfrac{\rho}{S} = \dfrac{\rho\,m_0}{K}$.`,
+          },
+          {
+            title: 'Comparaison',
+            md: r`$(\rho m_0)_{Al} = 2{,}85 \times 2{,}7 \approx 7{,}69\ \mu\Omega\cdot\text{g/cm}^2$ ; $(\rho m_0)_{Cu} = 1{,}73\times8{,}96 \approx 15{,}5\ \mu\Omega\cdot\text{g/cm}^2$.`,
+          },
+          {
+            title: 'Conclusion',
+            md: 'À masse égale, la ligne en aluminium a une résistance environ deux fois plus faible : on choisit l’aluminium (c’est le cas des lignes à haute tension réelles).',
+          },
         ],
         origin: 'livret',
       }),
@@ -75,12 +109,24 @@ export const TD1: Exercise[] = [
     statement:
       'Un cuivre « commercialement pur », utilisé pour fabriquer du fil électrique, contient des impuretés : fer 100 ppm atomique, chrome 100 ppm atomique, argent 400 ppm atomique. La figure 1.1 du livret donne l’augmentation de résistivité Δρ du cuivre en fonction de la teneur de chaque impureté.',
     data: [
-      { label: 'Conductivité du cuivre pur (20 °C)', value: r`$\sigma_0 = 5{,}97\cdot10^5\ \Omega^{-1}\cdot\text{cm}^{-1}$` },
-      { label: 'Lectures sur la figure 1.1 (données par la correction du livret)', value: r`$\Delta\rho_{Fe} = +0{,}1$ ; $\Delta\rho_{Cr} = +0{,}05$ ; $\Delta\rho_{Ag} = +0{,}02\ \mu\Omega\cdot\text{cm}$` },
+      {
+        label: 'Conductivité du cuivre pur (20 °C)',
+        value: r`$\sigma_0 = 5{,}97\cdot10^5\ \Omega^{-1}\cdot\text{cm}^{-1}$`,
+      },
+      {
+        label: 'Lectures sur la figure 1.1 (données par la correction du livret)',
+        value: r`$\Delta\rho_{Fe} = +0{,}1$ ; $\Delta\rho_{Cr} = +0{,}05$ ; $\Delta\rho_{Ag} = +0{,}02\ \mu\Omega\cdot\text{cm}$`,
+      },
       { label: 'Fil (AD1.3)', value: 'longueur 100 m, diamètre 3 mm' },
     ],
-    figure: { label: 'Figure 1.1', description: 'Variation de la résistivité du cuivre pur en fonction de la composition en impuretés (graphique non reproduit).', page: 6 },
-    objective: 'Additionner les contributions à la résistivité puis calculer la résistance d’un fil réel.',
+    figure: {
+      label: 'Figure 1.1',
+      description:
+        'Variation de la résistivité du cuivre pur en fonction de la composition en impuretés (graphique non reproduit).',
+      page: 6,
+    },
+    objective:
+      'Additionner les contributions à la résistivité puis calculer la résistance d’un fil réel.',
     skills: ['Passer de σ à ρ', 'Lire un graphique', 'Appliquer R = ρℓ/S avec des unités en cm'],
     prerequisiteLessonIds: ['c1-l4', 'c1-l5'],
     conceptIds: ['c1-temperature', 'c1-resistivite', 'c0-unites'],
@@ -108,16 +154,26 @@ export const TD1: Exercise[] = [
           r`$1/(5{,}97\cdot10^5) = 1{,}675\cdot10^{-6}\ \Omega\cdot\text{cm} = 1{,}675\ \mu\Omega\cdot\text{cm}$. Ajoute $0{,}17\ \mu\Omega\cdot\text{cm}$.`,
         ],
         steps: [
-          { title: 'Contributions des impuretés', md: r`$\Delta\rho = 0{,}1 + 0{,}05 + 0{,}02 = 0{,}17\ \mu\Omega\cdot\text{cm}$.` },
-          { title: 'Cuivre pur', md: r`$\rho_0 = \dfrac{1}{\sigma_0} = \dfrac{1}{5{,}97\cdot10^5} \approx 1{,}675\cdot10^{-6}\ \Omega\cdot\text{cm}$.` },
-          { title: 'Résultat', md: r`$\rho_{com} = \rho_0 + \Delta\rho \approx 1{,}845\ \mu\Omega\cdot\text{cm}$, soit une augmentation de $1{,}845/1{,}675 \approx 1{,}10$ : **+10 %**.` },
+          {
+            title: 'Contributions des impuretés',
+            md: r`$\Delta\rho = 0{,}1 + 0{,}05 + 0{,}02 = 0{,}17\ \mu\Omega\cdot\text{cm}$.`,
+          },
+          {
+            title: 'Cuivre pur',
+            md: r`$\rho_0 = \dfrac{1}{\sigma_0} = \dfrac{1}{5{,}97\cdot10^5} \approx 1{,}675\cdot10^{-6}\ \Omega\cdot\text{cm}$.`,
+          },
+          {
+            title: 'Résultat',
+            md: r`$\rho_{com} = \rho_0 + \Delta\rho \approx 1{,}845\ \mu\Omega\cdot\text{cm}$, soit une augmentation de $1{,}845/1{,}675 \approx 1{,}10$ : **+10 %**.`,
+          },
         ],
         origin: 'livret',
         similar: 'gen-impuretes',
       }),
       part({
         id: 'AD1.3',
-        prompt: 'Quelle est la résistance R_com d’un fil de ce cuivre, de longueur 100 m et de diamètre 3 mm ?',
+        prompt:
+          'Quelle est la résistance R_com d’un fil de ce cuivre, de longueur 100 m et de diamètre 3 mm ?',
         question: num({
           id: 'ex-AD1.3',
           concepts: ['c1-resistivite', 'c0-unites'],
@@ -136,8 +192,14 @@ export const TD1: Exercise[] = [
         ],
         steps: [
           { title: 'Unités', md: r`ρ en Ω·cm ⇒ ℓ = 100 m = $10^4$ cm ; r = 1,5 mm = 0,15 cm.` },
-          { title: 'Section', md: r`$S = \pi r^2 = \pi\times(0{,}15)^2 \approx 7{,}07\cdot10^{-2}\ \text{cm}^2$.` },
-          { title: 'Résistance', md: r`$R = \rho\dfrac{\ell}{S} = 1{,}845\cdot10^{-6}\times\dfrac{10^4}{7{,}07\cdot10^{-2}} \approx 0{,}26\ \Omega$ (soit 260 mΩ).` },
+          {
+            title: 'Section',
+            md: r`$S = \pi r^2 = \pi\times(0{,}15)^2 \approx 7{,}07\cdot10^{-2}\ \text{cm}^2$.`,
+          },
+          {
+            title: 'Résistance',
+            md: r`$R = \rho\dfrac{\ell}{S} = 1{,}845\cdot10^{-6}\times\dfrac{10^4}{7{,}07\cdot10^{-2}} \approx 0{,}26\ \Omega$ (soit 260 mΩ).`,
+          },
         ],
         origin: 'livret',
         similar: 'gen-resistance',
@@ -155,7 +217,10 @@ export const TD1: Exercise[] = [
     data: [
       { label: 'Épaisseur', value: 'e = 4 mm' },
       { label: 'Tension', value: 'U = 1 V' },
-      { label: 'Mobilité des électrons', value: r`$\mu = 0{,}14\ \text{m}^2/(\text{V}\cdot\text{s})$ — valeur utilisée par la correction du livret mais absente de l’énoncé` },
+      {
+        label: 'Mobilité des électrons',
+        value: r`$\mu = 0{,}14\ \text{m}^2/(\text{V}\cdot\text{s})$ — valeur utilisée par la correction du livret mais absente de l’énoncé`,
+      },
     ],
     objective: 'Relier tension, champ et vitesse de dérive ; en déduire un temps de traversée.',
     skills: ['E = U/e', 'v = μE', 't = e/v'],
@@ -163,7 +228,9 @@ export const TD1: Exercise[] = [
     conceptIds: ['c1-derive', 'c1-champ'],
     difficulty: 1,
     source: L('7-8', 'Exercice 1.3'),
-    auditNotes: ['La mobilité μ = 0,14 m²/(V·s) n’est pas donnée dans l’énoncé du livret ; elle apparaît seulement dans la correction (AD1.4).'],
+    auditNotes: [
+      'La mobilité μ = 0,14 m²/(V·s) n’est pas donnée dans l’énoncé du livret ; elle apparaît seulement dans la correction (AD1.4).',
+    ],
     parts: [
       part({
         id: 'AD1.4',
@@ -184,15 +251,22 @@ export const TD1: Exercise[] = [
           r`$E = 1/0{,}004 = 250$ V/m, puis multiplie par μ = 0,14.`,
         ],
         steps: [
-          { title: 'Champ', md: r`$E = \dfrac{U}{e} = \dfrac{1}{0{,}004} = 250\ \text{V}\cdot\text{m}^{-1}$.` },
-          { title: 'Vitesse', md: r`$\bar v = \mu E = 0{,}14\times250 = 35\ \text{m}\cdot\text{s}^{-1}$.` },
+          {
+            title: 'Champ',
+            md: r`$E = \dfrac{U}{e} = \dfrac{1}{0{,}004} = 250\ \text{V}\cdot\text{m}^{-1}$.`,
+          },
+          {
+            title: 'Vitesse',
+            md: r`$\bar v = \mu E = 0{,}14\times250 = 35\ \text{m}\cdot\text{s}^{-1}$.`,
+          },
         ],
         origin: 'livret',
         similar: 'gen-drift',
       }),
       part({
         id: 'AD1.5',
-        prompt: 'Calcule le temps mis par un électron pour traverser le thermistor dans son épaisseur.',
+        prompt:
+          'Calcule le temps mis par un électron pour traverser le thermistor dans son épaisseur.',
         question: num({
           id: 'ex-AD1.5',
           concepts: ['c1-derive'],
@@ -209,10 +283,13 @@ export const TD1: Exercise[] = [
           r`$t = 0{,}004/35$ (en secondes).`,
         ],
         steps: [
-          { md: r`$t = \dfrac{e}{\bar v} = \dfrac{0{,}004}{35} \approx 1{,}14\cdot10^{-4}\ \text{s} = 0{,}114\ \text{ms}$.` },
+          {
+            md: r`$t = \dfrac{e}{\bar v} = \dfrac{0{,}004}{35} \approx 1{,}14\cdot10^{-4}\ \text{s} = 0{,}114\ \text{ms}$.`,
+          },
         ],
         origin: 'livret',
-        erratum: 'Le livret écrit « 1,1143·10⁻⁴ » : il faut lire 1,143·10⁻⁴ s. Le résultat final (0,114 ms) est correct.',
+        erratum:
+          'Le livret écrit « 1,1143·10⁻⁴ » : il faut lire 1,143·10⁻⁴ s. Le résultat final (0,114 ms) est correct.',
       }),
     ],
   },
@@ -226,7 +303,10 @@ export const TD1: Exercise[] = [
       'Un fil de cuivre de 6 m de long et 5,6 mm de diamètre, de résistivité ρ₀ = 1,54·10⁻⁶ Ω·cm à 0 °C, est soumis à une différence de potentiel de 0,1 V. À 100 °C, sa résistivité devient ρ₁₀₀ = 2,22·10⁻⁶ Ω·cm.',
     data: [
       { label: 'Fil', value: 'ℓ = 6 m, d = 5,6 mm' },
-      { label: 'Résistivités', value: r`$\rho_0 = 1{,}54\cdot10^{-6}\ \Omega\cdot\text{cm}$ (0 °C) ; $\rho_{100} = 2{,}22\cdot10^{-6}\ \Omega\cdot\text{cm}$ (100 °C)` },
+      {
+        label: 'Résistivités',
+        value: r`$\rho_0 = 1{,}54\cdot10^{-6}\ \Omega\cdot\text{cm}$ (0 °C) ; $\rho_{100} = 2{,}22\cdot10^{-6}\ \Omega\cdot\text{cm}$ (100 °C)`,
+      },
       { label: 'Tension', value: 'U = 0,1 V' },
       { label: 'Charge élémentaire', value: r`$e = 1{,}6\cdot10^{-19}$ C` },
     ],
@@ -259,16 +339,26 @@ export const TD1: Exercise[] = [
         ],
         steps: [
           { title: 'Débit d’électrons', md: r`$x_0 = \dfrac{I}{e}$ (1).` },
-          { title: 'Courant', md: r`$I = \dfrac{U}{R} = \dfrac{1}{\rho}\dfrac{S}{\ell}U$ (2), d’où $x_0 = \dfrac{U S}{\ell\rho e}$.` },
-          { title: 'Application numérique (SI)', md: r`$R = \dfrac{1{,}54\cdot10^{-8}\times6}{2{,}46\cdot10^{-5}} \approx 3{,}75\ \text{m}\Omega$, $I \approx 26{,}7$ A, $x_0 \approx \dfrac{26{,}7}{1{,}6\cdot10^{-19}} \approx 1{,}66\cdot10^{20}$ électrons/s.` },
-          { title: 'Attention aux unités', md: 'ρ est donné en Ω·cm : convertis en Ω·m (× 10⁻²) si tu travailles en mètres. Le livret mélange les deux dans son écriture intermédiaire, mais son résultat est correct.' },
+          {
+            title: 'Courant',
+            md: r`$I = \dfrac{U}{R} = \dfrac{1}{\rho}\dfrac{S}{\ell}U$ (2), d’où $x_0 = \dfrac{U S}{\ell\rho e}$.`,
+          },
+          {
+            title: 'Application numérique (SI)',
+            md: r`$R = \dfrac{1{,}54\cdot10^{-8}\times6}{2{,}46\cdot10^{-5}} \approx 3{,}75\ \text{m}\Omega$, $I \approx 26{,}7$ A, $x_0 \approx \dfrac{26{,}7}{1{,}6\cdot10^{-19}} \approx 1{,}66\cdot10^{20}$ électrons/s.`,
+          },
+          {
+            title: 'Attention aux unités',
+            md: 'ρ est donné en Ω·cm : convertis en Ω·m (× 10⁻²) si tu travailles en mètres. Le livret mélange les deux dans son écriture intermédiaire, mais son résultat est correct.',
+          },
         ],
         origin: 'livret',
         similar: 'gen-electron-flow',
       }),
       part({
         id: 'AD1.7',
-        prompt: 'Comment évolue ce nombre d’électrons par seconde à 100 °C ? Donne sa nouvelle valeur.',
+        prompt:
+          'Comment évolue ce nombre d’électrons par seconde à 100 °C ? Donne sa nouvelle valeur.',
         question: num({
           id: 'ex-AD1.7',
           concepts: ['c1-temperature'],
@@ -287,8 +377,12 @@ export const TD1: Exercise[] = [
           r`$x_{100} = 1{,}66\cdot10^{20}\times\dfrac{1{,}54}{2{,}22}$.`,
         ],
         steps: [
-          { md: r`Le nombre d’électrons par seconde est inversement proportionnel à ρ, qui augmente avec la température : il **diminue**.` },
-          { md: r`$x_{100} = \dfrac{\rho_0}{\rho_{100}}x_0 = \dfrac{1{,}54}{2{,}22}\times1{,}66\cdot10^{20} \approx 1{,}15\cdot10^{20}$ électrons/s.` },
+          {
+            md: r`Le nombre d’électrons par seconde est inversement proportionnel à ρ, qui augmente avec la température : il **diminue**.`,
+          },
+          {
+            md: r`$x_{100} = \dfrac{\rho_0}{\rho_{100}}x_0 = \dfrac{1{,}54}{2{,}22}\times1{,}66\cdot10^{20} \approx 1{,}15\cdot10^{20}$ électrons/s.`,
+          },
         ],
         origin: 'livret',
       }),
@@ -307,13 +401,16 @@ export const TD1: Exercise[] = [
       { label: 'Électrique', value: 'U = 12 V, i = 0,1 A' },
       { label: 'Électrons dans le fil', value: r`$N = 10^{24}$` },
     ],
-    objective: 'Enchaîner résistance, conductivité, densité de courant, champ et vitesse de dérive.',
+    objective:
+      'Enchaîner résistance, conductivité, densité de courant, champ et vitesse de dérive.',
     skills: ['R = U/i', 'γ = ℓ/(RS)', 'j = i/S', 'E = U/ℓ', 'v = j/(ne)'],
     prerequisiteLessonIds: ['c1-l2', 'c1-l3', 'c1-l4'],
     conceptIds: ['c1-ohm-locale', 'c1-densite', 'c1-champ', 'c1-derive', 'c1-resistivite'],
     difficulty: 2,
     source: L('9', 'Exercice 1.5'),
-    auditNotes: ['Pas de correction dans le livret : corrigé calculé par ECE STUDY (cohérence vérifiée : j = γE).'],
+    auditNotes: [
+      'Pas de correction dans le livret : corrigé calculé par ECE STUDY (cohérence vérifiée : j = γE).',
+    ],
     parts: [
       part({
         id: 'Q1.1',
@@ -335,8 +432,14 @@ export const TD1: Exercise[] = [
         ],
         steps: [
           { title: 'Résistance', md: r`$R = U/i = 12/0{,}1 = 120\ \Omega$.` },
-          { title: 'Section', md: r`$S = \pi r^2 = \pi(5\cdot10^{-3})^2 \approx 7{,}85\cdot10^{-5}\ \text{m}^2$.` },
-          { title: 'Conductivité', md: r`$\gamma = \dfrac{\ell}{RS} = \dfrac{0{,}5}{120\times7{,}85\cdot10^{-5}} \approx 53\ \text{S/m}$ (ρ ≈ 1,9·10⁻² Ω·m : ce n’est pas un métal).` },
+          {
+            title: 'Section',
+            md: r`$S = \pi r^2 = \pi(5\cdot10^{-3})^2 \approx 7{,}85\cdot10^{-5}\ \text{m}^2$.`,
+          },
+          {
+            title: 'Conductivité',
+            md: r`$\gamma = \dfrac{\ell}{RS} = \dfrac{0{,}5}{120\times7{,}85\cdot10^{-5}} \approx 53\ \text{S/m}$ (ρ ≈ 1,9·10⁻² Ω·m : ce n’est pas un métal).`,
+          },
         ],
         origin: 'ece-study',
         similar: 'gen-ohm-locale',
@@ -358,7 +461,11 @@ export const TD1: Exercise[] = [
           r`$i = \iint \vec j\cdot d\vec S = jS$ donc $j = i/S$.`,
           r`$j = 0{,}1/(7{,}85\cdot10^{-5})$.`,
         ],
-        steps: [{ md: r`$j = \dfrac{i}{S} = \dfrac{0{,}1}{7{,}85\cdot10^{-5}} \approx 1{,}27\cdot10^3\ \text{A}\cdot\text{m}^{-2}$.` }],
+        steps: [
+          {
+            md: r`$j = \dfrac{i}{S} = \dfrac{0{,}1}{7{,}85\cdot10^{-5}} \approx 1{,}27\cdot10^3\ \text{A}\cdot\text{m}^{-2}$.`,
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -380,7 +487,10 @@ export const TD1: Exercise[] = [
         ],
         steps: [
           { md: r`$E = \dfrac{U}{\ell} = \dfrac{12}{0{,}5} = 24\ \text{V/m}$.` },
-          { title: 'Vérification', md: r`Loi d’Ohm locale : $j = \gamma E = 53{,}05\times24 \approx 1273$ A/m², identique à Q1.2.` },
+          {
+            title: 'Vérification',
+            md: r`Loi d’Ohm locale : $j = \gamma E = 53{,}05\times24 \approx 1273$ A/m², identique à Q1.2.`,
+          },
         ],
         origin: 'ece-study',
       }),
@@ -403,9 +513,18 @@ export const TD1: Exercise[] = [
           r`Plus direct : $v = \dfrac{i\,\ell}{N e}$. Calcule $0{,}1\times0{,}5/(10^{24}\times1{,}6\cdot10^{-19})$.`,
         ],
         steps: [
-          { title: 'Densité d’électrons', md: r`$V = S\ell \approx 3{,}93\cdot10^{-5}\ \text{m}^3$, $n = N/V \approx 2{,}55\cdot10^{28}\ \text{m}^{-3}$.` },
-          { title: 'Vitesse', md: r`$v = \dfrac{j}{ne} = \dfrac{1273}{2{,}55\cdot10^{28}\times1{,}6\cdot10^{-19}} \approx 3{,}1\cdot10^{-7}\ \text{m/s}$.` },
-          { title: 'Interprétation', md: 'Les électrons avancent d’environ 0,3 µm par seconde : la vitesse de dérive est extrêmement lente devant l’agitation thermique.' },
+          {
+            title: 'Densité d’électrons',
+            md: r`$V = S\ell \approx 3{,}93\cdot10^{-5}\ \text{m}^3$, $n = N/V \approx 2{,}55\cdot10^{28}\ \text{m}^{-3}$.`,
+          },
+          {
+            title: 'Vitesse',
+            md: r`$v = \dfrac{j}{ne} = \dfrac{1273}{2{,}55\cdot10^{28}\times1{,}6\cdot10^{-19}} \approx 3{,}1\cdot10^{-7}\ \text{m/s}$.`,
+          },
+          {
+            title: 'Interprétation',
+            md: 'Les électrons avancent d’environ 0,3 µm par seconde : la vitesse de dérive est extrêmement lente devant l’agitation thermique.',
+          },
         ],
         origin: 'ece-study',
       }),
@@ -423,7 +542,10 @@ export const TD1: Exercise[] = [
       { label: 'Charge', value: r`$Q = 3\cdot10^{-10}$ C` },
       { label: 'Géométrie', value: r`$S = 900\ \text{mm}^2$, $e = 2$ mm` },
       { label: 'Diélectrique (cas 2)', value: r`$\varepsilon_r = 4$` },
-      { label: 'Permittivité du vide (cours 1)', value: r`$\varepsilon_0 = 8{,}85\cdot10^{-12}$ F/m` },
+      {
+        label: 'Permittivité du vide (cours 1)',
+        value: r`$\varepsilon_0 = 8{,}85\cdot10^{-12}$ F/m`,
+      },
     ],
     objective: 'Calculer une capacité plane et voir le rôle du diélectrique.',
     skills: ['C = ε₀ε_r S/e', 'U = Q/C', 'σ = Q/S', 'Conversions mm² → m²'],
@@ -431,7 +553,9 @@ export const TD1: Exercise[] = [
     conceptIds: ['c1-condensateur', 'c0-unites'],
     difficulty: 2,
     source: L('9', 'Exercice 1.6'),
-    auditNotes: ['Pas de correction dans le livret : corrigé calculé par ECE STUDY avec ε₀ = 8,85·10⁻¹² F/m (valeur du cours 1, diapo 39).'],
+    auditNotes: [
+      'Pas de correction dans le livret : corrigé calculé par ECE STUDY avec ε₀ = 8,85·10⁻¹² F/m (valeur du cours 1, diapo 39).',
+    ],
     parts: [
       part({
         id: 'Q1.5',
@@ -452,8 +576,14 @@ export const TD1: Exercise[] = [
           r`$S = 900\cdot10^{-6} = 9\cdot10^{-4}$ m², $e = 2\cdot10^{-3}$ m ⇒ $C_1 \approx 3{,}98\cdot10^{-12}$ F ; $U_1 = Q/C_1$.`,
         ],
         steps: [
-          { title: 'Capacité', md: r`$C_1 = \varepsilon_0\dfrac{S}{e} = 8{,}85\cdot10^{-12}\times\dfrac{9\cdot10^{-4}}{2\cdot10^{-3}} \approx 3{,}98\cdot10^{-12}$ F.` },
-          { title: 'Tension', md: r`$U_1 = \dfrac{Q}{C_1} = \dfrac{3\cdot10^{-10}}{3{,}98\cdot10^{-12}} \approx 75{,}3$ V.` },
+          {
+            title: 'Capacité',
+            md: r`$C_1 = \varepsilon_0\dfrac{S}{e} = 8{,}85\cdot10^{-12}\times\dfrac{9\cdot10^{-4}}{2\cdot10^{-3}} \approx 3{,}98\cdot10^{-12}$ F.`,
+          },
+          {
+            title: 'Tension',
+            md: r`$U_1 = \dfrac{Q}{C_1} = \dfrac{3\cdot10^{-10}}{3{,}98\cdot10^{-12}} \approx 75{,}3$ V.`,
+          },
         ],
         origin: 'ece-study',
         similar: 'gen-capacitor',
@@ -475,7 +605,9 @@ export const TD1: Exercise[] = [
           r`$C_2 = \varepsilon_0\varepsilon_r S/e = 4C_1$ et $U_2 = Q/C_2$.`,
           r`$U_2 = U_1/4 = 75{,}3/4$.`,
         ],
-        steps: [{ md: r`$C_2 = 4C_1 \approx 15{,}9$ pF, donc $U_2 = Q/C_2 = U_1/4 \approx 18{,}8$ V.` }],
+        steps: [
+          { md: r`$C_2 = 4C_1 \approx 15{,}9$ pF, donc $U_2 = Q/C_2 = U_1/4 \approx 18{,}8$ V.` },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -495,7 +627,11 @@ export const TD1: Exercise[] = [
           r`$C_1 = \varepsilon_0 S/e$.`,
           r`$8{,}85\cdot10^{-12}\times9\cdot10^{-4}/2\cdot10^{-3}$.`,
         ],
-        steps: [{ md: r`$C_1 = \varepsilon_0\dfrac{S}{e} \approx 3{,}98\cdot10^{-12}\ \text{F} = 3{,}98$ pF.` }],
+        steps: [
+          {
+            md: r`$C_1 = \varepsilon_0\dfrac{S}{e} \approx 3{,}98\cdot10^{-12}\ \text{F} = 3{,}98$ pF.`,
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -515,12 +651,15 @@ export const TD1: Exercise[] = [
           r`$C_2 = \varepsilon_r C_1$.`,
           r`$4\times3{,}98$ pF.`,
         ],
-        steps: [{ md: r`$C_2 = \varepsilon_r C_1 \approx 1{,}59\cdot10^{-11}\ \text{F} = 15{,}9$ pF.` }],
+        steps: [
+          { md: r`$C_2 = \varepsilon_r C_1 \approx 1{,}59\cdot10^{-11}\ \text{F} = 15{,}9$ pF.` },
+        ],
         origin: 'ece-study',
       }),
       part({
         id: 'Q1.8',
-        prompt: 'Quelle est la densité superficielle de charges sur les plaques dans le cas 2 (en µC·m⁻²) ?',
+        prompt:
+          'Quelle est la densité superficielle de charges sur les plaques dans le cas 2 (en µC·m⁻²) ?',
         question: num({
           id: 'ex-Q1.8',
           concepts: ['c1-condensateur', 'c0-unites'],
@@ -537,8 +676,13 @@ export const TD1: Exercise[] = [
           r`$3\cdot10^{-10}/(9\cdot10^{-4})$ en C/m², puis convertis en µC/m² (× 10⁶).`,
         ],
         steps: [
-          { md: r`$\sigma = \dfrac{Q}{S} = \dfrac{3\cdot10^{-10}}{9\cdot10^{-4}} \approx 3{,}33\cdot10^{-7}\ \text{C}\cdot\text{m}^{-2} = 0{,}333\ \mu\text{C}\cdot\text{m}^{-2}$.` },
-          { title: 'Remarque', md: 'La charge étant fixée, σ est la même dans les cas 1 et 2 ; c’est la tension nécessaire qui change.' },
+          {
+            md: r`$\sigma = \dfrac{Q}{S} = \dfrac{3\cdot10^{-10}}{9\cdot10^{-4}} \approx 3{,}33\cdot10^{-7}\ \text{C}\cdot\text{m}^{-2} = 0{,}333\ \mu\text{C}\cdot\text{m}^{-2}$.`,
+          },
+          {
+            title: 'Remarque',
+            md: 'La charge étant fixée, σ est la même dans les cas 1 et 2 ; c’est la tension nécessaire qui change.',
+          },
         ],
         origin: 'ece-study',
       }),

@@ -18,7 +18,8 @@ export const QUESTIONS_C2 = [
   mcq({
     id: 'q-c2-a2',
     concepts: ['c2-atome'],
-    prompt: 'Dans le modèle de Bohr, combien d’électrons au maximum peut contenir la couche M (n = 3) ?',
+    prompt:
+      'Dans le modèle de Bohr, combien d’électrons au maximum peut contenir la couche M (n = 3) ?',
     choices: [
       ['18', 'Oui : 2n² = 2 × 9.'],
       ['8', 'C’est la couche L (n = 2).'],
@@ -54,7 +55,8 @@ export const QUESTIONS_C2 = [
       ['Aucune', 'Le cristal est cohésif.'],
     ],
     correct: 0,
-    explanation: 'Cours 2, diapo 6 : chaque Si forme 4 liaisons covalentes (structure tétraédrique).',
+    explanation:
+      'Cours 2, diapo 6 : chaque Si forme 4 liaisons covalentes (structure tétraédrique).',
     source: C2('6'),
   }),
   mcq({
@@ -64,7 +66,10 @@ export const QUESTIONS_C2 = [
     choices: [
       ['Dopage N (5 électrons de valence)', 'Oui.'],
       ['Dopage P (3 électrons de valence)', 'C’est le bore, colonne précédente.'],
-      ['Aucun : il a le même nombre d’électrons de valence', 'Même colonne = même valence ; ici la colonne diffère.'],
+      [
+        'Aucun : il a le même nombre d’électrons de valence',
+        'Même colonne = même valence ; ici la colonne diffère.',
+      ],
       ['Dopage P (5 électrons de valence)', 'Un électron en excès donne un dopage N.'],
     ],
     correct: 0,
@@ -77,7 +82,8 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-t1',
     concepts: ['c2-thermique'],
     difficulty: 2,
-    prompt: 'Énergie cinétique moyenne d’agitation d’un atome à 300 K (3 degrés de liberté) ? k_B = 1,38·10⁻²³ J/K.',
+    prompt:
+      'Énergie cinétique moyenne d’agitation d’un atome à 300 K (3 degrés de liberté) ? k_B = 1,38·10⁻²³ J/K.',
     value: 1.5 * 1.38e-23 * 300,
     unit: 'J',
     explanation: r`$\langle E_C\rangle = \frac{3}{2}k_BT = 1{,}5\times1{,}38\cdot10^{-23}\times300 \approx 6{,}2\cdot10^{-21}$ J.`,
@@ -89,9 +95,15 @@ export const QUESTIONS_C2 = [
     prompt: 'Pour un conducteur, si T augmente…',
     choices: [
       ['la mobilité baisse, donc γ diminue et R augmente.', 'Oui.'],
-      ['le nombre d’électrons libres explose, donc γ augmente.', 'C’est le raisonnement pour un semi-conducteur.'],
+      [
+        'le nombre d’électrons libres explose, donc γ augmente.',
+        'C’est le raisonnement pour un semi-conducteur.',
+      ],
       ['rien ne change.', 'Les collisions augmentent.'],
-      ['γ augmente car les électrons vont plus vite.', 'L’agitation n’est pas une vitesse de dérive.'],
+      [
+        'γ augmente car les électrons vont plus vite.',
+        'L’agitation n’est pas une vitesse de dérive.',
+      ],
     ],
     correct: 0,
     explanation: 'Cours 2, diapo 9.',
@@ -100,7 +112,8 @@ export const QUESTIONS_C2 = [
   mcq({
     id: 'q-c2-t3',
     concepts: ['c2-thermique', 'c2-intrinseque'],
-    prompt: 'Pour un semi-conducteur, si T augmente, pourquoi γ augmente-t-elle malgré la baisse de mobilité ?',
+    prompt:
+      'Pour un semi-conducteur, si T augmente, pourquoi γ augmente-t-elle malgré la baisse de mobilité ?',
     choices: [
       ['Le nombre de porteurs (électrons et trous) augmente bien plus vite.', 'Oui.'],
       ['La mobilité augmente.', 'Elle diminue aussi pour un semi-conducteur.'],
@@ -159,7 +172,8 @@ export const QUESTIONS_C2 = [
     concepts: ['c2-bandes'],
     prompt: 'Une bande d’énergie totalement remplie permet la conduction du courant.',
     answer: false,
-    explanation: 'Le cours le rappelle : une bande totalement vide ou totalement remplie ne conduit pas.',
+    explanation:
+      'Le cours le rappelle : une bande totalement vide ou totalement remplie ne conduit pas.',
     source: C2('12'),
   }),
   match({
@@ -179,7 +193,8 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-b5',
     concepts: ['c2-photon'],
     difficulty: 2,
-    prompt: 'Longueur d’onde maximale d’un photon capable de faire franchir le gap du germanium (E_g = 0,67 eV) ? h = 6,63·10⁻³⁴ J·s, c = 3·10⁸ m/s, 1 eV = 1,6·10⁻¹⁹ J.',
+    prompt:
+      'Longueur d’onde maximale d’un photon capable de faire franchir le gap du germanium (E_g = 0,67 eV) ? h = 6,63·10⁻³⁴ J·s, c = 3·10⁸ m/s, 1 eV = 1,6·10⁻¹⁹ J.',
     value: (6.63e-34 * 3e8) / (0.67 * 1.6e-19),
     unit: 'm',
     explanation: r`$\lambda_{max} = hc/E_g \approx 1{,}86\cdot10^{-6}$ m = 1,86 µm (infrarouge).`,
@@ -192,7 +207,10 @@ export const QUESTIONS_C2 = [
     concepts: ['c2-intrinseque'],
     prompt: 'Qu’est-ce qu’un trou ?',
     choices: [
-      ['Une place vacante dans la bande de valence, modélisée par une quasi-particule de charge +e.', 'Oui.'],
+      [
+        'Une place vacante dans la bande de valence, modélisée par une quasi-particule de charge +e.',
+        'Oui.',
+      ],
       ['Un proton libre.', 'Les protons restent dans les noyaux.'],
       ['Un électron de la bande de conduction.', 'C’est l’électron libre, son « partenaire ».'],
       ['Un défaut du cristal sans effet électrique.', 'Le trou participe à la conduction.'],
@@ -236,7 +254,8 @@ export const QUESTIONS_C2 = [
       ['n_i double.', 'La dépendance est exponentielle, pas linéaire.'],
     ],
     correct: 0,
-    explanation: 'Cours 2, diapo 22. C’est pourquoi un isolant (grand gap) n’a presque aucun porteur.',
+    explanation:
+      'Cours 2, diapo 22. C’est pourquoi un isolant (grand gap) n’a presque aucun porteur.',
     source: C2('22'),
   }),
   mcq({
@@ -260,7 +279,10 @@ export const QUESTIONS_C2 = [
     concepts: ['c2-dopage'],
     prompt: 'On dope du silicium avec de l’indium (colonne 13). L’impureté est…',
     choices: [
-      ['accepteuse : on obtient un semi-conducteur de type P.', 'Oui : 3 électrons de valence, un trou par atome.'],
+      [
+        'accepteuse : on obtient un semi-conducteur de type P.',
+        'Oui : 3 électrons de valence, un trou par atome.',
+      ],
       ['donneuse : type N.', 'Les donneurs sont en colonne 15.'],
       ['neutre : aucun effet.', 'Seule la colonne 14 n’aurait pas d’effet.'],
       ['accepteuse : type N.', 'Un accepteur crée des trous, donc type P.'],
@@ -290,7 +312,8 @@ export const QUESTIONS_C2 = [
     concepts: ['c2-dopage'],
     prompt: 'Un semi-conducteur dopé N est globalement chargé négativement.',
     answer: false,
-    explanation: 'Il reste neutre : chaque électron libéré laisse un ion donneur positif (cours 2, diapo 33).',
+    explanation:
+      'Il reste neutre : chaque électron libéré laisse un ion donneur positif (cours 2, diapo 33).',
     source: C2('33'),
   }),
   mcq({
@@ -313,7 +336,10 @@ export const QUESTIONS_C2 = [
     prompt: 'Que signifie l’hypothèse « tous les atomes d’antimoine sont ionisés » ?',
     choices: [
       ['Chaque atome dopant a libéré son électron excédentaire.', 'Oui (livret, AD2.8).'],
-      ['Les atomes de germanium ont perdu tous leurs électrons.', 'Seuls les dopants sont concernés.'],
+      [
+        'Les atomes de germanium ont perdu tous leurs électrons.',
+        'Seuls les dopants sont concernés.',
+      ],
       ['Le matériau est chargé positivement.', 'Il reste neutre.'],
       ['Les dopants ont capté un électron.', 'C’est le comportement d’un accepteur.'],
     ],
@@ -346,7 +372,8 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-m3',
     concepts: ['c2-action-masse'],
     difficulty: 2,
-    prompt: 'On dope un semi-conducteur avec N_D = 10⁸ cm⁻³ alors que n_i = 10¹⁰ cm⁻³. Que peut-on dire ?',
+    prompt:
+      'On dope un semi-conducteur avec N_D = 10⁸ cm⁻³ alors que n_i = 10¹⁰ cm⁻³. Que peut-on dire ?',
     choices: [
       ['Le dopage n’a presque aucun effet : n ≈ p ≈ n_i.', 'Oui : N_D ≪ n (avant dopage).'],
       ['n ≈ N_D = 10⁸ cm⁻³.', 'L’approximation n ≈ N_D exige N_D ≫ n_i.'],
@@ -361,7 +388,8 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-m4',
     concepts: ['c2-dopage', 'c2-denombrement'],
     difficulty: 2,
-    prompt: 'Un cristal contient 5·10²² atomes de Si par cm³ et un atome dopant pour 10⁸ atomes de Si. Quelle est la concentration en dopants ?',
+    prompt:
+      'Un cristal contient 5·10²² atomes de Si par cm³ et un atome dopant pour 10⁸ atomes de Si. Quelle est la concentration en dopants ?',
     value: 5e14,
     unit: 'cm^-3',
     explanation: r`$N = 5\cdot10^{22}/10^8 = 5\cdot10^{14}\ \text{cm}^{-3}$.`,
@@ -381,7 +409,8 @@ export const QUESTIONS_C2 = [
       [r`$\gamma = \dfrac{1}{e(n\mu_n + p\mu_p)}$`, 'C’est la résistivité.'],
     ],
     correct: 0,
-    explanation: 'Cours 2, diapo 27. Remarque : le livret (ES2.7) écrit par erreur un signe − ; la bonne expression est avec +.',
+    explanation:
+      'Cours 2, diapo 27. Remarque : le livret (ES2.7) écrit par erreur un signe − ; la bonne expression est avec +.',
     source: C2('27'),
     td: ['TD2'],
   }),
@@ -403,7 +432,8 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-c3',
     concepts: ['c2-conduction-sc'],
     difficulty: 2,
-    prompt: 'Silicium dopé N : n = 10²² m⁻³, μ_n = 0,135 m²/(V·s), trous négligeables. Quelle est sa conductivité ?',
+    prompt:
+      'Silicium dopé N : n = 10²² m⁻³, μ_n = 0,135 m²/(V·s), trous négligeables. Quelle est sa conductivité ?',
     value: 1e22 * 1.6e-19 * 0.135,
     unit: 'S/m',
     explanation: r`$\gamma \approx ne\mu_n = 10^{22}\times1{,}6\cdot10^{-19}\times0{,}135 = 216$ S/m.`,
@@ -412,7 +442,8 @@ export const QUESTIONS_C2 = [
   mcq({
     id: 'q-c2-c4',
     concepts: ['c2-conduction-sc'],
-    prompt: 'D’après la courbe du cours (Si à 200 K), comment varient les mobilités quand la concentration d’impuretés devient importante ?',
+    prompt:
+      'D’après la courbe du cours (Si à 200 K), comment varient les mobilités quand la concentration d’impuretés devient importante ?',
     choices: [
       ['Elles chutent fortement.', 'Oui (au-delà de ~10¹⁶ cm⁻³).'],
       ['Elles augmentent.', 'Les impuretés gênent le déplacement.'],
@@ -462,8 +493,14 @@ export const QUESTIONS_C2 = [
     concepts: ['c2-diffusion'],
     prompt: r`Pourquoi un signe « − » dans $\vec j_{particule} = -D\,\overrightarrow{\mathrm{grad}}(n)$ ?`,
     choices: [
-      ['Les particules vont vers les zones MOINS concentrées, alors que le gradient pointe vers les plus concentrées.', 'Oui.'],
-      ['Parce que les électrons sont négatifs.', 'Le signe est déjà là pour des particules neutres (colorant).'],
+      [
+        'Les particules vont vers les zones MOINS concentrées, alors que le gradient pointe vers les plus concentrées.',
+        'Oui.',
+      ],
+      [
+        'Parce que les électrons sont négatifs.',
+        'Le signe est déjà là pour des particules neutres (colorant).',
+      ],
       ['Par convention, sans signification.', 'Il a un sens physique.'],
       ['Parce que D est négatif.', 'D est positif.'],
     ],
@@ -479,7 +516,8 @@ export const QUESTIONS_C2 = [
       ['Courant de conduction (dérive)', 'Champ électrique'],
       ['Courant de diffusion', 'Gradient de concentration'],
     ],
-    explanation: 'Cours 2, diapo 25 : la goutte de colorant est emportée par le courant (dérive) et s’élargit (diffusion).',
+    explanation:
+      'Cours 2, diapo 25 : la goutte de colorant est emportée par le courant (dérive) et s’élargit (diffusion).',
     source: C2('25'),
   }),
 
@@ -517,8 +555,9 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-j3',
     concepts: ['c2-jonction'],
     difficulty: 2,
-    prompt: 'Jonction Si : N_A = 10¹⁵ cm⁻³, N_D = 10¹⁷ cm⁻³, n_i = 1,5·10¹⁰ cm⁻³, k_BT/e = 0,026 V. Calcule V₀.',
-    value: 0.026 * Math.log((1e15 * 1e17) / (1.5e10) ** 2),
+    prompt:
+      'Jonction Si : N_A = 10¹⁵ cm⁻³, N_D = 10¹⁷ cm⁻³, n_i = 1,5·10¹⁰ cm⁻³, k_BT/e = 0,026 V. Calcule V₀.',
+    value: 0.026 * Math.log((1e15 * 1e17) / 1.5e10 ** 2),
     unit: 'V',
     explanation: r`$V_0 = 0{,}026\,\ln\!\big(10^{32}/2{,}25\cdot10^{20}\big) \approx 0{,}70$ V.`,
     source: C2('36-37'),
@@ -559,7 +598,10 @@ export const QUESTIONS_C2 = [
     concepts: ['c2-polarisation'],
     prompt: 'Qu’est-ce que la polarisation directe d’une jonction PN ?',
     choices: [
-      ['La région P est reliée à un potentiel supérieur à celui de N : la barrière diminue, la jonction conduit.', 'Oui.'],
+      [
+        'La région P est reliée à un potentiel supérieur à celui de N : la barrière diminue, la jonction conduit.',
+        'Oui.',
+      ],
       ['La région N est au potentiel le plus haut.', 'C’est la polarisation inverse.'],
       ['On ne branche aucune tension.', 'C’est l’équilibre.'],
       ['On relie P et N par un fil.', 'Cela ne polarise pas la jonction.'],
@@ -579,7 +621,8 @@ export const QUESTIONS_C2 = [
       [r`$V_0$ inchangée.`, 'La tension appliquée s’y ajoute.'],
     ],
     correct: 0,
-    explanation: 'Cours 2, diapo 40. Attention : la diapo écrit « région P reliée à un potentiel supérieur », c’est une coquille ; en inverse, P est au potentiel le plus bas.',
+    explanation:
+      'Cours 2, diapo 40. Attention : la diapo écrit « région P reliée à un potentiel supérieur », c’est une coquille ; en inverse, P est au potentiel le plus bas.',
     source: C2('40'),
   }),
   mcq({
@@ -608,7 +651,8 @@ export const QUESTIONS_C2 = [
     id: 'q-c2-p5',
     concepts: ['c2-polarisation'],
     difficulty: 3,
-    prompt: 'Relation de Shockley avec I_S = 10⁻¹⁴ A, U_D = 0,6 V, η = 1, k_BT/e = 0,025 V. Que vaut I_D ?',
+    prompt:
+      'Relation de Shockley avec I_S = 10⁻¹⁴ A, U_D = 0,6 V, η = 1, k_BT/e = 0,025 V. Que vaut I_D ?',
     value: 1e-14 * (Math.exp(0.6 / 0.025) - 1),
     unit: 'A',
     explanation: r`$I_D = 10^{-14}(e^{24} - 1) \approx 2{,}6\cdot10^{-4}$ A = 0,26 mA.`,

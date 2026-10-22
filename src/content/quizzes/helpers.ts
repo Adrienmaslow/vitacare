@@ -75,9 +75,7 @@ export function num(
   };
 }
 
-export function match(
-  c: Common & { prompt: string; pairs: [string, string][] },
-): MatchingQuestion {
+export function match(c: Common & { prompt: string; pairs: [string, string][] }): MatchingQuestion {
   return {
     ...base(c),
     type: 'matching',

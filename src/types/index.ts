@@ -274,7 +274,8 @@ export interface ExercisePart {
   similarGeneratorId?: string;
 }
 
-export type ExerciseSection = 'Applications directes' | 'Travaux dirigés' | 'Exercices supplémentaires';
+export type ExerciseSection =
+  'Applications directes' | 'Travaux dirigés' | 'Exercices supplémentaires';
 
 export interface Exercise {
   id: string;
@@ -304,13 +305,7 @@ export interface Exercise {
 /* ------------------------------------------------------------------ */
 
 export type FlashcardKind =
-  | 'definition'
-  | 'formule'
-  | 'unite'
-  | 'concept'
-  | 'methode'
-  | 'piege'
-  | 'schema';
+  'definition' | 'formule' | 'unite' | 'concept' | 'methode' | 'piege' | 'schema';
 
 export interface Flashcard {
   id: string;
@@ -327,13 +322,7 @@ export interface Flashcard {
 /* ------------------------------------------------------------------ */
 
 export type ErrorCategory =
-  | 'formule'
-  | 'unites'
-  | 'calcul'
-  | 'signe'
-  | 'methode'
-  | 'comprehension'
-  | 'prerequis';
+  'formule' | 'unites' | 'calcul' | 'signe' | 'methode' | 'comprehension' | 'prerequis';
 
 export type AttemptContext =
   | 'lesson'
@@ -400,11 +389,7 @@ export interface ExerciseProgress {
 }
 
 export type MasteryStatus =
-  | 'non-etudiee'
-  | 'en-apprentissage'
-  | 'a-consolider'
-  | 'maitrisee'
-  | 'a-revoir';
+  'non-etudiee' | 'en-apprentissage' | 'a-consolider' | 'maitrisee' | 'a-revoir';
 
 export interface MasteryScore {
   conceptId: string;

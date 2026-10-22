@@ -7,10 +7,11 @@ import { fileURLToPath, URL } from 'node:url';
 
 // GitHub Pages publie le site sous /<nom-du-dépôt>/. BASE_PATH permet de le surcharger
 // (ex. BASE_PATH=/ pour un domaine personnalisé).
-export default defineConfig(({ command }) => {
-  const base = process.env.BASE_PATH ?? (command === 'build' ? '/vitacare/' : '/');
+export default defineConfig(({ command, isPreview }) => {
+  const base = process.env.BASE_PATH ?? (command === 'build' || isPreview ? '/vitacare/' : '/');
   return {
     base,
+    define: { __APP_VERSION__: JSON.stringify(process.env.npm_package_version ?? '1.0.0') },
     resolve: {
       alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
     },
@@ -59,16 +60,6 @@ export default defineConfig(({ command }) => {
     build: {
       target: 'es2022',
       sourcemap: false,
-      rollupOptions: {
-        output: {
-          manualChunks(id: string) {
-            if (id.includes('node_modules/recharts') || id.includes('node_modules/d3-'))
-              return 'charts';
-            if (id.includes('node_modules/katex')) return 'katex';
-            return undefined;
-          },
-        },
-      },
     },
     test: {
       environment: 'jsdom',

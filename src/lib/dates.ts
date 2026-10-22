@@ -28,7 +28,11 @@ export function formatDuration(ms: number): string {
 }
 
 export function formatDate(ts: number): string {
-  return new Date(ts).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+  return new Date(ts).toLocaleDateString('fr-FR', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
 }
 
 export function formatDateTime(ts: number): string {

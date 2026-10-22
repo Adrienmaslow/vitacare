@@ -51,7 +51,10 @@ export const LESSONS_C0: Lesson[] = [
         kind: 'example',
         title: 'Résistivité : µΩ·cm → Ω·m',
         statement: r`$\rho = 1{,}845\ \mu\Omega\cdot\text{cm}$ en $\Omega\cdot\text{m}$ ?`,
-        steps: [r`$\mu\Omega = 10^{-6}\ \Omega$ et $\text{cm} = 10^{-2}$ m.`, r`$\rho = 1{,}845\cdot10^{-8}\ \Omega\cdot\text{m}$.`],
+        steps: [
+          r`$\mu\Omega = 10^{-6}\ \Omega$ et $\text{cm} = 10^{-2}$ m.`,
+          r`$\rho = 1{,}845\cdot10^{-8}\ \Omega\cdot\text{m}$.`,
+        ],
       },
       {
         kind: 'callout',
@@ -91,7 +94,12 @@ export const LESSONS_C0: Lesson[] = [
         title: 'Pourquoi c’est pratique',
         md: '« Potentiel d’où vient le courant moins potentiel où il va, divisé par R. » Pas besoin de se soucier des conventions : si le résultat est négatif, le courant circule dans l’autre sens. C’est l’outil de la méthode des nœuds.',
       },
-      { kind: 'visual', visual: 'receptor-convention', caption: 'Convention récepteur : flèches de tension et de courant en sens opposés, u = +Ri.' },
+      {
+        kind: 'visual',
+        visual: 'receptor-convention',
+        caption:
+          'Convention récepteur : flèches de tension et de courant en sens opposés, u = +Ri.',
+      },
       { kind: 'check', questionId: 'q-c0-o2' },
     ],
     quizQuestionIds: ['q-c0-o1', 'q-c0-o2', 'q-c0-o3', 'q-c0-o4'],
@@ -144,7 +152,12 @@ export const LESSONS_C0: Lesson[] = [
     sources: [S('9')],
     blocks: [
       { kind: 'formula', formulaId: 'f-div-tension' },
-      { kind: 'visual', visual: 'voltage-divider', caption: 'Fais varier R₁ et R₂ : la plus grande résistance prend la plus grande part de la tension.' },
+      {
+        kind: 'visual',
+        visual: 'voltage-divider',
+        caption:
+          'Fais varier R₁ et R₂ : la plus grande résistance prend la plus grande part de la tension.',
+      },
       { kind: 'formula', formulaId: 'f-div-courant' },
       {
         kind: 'callout',
@@ -211,11 +224,17 @@ export const LESSONS_C0: Lesson[] = [
           'Résoudre le système.',
         ],
       },
-      { kind: 'callout', tone: 'warning', title: 'Cas particulier', md: 'Une source de tension coincée entre deux nœuds : on les regroupe en **macro-nœud**.' },
+      {
+        kind: 'callout',
+        tone: 'warning',
+        title: 'Cas particulier',
+        md: 'Une source de tension coincée entre deux nœuds : on les regroupe en **macro-nœud**.',
+      },
       {
         kind: 'example',
         title: 'Exemple du cours (diapo 12)',
-        statement: 'Source de 1 A, résistances 100, 200, 300, 400 Ω et source de 4 V : calculer V_A et V_B.',
+        statement:
+          'Source de 1 A, résistances 100, 200, 300, 400 Ω et source de 4 V : calculer V_A et V_B.',
         steps: [
           r`Nœud A : $1 + \dfrac{0 - V_A}{100} = \dfrac{V_A - V_B}{200}$ ⇒ $3V_A - V_B = 200$.`,
           r`Nœud B : $\dfrac{V_A - V_B}{200} = \dfrac{V_B}{300} + \dfrac{V_B - 4}{400}$ ⇒ $6V_A - 13V_B = -12$.`,
@@ -231,8 +250,12 @@ export const LESSONS_C0: Lesson[] = [
       {
         kind: 'example',
         title: 'Même circuit par les mailles (diapo 14)',
-        statement: 'Maille I : −100i₁ − 200i₂ − 300i₃ = 0 ; maille II : 300i₃ − 400i₄ − 4 = 0 ; nœuds : 1 + i₁ = i₂, i₂ = i₃ + i₄.',
-        steps: ['i₁ ≈ −792 mA, i₂ ≈ 208 mA, i₃ ≈ 125 mA, i₄ ≈ 83,7 mA.', 'On retrouve V_B = 300 × i₃ ≈ 37,5 V.'],
+        statement:
+          'Maille I : −100i₁ − 200i₂ − 300i₃ = 0 ; maille II : 300i₃ − 400i₄ − 4 = 0 ; nœuds : 1 + i₁ = i₂, i₂ = i₃ + i₄.',
+        steps: [
+          'i₁ ≈ −792 mA, i₂ ≈ 208 mA, i₃ ≈ 125 mA, i₄ ≈ 83,7 mA.',
+          'On retrouve V_B = 300 × i₃ ≈ 37,5 V.',
+        ],
         source: S('14'),
       },
       { kind: 'check', questionId: 'q-c0-nm2' },

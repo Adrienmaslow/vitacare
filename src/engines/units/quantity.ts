@@ -13,7 +13,9 @@ export interface ParsedQuantity {
  * Retourne aussi le reste de la chaîne (l'unité).
  */
 export function parseQuantity(raw: string): ParsedQuantity | null {
-  let s = normalizeSuperscripts(raw.trim()).replace(/[−–]/g, '-').replace(/ | /g, ' ');
+  let s = normalizeSuperscripts(raw.trim())
+    .replace(/[−–]/g, '-')
+    .replace(/\u00a0|\u202f/g, ' ');
   if (!s) return null;
 
   // « 10^20 » ou « 10^-3 m » sans mantisse
@@ -74,8 +76,31 @@ export function formatNumber(v: number, digits = 3): string {
   return `${Number(man.toPrecision(digits)).toLocaleString('fr-FR')}·10^${exp}`;
 }
 
+const SUP: Record<string, string> = {
+  '-': '⁻',
+  '0': '⁰',
+  '1': '¹',
+  '2': '²',
+  '3': '³',
+  '4': '⁴',
+  '5': '⁵',
+  '6': '⁶',
+  '7': '⁷',
+  '8': '⁸',
+  '9': '⁹',
+};
+
+/** Remplace « ^-7 » par « ⁻⁷ » pour l'affichage. */
+export function prettyExp(s: string): string {
+  return s.replace(/\^(-?\d+)/g, (_, e: string) => [...e].map((c) => SUP[c] ?? c).join(''));
+}
+
+export function formatPretty(v: number, digits = 3): string {
+  return prettyExp(formatNumber(v, digits));
+}
+
 export function formatAnswer(a: NumericAnswer): string {
-  return `${formatNumber(a.value)}${a.unit ? ` ${a.unit}` : ''}`;
+  return `${formatPretty(a.value)}${a.unit ? ` ${prettyExp(a.unit).replace(/\./g, '·')}` : ''}`;
 }
 
 /**

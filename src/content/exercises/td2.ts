@@ -16,7 +16,8 @@ export const TD2: Exercise[] = [
     section: 'Applications directes',
     number: '2.1',
     title: 'Questions de cours',
-    statement: 'Justifier chaque réponse à l’aide du modèle de bandes (modèle quantique des semi-conducteurs).',
+    statement:
+      'Justifier chaque réponse à l’aide du modèle de bandes (modèle quantique des semi-conducteurs).',
     data: [],
     objective: 'Raisonner avec les bandes de valence, de conduction et le gap.',
     skills: ['Modèle de bandes', 'Effet de la température'],
@@ -32,7 +33,8 @@ export const TD2: Exercise[] = [
           id: 'ex-AD2.1',
           concepts: ['c2-bandes'],
           prompt: 'Électrons libres dans les métaux',
-          model: 'Dans un métal, les bandes de valence et de conduction se recouvrent : le gap est nul. Les électrons de valence peuvent donc se déplacer librement dans tout le matériau sous l’effet de la simple agitation thermique.',
+          model:
+            'Dans un métal, les bandes de valence et de conduction se recouvrent : le gap est nul. Les électrons de valence peuvent donc se déplacer librement dans tout le matériau sous l’effet de la simple agitation thermique.',
           criteria: [
             'J’ai indiqué que les bandes de valence et de conduction se recouvrent (gap nul).',
             'J’en ai déduit que les électrons de valence circulent librement dans le matériau.',
@@ -46,7 +48,11 @@ export const TD2: Exercise[] = [
           'Dans un métal, existe-t-il une bande interdite entre la bande de valence et la bande de conduction ?',
           'Bandes qui se recouvrent ⇒ gap nul ⇒ aucune énergie minimale à fournir aux électrons de valence.',
         ],
-        steps: [{ md: 'Pour les métaux, bandes de valence et de conduction se recouvrent : l’énergie de gap est nulle. Les électrons de la couche de valence se déplacent librement dans tout le matériau par simple agitation thermique.' }],
+        steps: [
+          {
+            md: 'Pour les métaux, bandes de valence et de conduction se recouvrent : l’énergie de gap est nulle. Les électrons de la couche de valence se déplacent librement dans tout le matériau par simple agitation thermique.',
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -57,7 +63,8 @@ export const TD2: Exercise[] = [
           concepts: ['c2-intrinseque'],
           prompt: 'Pour T > 0 K, la bande de conduction du silicium contient des électrons.',
           answer: true,
-          explanation: 'L’agitation thermique donne à certains électrons de valence assez d’énergie pour franchir le gap.',
+          explanation:
+            'L’agitation thermique donne à certains électrons de valence assez d’énergie pour franchir le gap.',
           td: ['TD2'],
           origin: 'pdf',
         }),
@@ -66,7 +73,11 @@ export const TD2: Exercise[] = [
           'L’agitation thermique fournit de l’énergie aux électrons de la bande de valence.',
           'Le gap du silicium (1,12 eV) est petit : certains électrons le franchissent.',
         ],
-        steps: [{ md: '**Oui.** Pour T > 0 K, l’agitation thermique donne suffisamment d’énergie à certains électrons de la bande de valence pour passer dans la bande de conduction.' }],
+        steps: [
+          {
+            md: '**Oui.** Pour T > 0 K, l’agitation thermique donne suffisamment d’énergie à certains électrons de la bande de valence pour passer dans la bande de conduction.',
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -76,7 +87,8 @@ export const TD2: Exercise[] = [
           id: 'ex-AD2.3',
           concepts: ['c2-bandes'],
           prompt: 'Bande de conduction d’un isolant',
-          model: 'L’écart d’énergie (gap) entre bande de valence et bande de conduction est trop grand pour être franchi par agitation thermique sans détériorer le matériau.',
+          model:
+            'L’écart d’énergie (gap) entre bande de valence et bande de conduction est trop grand pour être franchi par agitation thermique sans détériorer le matériau.',
           criteria: [
             'J’ai mentionné que le gap d’un isolant est très grand.',
             'J’ai expliqué que l’agitation thermique ne suffit pas à le franchir (sans détruire le matériau).',
@@ -90,7 +102,11 @@ export const TD2: Exercise[] = [
           'La largeur du gap.',
           'Compare l’énergie thermique disponible (~k_BT) à un gap de plusieurs eV.',
         ],
-        steps: [{ md: 'La différence d’énergie entre les bandes de valence et de conduction est trop importante pour être franchie par agitation thermique sans détérioration du matériau.' }],
+        steps: [
+          {
+            md: 'La différence d’énergie entre les bandes de valence et de conduction est trop importante pour être franchie par agitation thermique sans détérioration du matériau.',
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -107,7 +123,8 @@ export const TD2: Exercise[] = [
             ['s’annule', 'Non.'],
           ],
           correct: 0,
-          explanation: 'Plus l’agitation thermique est importante, plus il y a d’électrons dans la bande de conduction.',
+          explanation:
+            'Plus l’agitation thermique est importante, plus il y a d’électrons dans la bande de conduction.',
           td: ['TD2'],
           origin: 'pdf',
         }),
@@ -116,7 +133,11 @@ export const TD2: Exercise[] = [
           r`$n_i = A\,T^{3/2}e^{-E_g/(2k_BT)}$ croît très vite avec T.`,
           'Plus de porteurs ⇒ γ = e(nμ_n + pμ_p) plus grande.',
         ],
-        steps: [{ md: 'Elle **augmente** : plus l’agitation thermique est importante, plus il y a d’électrons dans la bande de conduction (et de trous dans la bande de valence).' }],
+        steps: [
+          {
+            md: 'Elle **augmente** : plus l’agitation thermique est importante, plus il y a d’électrons dans la bande de conduction (et de trous dans la bande de valence).',
+          },
+        ],
         origin: 'livret',
       }),
     ],
@@ -130,11 +151,19 @@ export const TD2: Exercise[] = [
     statement:
       'Pour le silicium cristallin, la bande interdite vaut E_g = 1,12 eV. L’énergie d’un photon de longueur d’onde λ est E_ν = hc/λ. Le spectre visible s’étend de 0,4 à 0,8 µm. Une photorésistance est faite d’un matériau semi-conducteur ; sa résistance diminue avec l’éclairage (figure 2.1 du livret : exemple de caractéristique).',
     data: [
-      { label: 'Gap du silicium', value: r`$E_g = 1{,}12$ eV, $1\ \text{eV} = 1{,}60\cdot10^{-19}$ J` },
+      {
+        label: 'Gap du silicium',
+        value: r`$E_g = 1{,}12$ eV, $1\ \text{eV} = 1{,}60\cdot10^{-19}$ J`,
+      },
       { label: 'Constantes', value: r`$h = 6{,}63\cdot10^{-34}$ J·s, $c = 3\cdot10^8$ m/s` },
       { label: 'Visible', value: '0,4 µm ≤ λ ≤ 0,8 µm' },
     ],
-    figure: { label: 'Figure 2.1', description: 'Exemple de caractéristique d’une photorésistance (illustration, non nécessaire au calcul).', page: 11 },
+    figure: {
+      label: 'Figure 2.1',
+      description:
+        'Exemple de caractéristique d’une photorésistance (illustration, non nécessaire au calcul).',
+      page: 11,
+    },
     objective: 'Comparer l’énergie d’un photon au gap.',
     skills: ['E = hc/λ', 'Conversion eV ↔ J', 'Interpréter la photoconduction'],
     prerequisiteLessonIds: ['c2-l3'],
@@ -144,7 +173,8 @@ export const TD2: Exercise[] = [
     parts: [
       part({
         id: 'AD2.5',
-        prompt: 'Calcule la longueur d’onde maximale d’un photon capable de faire franchir le gap du silicium.',
+        prompt:
+          'Calcule la longueur d’onde maximale d’un photon capable de faire franchir le gap du silicium.',
         question: num({
           id: 'ex-AD2.5',
           concepts: ['c2-photon'],
@@ -164,22 +194,29 @@ export const TD2: Exercise[] = [
         ],
         steps: [
           { md: r`Condition : $E_\nu \geq E_g \iff \lambda \leq \dfrac{hc}{E_g}$.` },
-          { md: r`$\dfrac{6{,}63\cdot10^{-34}\times3\cdot10^8}{1{,}12\times1{,}6\cdot10^{-19}} \approx 1{,}1\cdot10^{-6}$ m ≈ 1 µm.` },
+          {
+            md: r`$\dfrac{6{,}63\cdot10^{-34}\times3\cdot10^8}{1{,}12\times1{,}6\cdot10^{-19}} \approx 1{,}1\cdot10^{-6}$ m ≈ 1 µm.`,
+          },
         ],
         origin: 'livret',
-        erratum: 'Le livret arrondit le calcul (6,63 × 3 ≈ 20 ; 1,12 × 1,6 ≈ 2) et obtient 1 µm ; la valeur exacte est 1,11 µm. La conclusion est inchangée. Les deux valeurs sont acceptées ici (tolérance 10 %).',
+        erratum:
+          'Le livret arrondit le calcul (6,63 × 3 ≈ 20 ; 1,12 × 1,6 ≈ 2) et obtient 1 µm ; la valeur exacte est 1,11 µm. La conclusion est inchangée. Les deux valeurs sont acceptées ici (tolérance 10 %).',
         similar: 'gen-photon',
       }),
       part({
         id: 'AD2.5 (conclusion)',
-        prompt: 'L’énergie d’un photon visible est-elle suffisante pour qu’un électron du silicium franchisse le gap ?',
+        prompt:
+          'L’énergie d’un photon visible est-elle suffisante pour qu’un électron du silicium franchisse le gap ?',
         question: mcq({
           id: 'ex-AD2.5b',
           concepts: ['c2-photon'],
           prompt: 'Un photon visible suffit-il ?',
           choices: [
             ['Oui, car tout le visible (λ ≤ 0,8 µm) vérifie λ ≤ λ_max ≈ 1,1 µm', 'Oui.'],
-            ['Non, car 0,8 µm < 1,1 µm', 'Les photons de courte longueur d’onde sont PLUS énergétiques.'],
+            [
+              'Non, car 0,8 µm < 1,1 µm',
+              'Les photons de courte longueur d’onde sont PLUS énergétiques.',
+            ],
             ['Seulement le rouge', 'Le bleu est encore plus énergétique que le rouge.'],
             ['Impossible à dire', 'La comparaison λ ≤ λ_max suffit.'],
           ],
@@ -193,7 +230,11 @@ export const TD2: Exercise[] = [
           'Énergie et longueur d’onde varient en sens inverse.',
           '0,8 µm (rouge, le moins énergétique du visible) est-il inférieur à 1,1 µm ?',
         ],
-        steps: [{ md: '**Oui** : même le rouge (0,8 µm) a une longueur d’onde inférieure à λ_max ≈ 1 µm, donc une énergie supérieure au gap.' }],
+        steps: [
+          {
+            md: '**Oui** : même le rouge (0,8 µm) a une longueur d’onde inférieure à λ_max ≈ 1 µm, donc une énergie supérieure au gap.',
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -203,7 +244,8 @@ export const TD2: Exercise[] = [
           id: 'ex-AD2.6',
           concepts: ['c2-photon', 'c2-conduction-sc'],
           prompt: 'Photorésistance',
-          model: 'Les photons absorbés donnent aux électrons de la bande de valence l’énergie nécessaire pour passer dans la bande de conduction. Le nombre de porteurs libres augmente, la conductivité augmente et la résistance diminue.',
+          model:
+            'Les photons absorbés donnent aux électrons de la bande de valence l’énergie nécessaire pour passer dans la bande de conduction. Le nombre de porteurs libres augmente, la conductivité augmente et la résistance diminue.',
           criteria: [
             'J’ai expliqué que l’énergie des photons est absorbée par des électrons de valence.',
             'J’ai indiqué qu’ils passent dans la bande de conduction (création de porteurs).',
@@ -218,7 +260,11 @@ export const TD2: Exercise[] = [
           'Que deviennent les électrons de valence qui absorbent un photon ?',
           'Plus de porteurs ⇒ conductivité plus grande ⇒ résistance plus petite.',
         ],
-        steps: [{ md: 'L’énergie des photons est absorbée par des électrons de la bande de valence, qui passent dans la bande de conduction : le nombre de porteurs augmente, la conduction augmente, la résistance baisse.' }],
+        steps: [
+          {
+            md: 'L’énergie des photons est absorbée par des électrons de la bande de valence, qui passent dans la bande de conduction : le nombre de porteurs augmente, la conduction augmente, la résistance baisse.',
+          },
+        ],
         origin: 'livret',
       }),
     ],
@@ -232,7 +278,10 @@ export const TD2: Exercise[] = [
     statement:
       'La résistivité du germanium intrinsèque vaut 0,44 Ω·m à 300 K. On dope le germanium avec de l’antimoine (élément de la 15ᵉ colonne) à raison d’un atome d’impureté pour 10⁶ atomes de germanium. On suppose que tous les atomes d’antimoine sont ionisés à 300 K.',
     data: [
-      { label: 'Mobilités', value: r`$\mu_n = 0{,}40\ \text{m}^2/(\text{V·s})$, $\mu_p = 0{,}19\ \text{m}^2/(\text{V·s})$` },
+      {
+        label: 'Mobilités',
+        value: r`$\mu_n = 0{,}40\ \text{m}^2/(\text{V·s})$, $\mu_p = 0{,}19\ \text{m}^2/(\text{V·s})$`,
+      },
       { label: 'Densité intrinsèque', value: r`$n_i = 2{,}4\cdot10^{19}\ \text{m}^{-3}$` },
       { label: 'Atomes de germanium', value: r`$N_{Ge} = 4{,}4\cdot10^{28}\ \text{m}^{-3}$` },
       { label: 'Dopage', value: r`1 atome de Sb pour $10^6$ atomes de Ge` },
@@ -253,7 +302,10 @@ export const TD2: Exercise[] = [
           concepts: ['c2-dopage'],
           prompt: 'Type de dopage par l’antimoine',
           choices: [
-            ['Type N', 'Oui : Sb (colonne 15) a 5 électrons de valence, un de plus que nécessaire.'],
+            [
+              'Type N',
+              'Oui : Sb (colonne 15) a 5 électrons de valence, un de plus que nécessaire.',
+            ],
             ['Type P', 'Ce serait un élément de la colonne 13.'],
             ['Intrinsèque', 'Le dopage modifie les porteurs.'],
             ['Ni l’un ni l’autre', 'Non.'],
@@ -268,7 +320,11 @@ export const TD2: Exercise[] = [
           'Colonne 15 ⇒ 5 électrons de valence.',
           'Un électron en trop après les 4 liaisons covalentes ⇒ donneur.',
         ],
-        steps: [{ md: 'L’antimoine (Sb, colonne 15) possède 5 électrons de valence : il fournit un électron supplémentaire en plus des 4 nécessaires aux liaisons. C’est un **dopage de type N**.' }],
+        steps: [
+          {
+            md: 'L’antimoine (Sb, colonne 15) possède 5 électrons de valence : il fournit un électron supplémentaire en plus des 4 nécessaires aux liaisons. C’est un **dopage de type N**.',
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -289,8 +345,16 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Ionisé = a perdu ou gagné des électrons.', 'Un donneur ionisé est devenu un cation.', 'Il a donc libéré son 5ᵉ électron.'],
-        steps: [{ md: 'Tous les atomes d’antimoine ont libéré leur électron périphérique excédentaire : il y a autant d’électrons libres fournis que d’atomes dopants.' }],
+        hints: [
+          'Ionisé = a perdu ou gagné des électrons.',
+          'Un donneur ionisé est devenu un cation.',
+          'Il a donc libéré son 5ᵉ électron.',
+        ],
+        steps: [
+          {
+            md: 'Tous les atomes d’antimoine ont libéré leur électron périphérique excédentaire : il y a autant d’électrons libres fournis que d’atomes dopants.',
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -306,8 +370,16 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Un atome d’impureté pour 10⁶ atomes de germanium.', r`$N_D = N_{Ge}/10^6$.`, r`$4{,}4\cdot10^{28}/10^6$.`],
-        steps: [{ md: r`$N_D = \dfrac{N_{Ge}}{10^6} = \dfrac{4{,}4\cdot10^{28}}{10^6} = 4{,}4\cdot10^{22}\ \text{m}^{-3}$.` }],
+        hints: [
+          'Un atome d’impureté pour 10⁶ atomes de germanium.',
+          r`$N_D = N_{Ge}/10^6$.`,
+          r`$4{,}4\cdot10^{28}/10^6$.`,
+        ],
+        steps: [
+          {
+            md: r`$N_D = \dfrac{N_{Ge}}{10^6} = \dfrac{4{,}4\cdot10^{28}}{10^6} = 4{,}4\cdot10^{22}\ \text{m}^{-3}$.`,
+          },
+        ],
         origin: 'livret',
         similar: 'gen-doping-n',
       }),
@@ -319,7 +391,10 @@ export const TD2: Exercise[] = [
           concepts: ['c2-action-masse'],
           prompt: 'Pourquoi n ≈ N_D ?',
           choices: [
-            [r`Car $n_i = 2{,}4\cdot10^{19} \ll N_D$ : les électrons des dopants dominent.`, 'Oui.'],
+            [
+              r`Car $n_i = 2{,}4\cdot10^{19} \ll N_D$ : les électrons des dopants dominent.`,
+              'Oui.',
+            ],
             [r`Car $n = n_i$`, 'C’est le cas intrinsèque.'],
             [r`Car $n = n_i^2/N_D$`, 'C’est l’expression de p.'],
             ['Car tous les atomes de germanium sont ionisés', 'Seuls les dopants le sont.'],
@@ -329,8 +404,16 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Compare N_D à n_i.', 'Si N_D ≫ n_i, les électrons « thermiques » sont négligeables.', 'n ≈ N_D.'],
-        steps: [{ md: r`$n_i = 2{,}4\cdot10^{19} \ll N_D = 4{,}4\cdot10^{22}$ : on peut faire l’approximation $n \approx N_D = 4{,}4\cdot10^{22}\ \text{m}^{-3}$.` }],
+        hints: [
+          'Compare N_D à n_i.',
+          'Si N_D ≫ n_i, les électrons « thermiques » sont négligeables.',
+          'n ≈ N_D.',
+        ],
+        steps: [
+          {
+            md: r`$n_i = 2{,}4\cdot10^{19} \ll N_D = 4{,}4\cdot10^{22}$ : on peut faire l’approximation $n \approx N_D = 4{,}4\cdot10^{22}\ \text{m}^{-3}$.`,
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -346,8 +429,16 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Loi d’action de masse.', r`$np = n_i^2$ donc $p = n_i^2/n$.`, r`$(2{,}4\cdot10^{19})^2 = 5{,}76\cdot10^{38}$ ; divise par $4{,}4\cdot10^{22}$.`],
-        steps: [{ md: r`$p = \dfrac{n_i^2}{N_D} = \dfrac{(2{,}4\cdot10^{19})^2}{4{,}4\cdot10^{22}} \approx 1{,}3\cdot10^{16}\ \text{m}^{-3}$ : les trous sont minoritaires.` }],
+        hints: [
+          'Loi d’action de masse.',
+          r`$np = n_i^2$ donc $p = n_i^2/n$.`,
+          r`$(2{,}4\cdot10^{19})^2 = 5{,}76\cdot10^{38}$ ; divise par $4{,}4\cdot10^{22}$.`,
+        ],
+        steps: [
+          {
+            md: r`$p = \dfrac{n_i^2}{N_D} = \dfrac{(2{,}4\cdot10^{19})^2}{4{,}4\cdot10^{22}} \approx 1{,}3\cdot10^{16}\ \text{m}^{-3}$ : les trous sont minoritaires.`,
+          },
+        ],
         origin: 'livret',
         similar: 'gen-mass-action',
       }),
@@ -372,7 +463,9 @@ export const TD2: Exercise[] = [
         ],
         steps: [
           { md: r`$\gamma = e(n\mu_n + p\mu_p)$ avec $p \ll N_D$ ⇒ $\gamma \approx N_D e\mu_n$.` },
-          { md: r`$\gamma \approx 4{,}4\cdot10^{22}\times1{,}6\cdot10^{-19}\times0{,}40 \approx 28\cdot10^2\ \text{S/m}$.` },
+          {
+            md: r`$\gamma \approx 4{,}4\cdot10^{22}\times1{,}6\cdot10^{-19}\times0{,}40 \approx 28\cdot10^2\ \text{S/m}$.`,
+          },
         ],
         origin: 'livret',
       }),
@@ -391,8 +484,13 @@ export const TD2: Exercise[] = [
         }),
         hints: ['ρ = 1/γ.', r`$\rho = 1/2816$.`, 'Compare à la résistivité intrinsèque 0,44 Ω·m.'],
         steps: [
-          { md: r`$\rho = \dfrac{1}{\gamma} = \dfrac{1}{2{,}8\cdot10^3} \approx 0{,}35\cdot10^{-3}\ \Omega\cdot\text{m}$.` },
-          { title: 'Conclusion', md: 'Avec un seul atome d’antimoine pour un million d’atomes de germanium, la résistivité a été divisée par environ 1000 : c’est tout l’intérêt du dopage.' },
+          {
+            md: r`$\rho = \dfrac{1}{\gamma} = \dfrac{1}{2{,}8\cdot10^3} \approx 0{,}35\cdot10^{-3}\ \Omega\cdot\text{m}$.`,
+          },
+          {
+            title: 'Conclusion',
+            md: 'Avec un seul atome d’antimoine pour un million d’atomes de germanium, la résistivité a été divisée par environ 1000 : c’est tout l’intérêt du dopage.',
+          },
         ],
         origin: 'livret',
       }),
@@ -408,14 +506,29 @@ export const TD2: Exercise[] = [
       'Un semi-conducteur intrinsèque au silicium possède une concentration d’électrons libres n_i = 10¹⁰ cm⁻³ à température ambiante. On le dope ensuite à l’indium (colonne 13) à raison d’un atome d’impureté pour 10⁷ atomes de silicium.',
     data: [
       { label: 'Concentration intrinsèque', value: r`$n_i = 10^{10}\ \text{cm}^{-3}$` },
-      { label: 'Mobilités', value: r`$\mu_n = 1\,450\ \text{cm}^2/(\text{V·s})$, $\mu_p = 450\ \text{cm}^2/(\text{V·s})$` },
-      { label: 'Silicium', value: r`$M_{Si} = 28{,}1$ g/mol, masse volumique $2{,}42\ \text{g/cm}^3$ (valeur de l’énoncé)` },
-      { label: 'Constantes', value: r`$\mathcal{N}_A = 6{,}02\cdot10^{23}\ \text{mol}^{-1}$, $k_B = 1{,}38\cdot10^{-23}$ J/K, $e = 1{,}6\cdot10^{-19}$ C` },
+      {
+        label: 'Mobilités',
+        value: r`$\mu_n = 1\,450\ \text{cm}^2/(\text{V·s})$, $\mu_p = 450\ \text{cm}^2/(\text{V·s})$`,
+      },
+      {
+        label: 'Silicium',
+        value: r`$M_{Si} = 28{,}1$ g/mol, masse volumique $2{,}42\ \text{g/cm}^3$ (valeur de l’énoncé)`,
+      },
+      {
+        label: 'Constantes',
+        value: r`$\mathcal{N}_A = 6{,}02\cdot10^{23}\ \text{mol}^{-1}$, $k_B = 1{,}38\cdot10^{-23}$ J/K, $e = 1{,}6\cdot10^{-19}$ C`,
+      },
     ],
     objective: 'Comparer un silicium intrinsèque et un silicium dopé P.',
     skills: ['γ intrinsèque', 'Nombre d’atomes par cm³', 'Dopage P', 'Loi d’action de masse'],
     prerequisiteLessonIds: ['c2-l4', 'c2-l5', 'c2-l6', 'c2-l7'],
-    conceptIds: ['c2-intrinseque', 'c2-dopage', 'c2-action-masse', 'c2-conduction-sc', 'c2-denombrement'],
+    conceptIds: [
+      'c2-intrinseque',
+      'c2-dopage',
+      'c2-action-masse',
+      'c2-conduction-sc',
+      'c2-denombrement',
+    ],
     difficulty: 3,
     source: L('13', 'Exercice 2.4'),
     auditNotes: [
@@ -442,7 +555,9 @@ export const TD2: Exercise[] = [
           'Travaille en unités « cm » : n_i en cm⁻³ et μ en cm²/(V·s) donnent γ en S/cm (× 100 pour des S/m).',
         ],
         steps: [
-          { md: r`$\gamma_i = n_i e(\mu_n + \mu_p) = 10^{10}\times1{,}6\cdot10^{-19}\times(1450+450) \approx 3{,}04\cdot10^{-6}\ \text{S/cm}$.` },
+          {
+            md: r`$\gamma_i = n_i e(\mu_n + \mu_p) = 10^{10}\times1{,}6\cdot10^{-19}\times(1450+450) \approx 3{,}04\cdot10^{-6}\ \text{S/cm}$.`,
+          },
           { md: r`Soit $\gamma_i \approx 3{,}04\cdot10^{-4}$ S/m.` },
         ],
         origin: 'ece-study',
@@ -459,8 +574,16 @@ export const TD2: Exercise[] = [
           explanation: r`$\rho_i = 1/\gamma_i \approx 3{,}3\cdot10^5\ \Omega\cdot\text{cm} = 3{,}3\cdot10^3\ \Omega\cdot\text{m}$.`,
           td: ['TD2'],
         }),
-        hints: ['ρ = 1/γ.', 'Attention aux unités : S/cm ↔ Ω·cm.', r`$1/(3{,}04\cdot10^{-4}\ \text{S/m})$.`],
-        steps: [{ md: r`$\rho_i = \dfrac{1}{\gamma_i} \approx 3{,}29\cdot10^5\ \Omega\cdot\text{cm} \approx 3{,}29\cdot10^3\ \Omega\cdot\text{m}$.` }],
+        hints: [
+          'ρ = 1/γ.',
+          'Attention aux unités : S/cm ↔ Ω·cm.',
+          r`$1/(3{,}04\cdot10^{-4}\ \text{S/m})$.`,
+        ],
+        steps: [
+          {
+            md: r`$\rho_i = \dfrac{1}{\gamma_i} \approx 3{,}29\cdot10^5\ \Omega\cdot\text{cm} \approx 3{,}29\cdot10^3\ \Omega\cdot\text{m}$.`,
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -480,8 +603,16 @@ export const TD2: Exercise[] = [
           explanation: 'Colonne 13 ⇒ accepteur.',
           td: ['TD2'],
         }),
-        hints: ['Colonne 13.', 'Combien d’électrons de valence ?', 'Il en manque un pour compléter les liaisons avec 4 voisins Si.'],
-        steps: [{ md: 'L’indium (colonne 13) a 3 électrons de valence : il accepte un électron du réseau pour compléter ses 4 liaisons. C’est une impureté **accepteuse**.' }],
+        hints: [
+          'Colonne 13.',
+          'Combien d’électrons de valence ?',
+          'Il en manque un pour compléter les liaisons avec 4 voisins Si.',
+        ],
+        steps: [
+          {
+            md: 'L’indium (colonne 13) a 3 électrons de valence : il accepte un électron du réseau pour compléter ses 4 liaisons. C’est une impureté **accepteuse**.',
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -502,7 +633,11 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
         }),
         hints: ['Accepteur ⇒ création de…', '…trous.', 'Trous majoritaires ⇒ type P.'],
-        steps: [{ md: 'Des impuretés accepteuses créent des trous majoritaires : semi-conducteur extrinsèque de **type P**.' }],
+        steps: [
+          {
+            md: 'Des impuretés accepteuses créent des trous majoritaires : semi-conducteur extrinsèque de **type P**.',
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -524,8 +659,14 @@ export const TD2: Exercise[] = [
           r`$N_{Si} = 6{,}02\cdot10^{23}\times2{,}42/28{,}1 \approx 5{,}18\cdot10^{22}$ cm⁻³.`,
         ],
         steps: [
-          { title: 'Atomes de silicium', md: r`$N_{Si} = \dfrac{6{,}02\cdot10^{23}\times2{,}42}{28{,}1} \approx 5{,}18\cdot10^{22}\ \text{cm}^{-3}$.` },
-          { title: 'Accepteurs', md: r`$N_A = N_{Si}/10^7 \approx 5{,}18\cdot10^{15}\ \text{cm}^{-3} \gg n_i$.` },
+          {
+            title: 'Atomes de silicium',
+            md: r`$N_{Si} = \dfrac{6{,}02\cdot10^{23}\times2{,}42}{28{,}1} \approx 5{,}18\cdot10^{22}\ \text{cm}^{-3}$.`,
+          },
+          {
+            title: 'Accepteurs',
+            md: r`$N_A = N_{Si}/10^7 \approx 5{,}18\cdot10^{15}\ \text{cm}^{-3} \gg n_i$.`,
+          },
           { title: 'Trous', md: r`$p \approx N_A \approx 5{,}2\cdot10^{15}\ \text{cm}^{-3}$.` },
         ],
         origin: 'ece-study',
@@ -545,7 +686,11 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
         }),
         hints: ['Loi d’action de masse.', r`$n = n_i^2/p$.`, r`$10^{20}/5{,}18\cdot10^{15}$.`],
-        steps: [{ md: r`$n = \dfrac{n_i^2}{N_A} = \dfrac{10^{20}}{5{,}18\cdot10^{15}} \approx 1{,}9\cdot10^4\ \text{cm}^{-3}$ (électrons minoritaires).` }],
+        steps: [
+          {
+            md: r`$n = \dfrac{n_i^2}{N_A} = \dfrac{10^{20}}{5{,}18\cdot10^{15}} \approx 1{,}9\cdot10^4\ \text{cm}^{-3}$ (électrons minoritaires).`,
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
@@ -567,7 +712,9 @@ export const TD2: Exercise[] = [
           'En unités cm, le résultat est en S/cm (× 100 pour S/m).',
         ],
         steps: [
-          { md: r`$\gamma \approx p e \mu_p = 5{,}18\cdot10^{15}\times1{,}6\cdot10^{-19}\times450 \approx 0{,}373\ \text{S/cm} = 37{,}3\ \text{S/m}$.` },
+          {
+            md: r`$\gamma \approx p e \mu_p = 5{,}18\cdot10^{15}\times1{,}6\cdot10^{-19}\times450 \approx 0{,}373\ \text{S/cm} = 37{,}3\ \text{S/m}$.`,
+          },
         ],
         origin: 'ece-study',
       }),
@@ -586,7 +733,10 @@ export const TD2: Exercise[] = [
         hints: ['ρ = 1/γ.', r`$1/37{,}3$ en Ω·m.`, 'Compare avec ρ_i ≈ 3,3·10³ Ω·m.'],
         steps: [
           { md: r`$\rho = \dfrac{1}{\gamma} \approx 2{,}7\cdot10^{-2}\ \Omega\cdot\text{m}$.` },
-          { title: 'Conclusion', md: r`$\gamma/\gamma_i \approx 1{,}2\cdot10^5$ : avec 1 atome d’indium pour 10⁷ atomes de silicium, la conductivité est multipliée par environ 120 000. Le dopage permet de régler la conductivité sur plusieurs ordres de grandeur.` },
+          {
+            title: 'Conclusion',
+            md: r`$\gamma/\gamma_i \approx 1{,}2\cdot10^5$ : avec 1 atome d’indium pour 10⁷ atomes de silicium, la conductivité est multipliée par environ 120 000. Le dopage permet de régler la conductivité sur plusieurs ordres de grandeur.`,
+          },
         ],
         origin: 'ece-study',
       }),
@@ -601,12 +751,26 @@ export const TD2: Exercise[] = [
     statement:
       'On considère un barreau de germanium pur. Les mobilités dépendent de la température selon μ_n(T) = μ_n,0 (T/T₀)^(−1,66) et μ_p(T) = μ_p,0 (T/T₀)^(−2,33), avec T₀ = 300 K. La concentration intrinsèque vérifie n_i = A T^(3/2) exp(−E_g/(2k_BT)), avec A = 1,44·10²¹ (unités SI) pour le germanium. On étudie ensuite T₁ = 200 °C, en supposant le gap constant.',
     data: [
-      { label: 'Germanium', value: r`$M_{Ge} = 72{,}6$ g/mol, $\rho_{Ge} = 5{,}36\ \text{g/cm}^3$, $E_g = 0{,}67$ eV` },
-      { label: 'Mobilités à T₀', value: r`$\mu_{n,0} = 3{,}8\cdot10^3$, $\mu_{p,0} = 1{,}5\cdot10^3\ \text{cm}^2\text{V}^{-1}\text{s}^{-1}$` },
+      {
+        label: 'Germanium',
+        value: r`$M_{Ge} = 72{,}6$ g/mol, $\rho_{Ge} = 5{,}36\ \text{g/cm}^3$, $E_g = 0{,}67$ eV`,
+      },
+      {
+        label: 'Mobilités à T₀',
+        value: r`$\mu_{n,0} = 3{,}8\cdot10^3$, $\mu_{p,0} = 1{,}5\cdot10^3\ \text{cm}^2\text{V}^{-1}\text{s}^{-1}$`,
+      },
       { label: 'Constante A', value: r`$A = 1{,}44\cdot10^{21}$ S.I.` },
-      { label: 'Constantes', value: r`$\mathcal{N}_A = 6{,}02\cdot10^{23}$, $k_B = 1{,}38\cdot10^{-23}$ J/K, $e = 1{,}6\cdot10^{-19}$ C, $1\ \text{eV} = 1{,}6\cdot10^{-19}$ J` },
+      {
+        label: 'Constantes',
+        value: r`$\mathcal{N}_A = 6{,}02\cdot10^{23}$, $k_B = 1{,}38\cdot10^{-23}$ J/K, $e = 1{,}6\cdot10^{-19}$ C, $1\ \text{eV} = 1{,}6\cdot10^{-19}$ J`,
+      },
     ],
-    figure: { label: 'Figure 2.2', description: 'Concentration intrinsèque en fonction de 1000/T (graphique du livret, nécessaire pour Q2.12).', page: 14 },
+    figure: {
+      label: 'Figure 2.2',
+      description:
+        'Concentration intrinsèque en fonction de 1000/T (graphique du livret, nécessaire pour Q2.12).',
+      page: 14,
+    },
     objective: 'Calculer n_i(T) et la résistivité d’un semi-conducteur pur à deux températures.',
     skills: ['Analyse dimensionnelle', 'n_i(T)', 'γ intrinsèque', 'Effet de la température'],
     prerequisiteLessonIds: ['c2-l4', 'c2-l7'],
@@ -637,7 +801,11 @@ export const TD2: Exercise[] = [
           r`$N = \dfrac{\mathcal{N}_A\,\rho_{Ge}}{M_{Ge}}$ (ρ en g/cm³ ⇒ N en cm⁻³).`,
           r`$6{,}02\cdot10^{23}\times5{,}36/72{,}6$.`,
         ],
-        steps: [{ md: r`$N = \dfrac{6{,}02\cdot10^{23}\times5{,}36}{72{,}6} \approx 4{,}44\cdot10^{22}$ atomes/cm³.` }],
+        steps: [
+          {
+            md: r`$N = \dfrac{6{,}02\cdot10^{23}\times5{,}36}{72{,}6} \approx 4{,}44\cdot10^{22}$ atomes/cm³.`,
+          },
+        ],
         origin: 'ece-study',
         similar: 'gen-atoms',
       }),
@@ -650,8 +818,14 @@ export const TD2: Exercise[] = [
           difficulty: 2,
           prompt: 'Unité de A (n_i en m⁻³)',
           choices: [
-            [r`$\text{m}^{-3}\cdot\text{K}^{-3/2}$`, r`Oui : l’exponentielle est sans dimension et $T^{3/2}$ est en $\text{K}^{3/2}$.`],
-            [r`$\text{m}^{-3}\cdot\text{K}^{3/2}$`, 'Il faut DIVISER par K^{3/2} pour retrouver des m⁻³.'],
+            [
+              r`$\text{m}^{-3}\cdot\text{K}^{-3/2}$`,
+              r`Oui : l’exponentielle est sans dimension et $T^{3/2}$ est en $\text{K}^{3/2}$.`,
+            ],
+            [
+              r`$\text{m}^{-3}\cdot\text{K}^{3/2}$`,
+              'Il faut DIVISER par K^{3/2} pour retrouver des m⁻³.',
+            ],
             ['Sans unité', 'n_i a une dimension (inverse d’un volume).'],
             [r`$\text{m}^{-3}$`, 'Le facteur T^{3/2} a été oublié.'],
           ],
@@ -664,12 +838,17 @@ export const TD2: Exercise[] = [
           r`Donc $[n_i] = [A]\cdot\text{K}^{3/2}$.`,
           r`$[A] = \text{m}^{-3}/\text{K}^{3/2}$.`,
         ],
-        steps: [{ md: r`$E_g/(k_BT)$ est sans dimension, donc $[n_i] = [A]\,\text{K}^{3/2}$ et $[A] = \text{m}^{-3}\cdot\text{K}^{-3/2}$ (en SI).` }],
+        steps: [
+          {
+            md: r`$E_g/(k_BT)$ est sans dimension, donc $[n_i] = [A]\,\text{K}^{3/2}$ et $[A] = \text{m}^{-3}\cdot\text{K}^{-3/2}$ (en SI).`,
+          },
+        ],
         origin: 'ece-study',
       }),
       part({
         id: 'Q2.8',
-        prompt: 'Calcule la densité de paires électron-trou créées par agitation thermique à T₀ = 300 K.',
+        prompt:
+          'Calcule la densité de paires électron-trou créées par agitation thermique à T₀ = 300 K.',
         question: num({
           id: 'ex-Q2.8',
           concepts: ['c2-intrinseque'],
@@ -687,14 +866,19 @@ export const TD2: Exercise[] = [
           r`$300^{3/2} \approx 5196$, $e^{-12{,}95} \approx 2{,}39\cdot10^{-6}$.`,
         ],
         steps: [
-          { md: r`$\dfrac{E_g}{2k_BT_0} = \dfrac{0{,}67\times1{,}6\cdot10^{-19}}{2\times1{,}38\cdot10^{-23}\times300} \approx 12{,}95$.` },
-          { md: r`$n_i = 1{,}44\cdot10^{21}\times5196\times2{,}39\cdot10^{-6} \approx 1{,}78\cdot10^{19}\ \text{m}^{-3} = 1{,}78\cdot10^{13}\ \text{cm}^{-3}$.` },
+          {
+            md: r`$\dfrac{E_g}{2k_BT_0} = \dfrac{0{,}67\times1{,}6\cdot10^{-19}}{2\times1{,}38\cdot10^{-23}\times300} \approx 12{,}95$.`,
+          },
+          {
+            md: r`$n_i = 1{,}44\cdot10^{21}\times5196\times2{,}39\cdot10^{-6} \approx 1{,}78\cdot10^{19}\ \text{m}^{-3} = 1{,}78\cdot10^{13}\ \text{cm}^{-3}$.`,
+          },
         ],
         origin: 'ece-study',
       }),
       part({
         id: 'Q2.9',
-        prompt: 'Quelle proportion d’atomes de germanium est ionisée (par unité de volume) ? Compare avec le cuivre et l’aluminium.',
+        prompt:
+          'Quelle proportion d’atomes de germanium est ionisée (par unité de volume) ? Compare avec le cuivre et l’aluminium.',
         question: num({
           id: 'ex-Q2.9',
           concepts: ['c2-intrinseque', 'c2-denombrement'],
@@ -712,8 +896,13 @@ export const TD2: Exercise[] = [
           'Pour un métal, combien d’électrons libres par atome ?',
         ],
         steps: [
-          { md: r`$\dfrac{n_i}{N} = \dfrac{1{,}78\cdot10^{13}}{4{,}44\cdot10^{22}} \approx 4\cdot10^{-10}$ : environ 4 atomes sur 10 milliards.` },
-          { title: 'Comparaison', md: 'Dans le cuivre, chaque atome libère 1 électron (proportion 1) ; dans l’aluminium, 3 électrons par atome. Le germanium pur a donc environ 10⁹ fois moins de porteurs par atome qu’un métal.' },
+          {
+            md: r`$\dfrac{n_i}{N} = \dfrac{1{,}78\cdot10^{13}}{4{,}44\cdot10^{22}} \approx 4\cdot10^{-10}$ : environ 4 atomes sur 10 milliards.`,
+          },
+          {
+            title: 'Comparaison',
+            md: 'Dans le cuivre, chaque atome libère 1 électron (proportion 1) ; dans l’aluminium, 3 électrons par atome. Le germanium pur a donc environ 10⁹ fois moins de porteurs par atome qu’un métal.',
+          },
         ],
         origin: 'ece-study',
       }),
@@ -737,14 +926,19 @@ export const TD2: Exercise[] = [
           r`En unités cm : $\gamma = 1{,}78\cdot10^{13}\times1{,}6\cdot10^{-19}\times5300$ S/cm.`,
         ],
         steps: [
-          { md: r`$\gamma = n_i e(\mu_n+\mu_p) = 1{,}78\cdot10^{13}\times1{,}6\cdot10^{-19}\times5300 \approx 1{,}51\cdot10^{-2}\ \text{S/cm}$.` },
-          { md: r`$\rho = 1/\gamma \approx 66\ \Omega\cdot\text{cm} \approx 0{,}66\ \Omega\cdot\text{m}$.` },
+          {
+            md: r`$\gamma = n_i e(\mu_n+\mu_p) = 1{,}78\cdot10^{13}\times1{,}6\cdot10^{-19}\times5300 \approx 1{,}51\cdot10^{-2}\ \text{S/cm}$.`,
+          },
+          {
+            md: r`$\rho = 1/\gamma \approx 66\ \Omega\cdot\text{cm} \approx 0{,}66\ \Omega\cdot\text{m}$.`,
+          },
         ],
         origin: 'ece-study',
       }),
       part({
         id: 'Q2.11 (n_i)',
-        prompt: 'À T₁ = 200 °C (gap supposé constant), calcule la nouvelle concentration intrinsèque.',
+        prompt:
+          'À T₁ = 200 °C (gap supposé constant), calcule la nouvelle concentration intrinsèque.',
         question: num({
           id: 'ex-Q2.11a',
           concepts: ['c2-intrinseque', 'c2-thermique'],
@@ -762,9 +956,16 @@ export const TD2: Exercise[] = [
           r`$E_g/(2k_BT_1) \approx 8{,}21$, $T_1^{3/2} \approx 1{,}03\cdot10^4$.`,
         ],
         steps: [
-          { md: r`$T_1 = 473{,}15$ K, $\dfrac{E_g}{2k_BT_1} \approx 8{,}21$, $T_1^{3/2} \approx 1{,}029\cdot10^4$.` },
-          { md: r`$n_i(T_1) \approx 1{,}44\cdot10^{21}\times1{,}029\cdot10^4\times2{,}72\cdot10^{-4} \approx 4{,}0\cdot10^{21}\ \text{m}^{-3}$, soit ≈ 226 fois plus qu’à 300 K.` },
-          { title: 'Autres grandeurs', md: r`Proportion ionisée ≈ $9{,}1\cdot10^{-8}$ ; $\mu_n \approx 1784$ et $\mu_p \approx 519$ cm²/(V·s).` },
+          {
+            md: r`$T_1 = 473{,}15$ K, $\dfrac{E_g}{2k_BT_1} \approx 8{,}21$, $T_1^{3/2} \approx 1{,}029\cdot10^4$.`,
+          },
+          {
+            md: r`$n_i(T_1) \approx 1{,}44\cdot10^{21}\times1{,}029\cdot10^4\times2{,}72\cdot10^{-4} \approx 4{,}0\cdot10^{21}\ \text{m}^{-3}$, soit ≈ 226 fois plus qu’à 300 K.`,
+          },
+          {
+            title: 'Autres grandeurs',
+            md: r`Proportion ionisée ≈ $9{,}1\cdot10^{-8}$ ; $\mu_n \approx 1784$ et $\mu_p \approx 519$ cm²/(V·s).`,
+          },
         ],
         origin: 'ece-study',
       }),
@@ -789,20 +990,27 @@ export const TD2: Exercise[] = [
         ],
         steps: [
           { md: r`$\mu_n \approx 1784$ et $\mu_p \approx 519\ \text{cm}^2/(\text{V·s})$.` },
-          { md: r`$\gamma = 4{,}03\cdot10^{15}\times1{,}6\cdot10^{-19}\times2303 \approx 1{,}49$ S/cm ⇒ $\rho \approx 0{,}67\ \Omega\cdot\text{cm} \approx 6{,}7\cdot10^{-3}\ \Omega\cdot\text{m}$.` },
-          { title: 'Conclusion', md: 'Malgré la baisse des mobilités, la résistivité est divisée par environ 100 : l’augmentation du nombre de porteurs l’emporte (comportement typique d’un semi-conducteur).' },
+          {
+            md: r`$\gamma = 4{,}03\cdot10^{15}\times1{,}6\cdot10^{-19}\times2303 \approx 1{,}49$ S/cm ⇒ $\rho \approx 0{,}67\ \Omega\cdot\text{cm} \approx 6{,}7\cdot10^{-3}\ \Omega\cdot\text{m}$.`,
+          },
+          {
+            title: 'Conclusion',
+            md: 'Malgré la baisse des mobilités, la résistivité est divisée par environ 100 : l’augmentation du nombre de porteurs l’emporte (comportement typique d’un semi-conducteur).',
+          },
         ],
         origin: 'ece-study',
       }),
       part({
         id: 'Q2.12',
-        prompt: 'Retrouve n_i aux deux températures à l’aide du graphe de la figure 2.2 (n_i en fonction de 1000/T).',
+        prompt:
+          'Retrouve n_i aux deux températures à l’aide du graphe de la figure 2.2 (n_i en fonction de 1000/T).',
         question: selfcheck({
           id: 'ex-Q2.12',
           concepts: ['c2-intrinseque'],
           difficulty: 2,
           prompt: 'Lecture graphique de n_i',
-          model: '1000/T vaut 3,33 à 300 K et ≈ 2,11 à 473 K. La lecture doit donner des valeurs proches de 1,8·10¹³ cm⁻³ et 4·10¹⁵ cm⁻³ (ou leurs équivalents en m⁻³ selon l’axe du graphe).',
+          model:
+            '1000/T vaut 3,33 à 300 K et ≈ 2,11 à 473 K. La lecture doit donner des valeurs proches de 1,8·10¹³ cm⁻³ et 4·10¹⁵ cm⁻³ (ou leurs équivalents en m⁻³ selon l’axe du graphe).',
           criteria: [
             'J’ai calculé les abscisses 1000/T : 3,33 (300 K) et 2,11 (473 K).',
             'J’ai lu les deux valeurs de n_i sur la figure 2.2 en respectant l’unité de l’axe.',
@@ -818,7 +1026,9 @@ export const TD2: Exercise[] = [
         ],
         steps: [
           { md: '1000/T₀ = 3,33 et 1000/T₁ ≈ 2,11.' },
-          { md: 'Les lectures doivent confirmer les ordres de grandeur calculés : ≈ 10¹³ cm⁻³ à 300 K et ≈ 4·10¹⁵ cm⁻³ à 200 °C.' },
+          {
+            md: 'Les lectures doivent confirmer les ordres de grandeur calculés : ≈ 10¹³ cm⁻³ à 300 K et ≈ 4·10¹⁵ cm⁻³ à 200 °C.',
+          },
         ],
         origin: 'ece-study',
       }),
@@ -833,13 +1043,24 @@ export const TD2: Exercise[] = [
     statement:
       'On étudie un élément de silicium dopé N à 27 °C. Le silicium intrinsèque a une conductivité γ_i = 4,3·10⁻⁴ (Ω·m)⁻¹ et une résistivité ρ_i = 2,3 kΩ·m. Le matériau est dopé avec des donneurs de concentration N_D = 5·10¹⁴ cm⁻³. On l’éclaire ensuite uniformément : la lumière crée 5·10²² paires électron-trou par seconde et par cm³, de durée de vie 1 µs.',
     data: [
-      { label: 'Intrinsèque', value: r`$\gamma_i = 4{,}3\cdot10^{-4}\ (\Omega\cdot\text{m})^{-1}$, $\rho_i = 2{,}3\ \text{k}\Omega\cdot\text{m}$` },
+      {
+        label: 'Intrinsèque',
+        value: r`$\gamma_i = 4{,}3\cdot10^{-4}\ (\Omega\cdot\text{m})^{-1}$, $\rho_i = 2{,}3\ \text{k}\Omega\cdot\text{m}$`,
+      },
       { label: 'Dopage', value: r`$N_D = 5\cdot10^{14}\ \text{cm}^{-3}$` },
-      { label: 'Mobilités', value: r`$\mu_n = 13\cdot10^{-2}$, $\mu_p = 4{,}8\cdot10^{-2}\ \text{m}^2/(\text{V·s})$` },
+      {
+        label: 'Mobilités',
+        value: r`$\mu_n = 13\cdot10^{-2}$, $\mu_p = 4{,}8\cdot10^{-2}\ \text{m}^2/(\text{V·s})$`,
+      },
       { label: 'Éclairement', value: r`$5\cdot10^{22}$ paires·s⁻¹·cm⁻³, durée de vie 1 µs` },
     ],
     objective: 'Comparer l’effet du dopage et celui de l’éclairement sur la conduction.',
-    skills: ['γ ≈ N_D e μ_n', 'Conversion cm⁻³ → m⁻³', 'Porteurs photogénérés', 'γ = ne(μ_n + μ_p)'],
+    skills: [
+      'γ ≈ N_D e μ_n',
+      'Conversion cm⁻³ → m⁻³',
+      'Porteurs photogénérés',
+      'γ = ne(μ_n + μ_p)',
+    ],
     prerequisiteLessonIds: ['c2-l6', 'c2-l7'],
     conceptIds: ['c2-conduction-sc', 'c2-photon', 'c0-unites'],
     difficulty: 3,
@@ -866,15 +1087,19 @@ export const TD2: Exercise[] = [
         ],
         steps: [
           { md: r`$N_D = 5\cdot10^{14}\ \text{cm}^{-3} = 5\cdot10^{20}\ \text{m}^{-3}$.` },
-          { md: r`$\gamma_{dopé} \approx N_De\mu_n = 5\cdot10^{20}\times1{,}6\cdot10^{-19}\times0{,}13 = 10{,}4\ \text{S/m}$, soit $\gamma_{dopé}/\gamma_i \approx 24\,000$.` },
+          {
+            md: r`$\gamma_{dopé} \approx N_De\mu_n = 5\cdot10^{20}\times1{,}6\cdot10^{-19}\times0{,}13 = 10{,}4\ \text{S/m}$, soit $\gamma_{dopé}/\gamma_i \approx 24\,000$.`,
+          },
         ],
         origin: 'livret',
-        erratum: 'Le livret écrit l’application numérique avec 5·10¹⁴ (en cm⁻³) multiplié par une mobilité en m²/(V·s) ; le résultat 10,4 S/m n’est correct qu’après conversion de N_D en 5·10²⁰ m⁻³.',
+        erratum:
+          'Le livret écrit l’application numérique avec 5·10¹⁴ (en cm⁻³) multiplié par une mobilité en m²/(V·s) ; le résultat 10,4 S/m n’est correct qu’après conversion de N_D en 5·10²⁰ m⁻³.',
         similar: 'gen-doping-n',
       }),
       part({
         id: 'ES2.1 (ρ)',
-        prompt: 'Calcule la résistivité du semi-conducteur dopé et compare au silicium intrinsèque.',
+        prompt:
+          'Calcule la résistivité du semi-conducteur dopé et compare au silicium intrinsèque.',
         question: num({
           id: 'ex-ES2.1b',
           concepts: ['c2-conduction-sc'],
@@ -888,7 +1113,9 @@ export const TD2: Exercise[] = [
         hints: ['ρ = 1/γ.', '1/10,4 en Ω·m.', 'Compare à ρ_i = 2,3 kΩ·m.'],
         steps: [
           { md: r`$\rho_{dopé} = 1/\gamma_{dopé} \approx 96{,}2\ \text{m}\Omega\cdot\text{m}$.` },
-          { md: 'La conduction est environ 24 000 fois meilleure, la résistivité 24 000 fois plus faible que celle du silicium intrinsèque.' },
+          {
+            md: 'La conduction est environ 24 000 fois meilleure, la résistivité 24 000 fois plus faible que celle du silicium intrinsèque.',
+          },
         ],
         origin: 'livret',
       }),
@@ -912,8 +1139,12 @@ export const TD2: Exercise[] = [
           r`$5\cdot10^{22}\ \text{cm}^{-3}\text{s}^{-1}\times10^{-6}$ s.`,
         ],
         steps: [
-          { md: r`$n = p = G\times\tau = 5\cdot10^{22}\times10^{-6} = 5\cdot10^{16}\ \text{cm}^{-3}$.` },
-          { md: r`$n \gg N_D$ : les porteurs créés par la lumière dominent ; comme dans un intrinsèque, $n \approx p$. (La loi d’action de masse ne s’applique pas : le système n’est pas à l’équilibre.)` },
+          {
+            md: r`$n = p = G\times\tau = 5\cdot10^{22}\times10^{-6} = 5\cdot10^{16}\ \text{cm}^{-3}$.`,
+          },
+          {
+            md: r`$n \gg N_D$ : les porteurs créés par la lumière dominent ; comme dans un intrinsèque, $n \approx p$. (La loi d’action de masse ne s’applique pas : le système n’est pas à l’équilibre.)`,
+          },
         ],
         origin: 'livret',
         similar: 'gen-photoconduction',
@@ -937,7 +1168,11 @@ export const TD2: Exercise[] = [
           r`$\gamma = ne\mu_n + pe\mu_p = ne(\mu_n+\mu_p)$ avec n en m⁻³.`,
           r`$n = 5\cdot10^{22}\ \text{m}^{-3}$, $\mu_n + \mu_p = 0{,}178$.`,
         ],
-        steps: [{ md: r`$\gamma = ne(\mu_n+\mu_p) = 5\cdot10^{22}\times1{,}6\cdot10^{-19}\times(0{,}13+0{,}048) \approx 1424\ \text{S/m}$.` }],
+        steps: [
+          {
+            md: r`$\gamma = ne(\mu_n+\mu_p) = 5\cdot10^{22}\times1{,}6\cdot10^{-19}\times(0{,}13+0{,}048) \approx 1424\ \text{S/m}$.`,
+          },
+        ],
         origin: 'livret',
       }),
       part({
@@ -955,8 +1190,13 @@ export const TD2: Exercise[] = [
         }),
         hints: ['ρ = 1/γ.', '1/1424.', 'Compare avec le cas dopé (96 mΩ·m).'],
         steps: [
-          { md: r`$\rho = 1/\gamma \approx 7\cdot10^{-4}\ \Omega\cdot\text{m} = 0{,}7\ \text{m}\Omega\cdot\text{m}$.` },
-          { title: 'Conclusion', md: 'Dans ces conditions, la conduction est bien meilleure sous éclairement qu’avec le seul dopage.' },
+          {
+            md: r`$\rho = 1/\gamma \approx 7\cdot10^{-4}\ \Omega\cdot\text{m} = 0{,}7\ \text{m}\Omega\cdot\text{m}$.`,
+          },
+          {
+            title: 'Conclusion',
+            md: 'Dans ces conditions, la conduction est bien meilleure sous éclairement qu’avec le seul dopage.',
+          },
         ],
         origin: 'livret',
       }),
@@ -971,7 +1211,10 @@ export const TD2: Exercise[] = [
     statement:
       'L’aluminium possède 3 électrons de valence, une masse atomique M_Al = 26,98 g/mol, une masse volumique 2,7 g/cm³ et une résistivité ρ = 2,65 µΩ·cm. On donne 𝒩_A = 6,02·10²³ mol⁻¹.',
     data: [
-      { label: 'Aluminium', value: r`3 e⁻ de valence, $M = 26{,}98$ g/mol, $2{,}7\ \text{g/cm}^3$, $\rho = 2{,}65\ \mu\Omega\cdot\text{cm}$` },
+      {
+        label: 'Aluminium',
+        value: r`3 e⁻ de valence, $M = 26{,}98$ g/mol, $2{,}7\ \text{g/cm}^3$, $\rho = 2{,}65\ \mu\Omega\cdot\text{cm}$`,
+      },
       { label: 'Avogadro', value: r`$\mathcal{N}_A = 6{,}02\cdot10^{23}\ \text{mol}^{-1}$` },
     ],
     objective: 'Remonter à la mobilité des électrons d’un métal à partir de sa résistivité.',
@@ -1002,9 +1245,16 @@ export const TD2: Exercise[] = [
         ],
         steps: [
           { md: r`$\rho = 1/\gamma$ et $\gamma = en\mu_e$ ⇒ $\mu_e = \dfrac{1}{en\rho}$.` },
-          { md: r`$N_{Al} = \dfrac{\mathcal{N}_A\,\rho_{Al}}{M_{Al}} = \dfrac{6{,}02\cdot10^{23}\times2{,}7}{26{,}98} \approx 6\cdot10^{22}\ \text{cm}^{-3}$, puis $n = 3N_{Al} \approx 1{,}8\cdot10^{23}\ \text{cm}^{-3}$.` },
-          { md: r`$\mu_e = \dfrac{1}{1{,}6\cdot10^{-19}\times1{,}8\cdot10^{23}\times2{,}65\cdot10^{-6}} \approx 13{,}1\ \text{cm}^2/(\text{V·s})$.` },
-          { title: 'Remarque', md: 'Mobilité environ 100 fois plus faible que dans le silicium, mais beaucoup plus de porteurs (≈ 10²³ cm⁻³ contre 10¹⁶ à 10²⁰ dans le silicium dopé).' },
+          {
+            md: r`$N_{Al} = \dfrac{\mathcal{N}_A\,\rho_{Al}}{M_{Al}} = \dfrac{6{,}02\cdot10^{23}\times2{,}7}{26{,}98} \approx 6\cdot10^{22}\ \text{cm}^{-3}$, puis $n = 3N_{Al} \approx 1{,}8\cdot10^{23}\ \text{cm}^{-3}$.`,
+          },
+          {
+            md: r`$\mu_e = \dfrac{1}{1{,}6\cdot10^{-19}\times1{,}8\cdot10^{23}\times2{,}65\cdot10^{-6}} \approx 13{,}1\ \text{cm}^2/(\text{V·s})$.`,
+          },
+          {
+            title: 'Remarque',
+            md: 'Mobilité environ 100 fois plus faible que dans le silicium, mais beaucoup plus de porteurs (≈ 10²³ cm⁻³ contre 10¹⁶ à 10²⁰ dans le silicium dopé).',
+          },
         ],
         origin: 'livret',
       }),
@@ -1022,11 +1272,24 @@ export const TD2: Exercise[] = [
       { label: 'Zone 1', value: r`$N_A = 10^{13}\ \text{cm}^{-3}$` },
       { label: 'Zone 2', value: r`$N_D = 10^{15}\ \text{cm}^{-3}$` },
       { label: 'Zones 3 et 4', value: r`$N_A = 10^{17}\ \text{cm}^{-3}$` },
-      { label: 'Concentration intrinsèque (300 K)', value: r`$n_i = 8{,}3\cdot10^9\ \text{cm}^{-3}$` },
+      {
+        label: 'Concentration intrinsèque (300 K)',
+        value: r`$n_i = 8{,}3\cdot10^9\ \text{cm}^{-3}$`,
+      },
     ],
-    figure: { label: 'Figures 2.3 et 2.4', description: 'Schéma des zones de la plaquette ; mobilité des porteurs en fonction de la concentration d’impuretés à 200 K (graphiques du livret).', page: 17 },
+    figure: {
+      label: 'Figures 2.3 et 2.4',
+      description:
+        'Schéma des zones de la plaquette ; mobilité des porteurs en fonction de la concentration d’impuretés à 200 K (graphiques du livret).',
+      page: 17,
+    },
     objective: 'Identifier le type de chaque zone et calculer majoritaires et minoritaires.',
-    skills: ['Type de dopage', 'p ≈ N_A / n ≈ N_D', 'Loi d’action de masse', 'Méthode de calcul de ρ'],
+    skills: [
+      'Type de dopage',
+      'p ≈ N_A / n ≈ N_D',
+      'Loi d’action de masse',
+      'Méthode de calcul de ρ',
+    ],
     prerequisiteLessonIds: ['c2-l5', 'c2-l6', 'c2-l7'],
     conceptIds: ['c2-dopage', 'c2-action-masse', 'c2-conduction-sc'],
     difficulty: 2,
@@ -1049,7 +1312,11 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['N_A : accepteurs ; N_D : donneurs.', 'Accepteurs ⇒ trous majoritaires.', 'Zones 1, 3, 4 : accepteurs ; zone 2 : donneurs.'],
+        hints: [
+          'N_A : accepteurs ; N_D : donneurs.',
+          'Accepteurs ⇒ trous majoritaires.',
+          'Zones 1, 3, 4 : accepteurs ; zone 2 : donneurs.',
+        ],
         steps: [{ md: 'Zone 1 : P ; zone 2 : N ; zones 3 et 4 : P.' }],
         origin: 'livret',
       }),
@@ -1066,8 +1333,16 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Zone P : p ≈ N_A.', r`$n = n_i^2/N_A$.`, r`$(8{,}3\cdot10^9)^2 = 6{,}89\cdot10^{19}$.`],
-        steps: [{ md: r`$p \approx N_A = 10^{13}$ cm⁻³ ; $n = \dfrac{n_i^2}{p} = \dfrac{6{,}89\cdot10^{19}}{10^{13}} \approx 6{,}9\cdot10^6$ cm⁻³.` }],
+        hints: [
+          'Zone P : p ≈ N_A.',
+          r`$n = n_i^2/N_A$.`,
+          r`$(8{,}3\cdot10^9)^2 = 6{,}89\cdot10^{19}$.`,
+        ],
+        steps: [
+          {
+            md: r`$p \approx N_A = 10^{13}$ cm⁻³ ; $n = \dfrac{n_i^2}{p} = \dfrac{6{,}89\cdot10^{19}}{10^{13}} \approx 6{,}9\cdot10^6$ cm⁻³.`,
+          },
+        ],
         origin: 'livret',
         similar: 'gen-mass-action',
       }),
@@ -1085,9 +1360,14 @@ export const TD2: Exercise[] = [
           origin: 'pdf',
         }),
         hints: ['Zone N : n ≈ N_D.', r`$p = n_i^2/N_D$.`, r`$6{,}89\cdot10^{19}/10^{15}$.`],
-        steps: [{ md: r`$n \approx N_D = 10^{15}$ cm⁻³ ; $p = \dfrac{n_i^2}{N_D} \approx 6{,}9\cdot10^4$ cm⁻³.` }],
+        steps: [
+          {
+            md: r`$n \approx N_D = 10^{15}$ cm⁻³ ; $p = \dfrac{n_i^2}{N_D} \approx 6{,}9\cdot10^4$ cm⁻³.`,
+          },
+        ],
         origin: 'livret',
-        erratum: 'Coquilles du livret pour la zone 2 : « n ≈ N_A » doit se lire n ≈ N_D, et le dénominateur intermédiaire « 10¹³ » doit se lire 10¹⁵ (le résultat 6,9·10⁴ cm⁻³ est correct).',
+        erratum:
+          'Coquilles du livret pour la zone 2 : « n ≈ N_A » doit se lire n ≈ N_D, et le dénominateur intermédiaire « 10¹³ » doit se lire 10¹⁵ (le résultat 6,9·10⁴ cm⁻³ est correct).',
       }),
       part({
         id: 'ES2.6 (zones 3 et 4)',
@@ -1103,20 +1383,31 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Ce sont des zones P (accepteurs).', 'Majoritaires : trous, p ≈ N_A. Minoritaires : électrons.', r`$n = 6{,}89\cdot10^{19}/10^{17}$.`],
-        steps: [{ md: r`Zones P : $p \approx N_A = 10^{17}$ cm⁻³ ; électrons minoritaires $n = \dfrac{n_i^2}{N_A} \approx 689$ cm⁻³.` }],
+        hints: [
+          'Ce sont des zones P (accepteurs).',
+          'Majoritaires : trous, p ≈ N_A. Minoritaires : électrons.',
+          r`$n = 6{,}89\cdot10^{19}/10^{17}$.`,
+        ],
+        steps: [
+          {
+            md: r`Zones P : $p \approx N_A = 10^{17}$ cm⁻³ ; électrons minoritaires $n = \dfrac{n_i^2}{N_A} \approx 689$ cm⁻³.`,
+          },
+        ],
         origin: 'livret',
-        erratum: 'Le livret écrit « n ≈ N_A = 10¹⁷ » et « p = 689 cm⁻³ » pour les zones 3 et 4 : c’est inversé. Ces zones étant de type P (accepteurs), ce sont les trous qui valent ≈ 10¹⁷ cm⁻³ et les électrons ≈ 689 cm⁻³.',
+        erratum:
+          'Le livret écrit « n ≈ N_A = 10¹⁷ » et « p = 689 cm⁻³ » pour les zones 3 et 4 : c’est inversé. Ces zones étant de type P (accepteurs), ce sont les trous qui valent ≈ 10¹⁷ cm⁻³ et les électrons ≈ 689 cm⁻³.',
       }),
       part({
         id: 'ES2.7',
-        prompt: 'Explique comment calculer les résistivités des différentes zones (figure 2.4 : mobilités à 200 K).',
+        prompt:
+          'Explique comment calculer les résistivités des différentes zones (figure 2.4 : mobilités à 200 K).',
         question: selfcheck({
           id: 'ex-ES2.7',
           concepts: ['c2-conduction-sc'],
           difficulty: 2,
           prompt: 'Méthode de calcul des résistivités',
-          model: 'ρ = 1/γ avec γ = e(nμ_n + pμ_p). Pour chaque zone, on lit μ_n et μ_p sur la figure 2.4 à la concentration d’impuretés N de la zone (N_A pour les zones 1, 3, 4 ; N_D pour la zone 2), puis on injecte n et p calculés à la question précédente.',
+          model:
+            'ρ = 1/γ avec γ = e(nμ_n + pμ_p). Pour chaque zone, on lit μ_n et μ_p sur la figure 2.4 à la concentration d’impuretés N de la zone (N_A pour les zones 1, 3, 4 ; N_D pour la zone 2), puis on injecte n et p calculés à la question précédente.',
           criteria: [
             'J’ai écrit ρ = 1/[e(nμ_n + pμ_p)] avec un signe +.',
             'J’ai expliqué qu’on lit μ_n et μ_p sur le graphe à la concentration d’impuretés de la zone.',
@@ -1126,13 +1417,22 @@ export const TD2: Exercise[] = [
           td: ['TD2'],
           origin: 'pdf',
         }),
-        hints: ['Relie ρ à γ, puis γ à n, p, μ_n, μ_p.', 'Les mobilités dépendent du dopage : où les trouver ?', 'Lis μ à l’abscisse N de chaque zone sur la figure 2.4.'],
+        hints: [
+          'Relie ρ à γ, puis γ à n, p, μ_n, μ_p.',
+          'Les mobilités dépendent du dopage : où les trouver ?',
+          'Lis μ à l’abscisse N de chaque zone sur la figure 2.4.',
+        ],
         steps: [
-          { md: r`$\rho = \dfrac{1}{\gamma}$ et $\gamma = e(n\mu_n + p\mu_p)$, donc $\rho = \dfrac{1}{e(n\mu_n + p\mu_p)}$.` },
-          { md: 'Lire μ_n et μ_p sur la figure 2.4 pour N = N_A (zones 1, 3, 4) ou N = N_D (zone 2), puis injecter n et p.' },
+          {
+            md: r`$\rho = \dfrac{1}{\gamma}$ et $\gamma = e(n\mu_n + p\mu_p)$, donc $\rho = \dfrac{1}{e(n\mu_n + p\mu_p)}$.`,
+          },
+          {
+            md: 'Lire μ_n et μ_p sur la figure 2.4 pour N = N_A (zones 1, 3, 4) ou N = N_D (zone 2), puis injecter n et p.',
+          },
         ],
         origin: 'livret',
-        erratum: 'Le livret écrit ρ = 1/[e(pμ_p − nμ_n)] : le signe « − » est une erreur. Les contributions des électrons et des trous s’ajoutent (cours 2, diapo 27).',
+        erratum:
+          'Le livret écrit ρ = 1/[e(pμ_p − nμ_n)] : le signe « − » est une erreur. Les contributions des électrons et des trous s’ajoutent (cours 2, diapo 27).',
       }),
     ],
   },
@@ -1145,7 +1445,10 @@ export const TD2: Exercise[] = [
     statement:
       'On imagine que le silicium se comporte comme un métal, avec un électron libre par atome.',
     data: [
-      { label: 'Silicium', value: r`$\rho_{Si} = 2{,}33\cdot10^3\ \text{kg/m}^3$, $M_{Si} = 28{,}086$ g/mol` },
+      {
+        label: 'Silicium',
+        value: r`$\rho_{Si} = 2{,}33\cdot10^3\ \text{kg/m}^3$, $M_{Si} = 28{,}086$ g/mol`,
+      },
       { label: 'Avogadro', value: r`$\mathcal{N}_A = 6{,}02\cdot10^{23}\ \text{mol}^{-1}$` },
     ],
     objective: 'Estimer l’ordre de grandeur du nombre d’atomes dans un solide.',
@@ -1174,8 +1477,12 @@ export const TD2: Exercise[] = [
           r`$2{,}33\cdot10^3\ \text{kg/m}^3 = 2{,}33\ \text{g/cm}^3$.`,
         ],
         steps: [
-          { md: r`$\rho_{Si} = 2{,}33\cdot10^3\ \text{kg/m}^3 = 2{,}33\cdot10^6\ \text{g/m}^3 = 2{,}33\ \text{g/cm}^3$.` },
-          { md: r`$N = \dfrac{6{,}02\cdot10^{23}\times2{,}33}{28{,}086} \approx 5\cdot10^{22}\ \text{cm}^{-3}$ ; un électron par atome ⇒ $n = 5\cdot10^{22}$ électrons libres par cm³.` },
+          {
+            md: r`$\rho_{Si} = 2{,}33\cdot10^3\ \text{kg/m}^3 = 2{,}33\cdot10^6\ \text{g/m}^3 = 2{,}33\ \text{g/cm}^3$.`,
+          },
+          {
+            md: r`$N = \dfrac{6{,}02\cdot10^{23}\times2{,}33}{28{,}086} \approx 5\cdot10^{22}\ \text{cm}^{-3}$ ; un électron par atome ⇒ $n = 5\cdot10^{22}$ électrons libres par cm³.`,
+          },
         ],
         origin: 'livret',
         similar: 'gen-atoms',

@@ -1,5 +1,14 @@
 import type { Exercise, Lesson, Question } from '@/types';
-import { CHAPTERS, CONCEPTS, COURSE, DOCS, PLANNED_CHAPTERS, chapterById, conceptById } from './course';
+import {
+  CHAPTERS,
+  CONCEPTS,
+  COURSE,
+  DOCS,
+  PLANNED_CHAPTERS,
+  chapterById,
+  conceptById,
+  conceptsOfChapter,
+} from './course';
 import { FORMULAS, formulaById } from './formulas';
 import { LESSONS_C0 } from './lessons/c0';
 import { LESSONS_C1 } from './lessons/c1';
@@ -13,8 +22,19 @@ import { FLASHCARDS, FLASHCARD_KIND_LABEL } from './flashcards';
 import { GLOSSARY } from './glossary';
 import { EXPLANATIONS } from './explain';
 
-export { CHAPTERS, CONCEPTS, COURSE, DOCS, PLANNED_CHAPTERS, FORMULAS, FLASHCARDS, FLASHCARD_KIND_LABEL, GLOSSARY, EXPLANATIONS };
-export { chapterById, conceptById, formulaById };
+export {
+  CHAPTERS,
+  CONCEPTS,
+  COURSE,
+  DOCS,
+  PLANNED_CHAPTERS,
+  FORMULAS,
+  FLASHCARDS,
+  FLASHCARD_KIND_LABEL,
+  GLOSSARY,
+  EXPLANATIONS,
+};
+export { chapterById, conceptById, conceptsOfChapter, formulaById };
 
 export const LESSONS: Lesson[] = [...LESSONS_C0, ...LESSONS_C1, ...LESSONS_C2];
 

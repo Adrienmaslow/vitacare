@@ -26,7 +26,11 @@ export const LESSONS_C1: Lesson[] = [
           r`Hors générateur, tension et courant sont fléchés en sens opposés : $u_R = +Ri$.`,
         ],
       },
-      { kind: 'visual', visual: 'receptor-convention', caption: 'Électrons et courant conventionnel circulent en sens opposés.' },
+      {
+        kind: 'visual',
+        visual: 'receptor-convention',
+        caption: 'Électrons et courant conventionnel circulent en sens opposés.',
+      },
       { kind: 'heading', text: 'De la tension au courant' },
       { kind: 'formula', formulaId: 'f-champ' },
       { kind: 'formula', formulaId: 'f-coulomb-courant' },
@@ -70,7 +74,12 @@ export const LESSONS_C1: Lesson[] = [
         md: r`Après environ $5\tau$, le terme exponentiel est négligeable : la vitesse moyenne devient constante. C’est la **vitesse de dérive**.`,
       },
       { kind: 'formula', formulaId: 'f-drude' },
-      { kind: 'visual', visual: 'drift', caption: 'Agitation désordonnée + lente dérive opposée au champ. Augmente la tension pour voir la dérive s’accentuer.' },
+      {
+        kind: 'visual',
+        visual: 'drift',
+        caption:
+          'Agitation désordonnée + lente dérive opposée au champ. Augmente la tension pour voir la dérive s’accentuer.',
+      },
       {
         kind: 'example',
         title: 'Application numérique du cours (diapo 9)',
@@ -151,12 +160,20 @@ export const LESSONS_C1: Lesson[] = [
         md: r`En intégrant la loi d’Ohm locale sur la section, $i = \gamma E S = \gamma\dfrac{u}{\ell}S$, donc $u = \dfrac{\ell}{\gamma S}\,i$ : on retrouve $u = Ri$.`,
       },
       { kind: 'formula', formulaId: 'f-resistance' },
-      { kind: 'visual', visual: 'resistance-explorer', caption: 'Modifie le matériau, la longueur et le diamètre pour voir l’effet sur R.' },
+      {
+        kind: 'visual',
+        visual: 'resistance-explorer',
+        caption: 'Modifie le matériau, la longueur et le diamètre pour voir l’effet sur R.',
+      },
       {
         kind: 'example',
         title: 'Application numérique du cours (diapo 15)',
-        statement: 'Fil de carbone de 10 cm, de rayon r = 0,2 mm, soumis à 10 V ; γ = 2,5·10⁴ Ω⁻¹·m⁻¹.',
-        steps: [r`$R = \dfrac{0{,}1}{2{,}5\cdot10^4\times\pi\times(2\cdot10^{-4})^2} \approx 31{,}8\ \Omega$.`, r`$i = u/R = 10/31{,}8 \approx 0{,}314$ A.`],
+        statement:
+          'Fil de carbone de 10 cm, de rayon r = 0,2 mm, soumis à 10 V ; γ = 2,5·10⁴ Ω⁻¹·m⁻¹.',
+        steps: [
+          r`$R = \dfrac{0{,}1}{2{,}5\cdot10^4\times\pi\times(2\cdot10^{-4})^2} \approx 31{,}8\ \Omega$.`,
+          r`$i = u/R = 10/31{,}8 \approx 0{,}314$ A.`,
+        ],
         source: S('15'),
       },
       {
@@ -281,7 +298,12 @@ export const LESSONS_C1: Lesson[] = [
       },
       { kind: 'formula', formulaId: 'f-condensateur' },
       { kind: 'formula', formulaId: 'f-condensateur-plan' },
-      { kind: 'visual', visual: 'capacitor-explorer', caption: 'Surface, écartement, diélectrique : observe C, puis la tension nécessaire pour stocker une charge donnée.' },
+      {
+        kind: 'visual',
+        visual: 'capacitor-explorer',
+        caption:
+          'Surface, écartement, diélectrique : observe C, puis la tension nécessaire pour stocker une charge donnée.',
+      },
       { kind: 'heading', text: 'Applications (diapos 40-43)' },
       {
         kind: 'list',

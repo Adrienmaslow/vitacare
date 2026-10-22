@@ -45,19 +45,31 @@ describe('maîtrise', () => {
     expect(m.status).not.toBe('maitrisee');
   });
   it('plusieurs réussites autonomes ⇒ maîtrisée', () => {
-    const attempts = Array.from({ length: 8 }, (_, i) => att({ at: NOW - i * 1000, context: 'exercise' }));
+    const attempts = Array.from({ length: 8 }, (_, i) =>
+      att({ at: NOW - i * 1000, context: 'exercise' }),
+    );
     const m = computeMastery('c1-resistivite', attempts, NOW);
     expect(m.score).toBeGreaterThanOrEqual(0.75);
     expect(m.status).toBe('maitrisee');
   });
   it('une réussite après 3 indices vaut moins qu’une réussite autonome', () => {
     expect(attemptCredit(att({ hintsUsed: 3 }))).toBeLessThan(attemptCredit(att({ hintsUsed: 0 })));
-    const a = computeMastery('c1-resistivite', Array.from({ length: 5 }, () => att({ hintsUsed: 3 })), NOW);
-    const b = computeMastery('c1-resistivite', Array.from({ length: 5 }, () => att({ hintsUsed: 0 })), NOW);
+    const a = computeMastery(
+      'c1-resistivite',
+      Array.from({ length: 5 }, () => att({ hintsUsed: 3 })),
+      NOW,
+    );
+    const b = computeMastery(
+      'c1-resistivite',
+      Array.from({ length: 5 }, () => att({ hintsUsed: 0 })),
+      NOW,
+    );
     expect(a.score).toBeLessThan(b.score);
   });
   it('un deuxième essai réussi vaut moins qu’un premier essai', () => {
-    expect(attemptCredit(att({ attemptNumber: 2 }))).toBeLessThan(attemptCredit(att({ attemptNumber: 1 })));
+    expect(attemptCredit(att({ attemptNumber: 2 }))).toBeLessThan(
+      attemptCredit(att({ attemptNumber: 1 })),
+    );
   });
   it('les mauvaises réponses font baisser le score', () => {
     const good = Array.from({ length: 4 }, () => att({}));
@@ -163,7 +175,9 @@ describe('évaluation des questions', () => {
   it('autocorrection guidée par critères', () => {
     const q = questionById('ex-AD2.6')!;
     if (q.type !== 'selfcheck') throw new Error();
-    expect(evaluate(q, { type: 'selfcheck', criteriaMet: q.criteria.map(() => true) }).correct).toBe(true);
+    expect(
+      evaluate(q, { type: 'selfcheck', criteriaMet: q.criteria.map(() => true) }).correct,
+    ).toBe(true);
     const r = evaluate(q, { type: 'selfcheck', criteriaMet: q.criteria.map((_, i) => i === 0) });
     expect(r.correct).toBe(false);
     expect(r.score).toBeGreaterThan(0);

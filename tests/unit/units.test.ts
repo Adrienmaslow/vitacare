@@ -90,7 +90,9 @@ describe('checkNumeric — validation des résultats', () => {
   });
   it('accepte les unités équivalentes et conversions', () => {
     expect(checkNumeric('5e14 cm^-3', ans(5e20, 'm^-3')).correct).toBe(true);
-    expect(checkNumeric('1,845e-8 Ω.m', ans(1.845, 'µΩ.cm', { tolerance: 0.01 })).correct).toBe(true);
+    expect(checkNumeric('1,845e-8 Ω.m', ans(1.845, 'µΩ.cm', { tolerance: 0.01 })).correct).toBe(
+      true,
+    );
     expect(checkNumeric('3,98 pF', ans(3.9825e-12, 'F')).correct).toBe(true);
     expect(checkNumeric('0,333 µC/m²', ans(3.333e-7, 'C/m^2')).correct).toBe(true);
     expect(checkNumeric('13 cm²/Vs', ans(13.05, 'cm^2/(V.s)')).correct).toBe(true);
@@ -108,8 +110,12 @@ describe('checkNumeric — validation des résultats', () => {
     expect(r.feedback).toMatch(/unité manque/);
   });
   it('accepte l’absence d’unité si elle n’est pas exigée', () => {
-    expect(checkNumeric('1,66e20', ans(1.666e20, 's^-1', { unitRequired: false })).correct).toBe(true);
-    expect(checkNumeric('1,66e20 électrons/s', ans(1.666e20, 's^-1', { unitRequired: false })).correct).toBe(true);
+    expect(checkNumeric('1,66e20', ans(1.666e20, 's^-1', { unitRequired: false })).correct).toBe(
+      true,
+    );
+    expect(
+      checkNumeric('1,66e20 électrons/s', ans(1.666e20, 's^-1', { unitRequired: false })).correct,
+    ).toBe(true);
   });
   it('refuse une unité non homogène', () => {
     const r = checkNumeric('0,26 S', ans(0.261, 'Ω'));

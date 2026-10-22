@@ -16,15 +16,18 @@ export const QUESTIONS_C1 = [
       [r`$i = Ru_R$`, 'R n’est pas une conductance.'],
     ],
     correct: 0,
-    explanation: 'Cours 1, diapo 3 : hors générateur, tensions et courants sont fléchés en sens opposés et u_R = +Ri.',
+    explanation:
+      'Cours 1, diapo 3 : hors générateur, tensions et courants sont fléchés en sens opposés et u_R = +Ri.',
     source: C1('3'),
   }),
   tf({
     id: 'q-c1-cr2',
     concepts: ['c1-convention', 'c1-champ'],
-    prompt: 'Dans le circuit extérieur au générateur, les électrons se déplacent du pôle − vers le pôle +.',
+    prompt:
+      'Dans le circuit extérieur au générateur, les électrons se déplacent du pôle − vers le pôle +.',
     answer: true,
-    explanation: 'Les porteurs négatifs issus du pôle − « veulent rejoindre » le pôle + : ils vont dans le sens inverse du courant conventionnel.',
+    explanation:
+      'Les porteurs négatifs issus du pôle − « veulent rejoindre » le pôle + : ils vont dans le sens inverse du courant conventionnel.',
     source: C1('3-4'),
   }),
   mcq({
@@ -33,7 +36,10 @@ export const QUESTIONS_C1 = [
     prompt: 'Dans un champ électrique E, quelle force subit un électron ?',
     choices: [
       [r`$\vec F = -e\vec E$, opposée au champ`, 'Oui : loi de Coulomb avec q = −e.'],
-      [r`$\vec F = e\vec E$, dans le sens du champ`, 'C’est le cas d’une charge positive (un trou, par exemple).'],
+      [
+        r`$\vec F = e\vec E$, dans le sens du champ`,
+        'C’est le cas d’une charge positive (un trou, par exemple).',
+      ],
       ['Aucune force : l’électron est neutre.', 'L’électron porte la charge −e.'],
       [r`$\vec F = m\vec E$`, 'La force dépend de la charge, pas de la masse.'],
     ],
@@ -44,7 +50,8 @@ export const QUESTIONS_C1 = [
   num({
     id: 'q-c1-cr4',
     concepts: ['c1-champ'],
-    prompt: 'Une tension de 10 V est appliquée aux extrémités d’un conducteur homogène de 2 m. Quelle est la norme du champ électrique ?',
+    prompt:
+      'Une tension de 10 V est appliquée aux extrémités d’un conducteur homogène de 2 m. Quelle est la norme du champ électrique ?',
     value: 5,
     unit: 'V/m',
     explanation: r`$E = u/\ell = 10/2 = 5$ V/m.`,
@@ -57,7 +64,8 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-v1',
     concepts: ['c1-derive', 'c1-champ'],
     difficulty: 2,
-    prompt: 'Une plaquette de 5 mm d’épaisseur est soumise à 2 V. La mobilité des électrons vaut 0,14 m²/(V·s). Quelle est leur vitesse de dérive ?',
+    prompt:
+      'Une plaquette de 5 mm d’épaisseur est soumise à 2 V. La mobilité des électrons vaut 0,14 m²/(V·s). Quelle est leur vitesse de dérive ?',
     value: 56,
     unit: 'm/s',
     explanation: r`$E = 2/0{,}005 = 400$ V/m, puis $v = \mu E = 0{,}14\times400 = 56$ m/s.`,
@@ -66,11 +74,18 @@ export const QUESTIONS_C1 = [
   mcq({
     id: 'q-c1-v2',
     concepts: ['c1-derive'],
-    prompt: 'Dans le fil de cuivre du cours (ℓ = 10 m, u = 10 V), quel est l’ordre de grandeur de la vitesse de dérive des électrons ?',
+    prompt:
+      'Dans le fil de cuivre du cours (ℓ = 10 m, u = 10 V), quel est l’ordre de grandeur de la vitesse de dérive des électrons ?',
     choices: [
       ['Quelques mm/s', 'Oui : environ 5 mm/s.'],
-      ['10⁶ m/s', 'C’est la vitesse instantanée d’agitation thermique, pas la vitesse moyenne de dérive.'],
-      ['3·10⁸ m/s', 'C’est la vitesse de la lumière : le signal électrique se propage vite, mais pas les électrons.'],
+      [
+        '10⁶ m/s',
+        'C’est la vitesse instantanée d’agitation thermique, pas la vitesse moyenne de dérive.',
+      ],
+      [
+        '3·10⁸ m/s',
+        'C’est la vitesse de la lumière : le signal électrique se propage vite, mais pas les électrons.',
+      ],
       ['Quelques km/s', 'Beaucoup trop rapide.'],
     ],
     correct: 0,
@@ -84,9 +99,15 @@ export const QUESTIONS_C1 = [
     prompt: 'Quelle est l’expression de la mobilité μ des électrons dans le modèle de Drude ?',
     choices: [
       [r`$\mu = \dfrac{e\tau}{m}$`, 'Oui.'],
-      [r`$\mu = \dfrac{m}{e\tau}$`, 'Expression inversée : une masse plus grande augmenterait la mobilité.'],
+      [
+        r`$\mu = \dfrac{m}{e\tau}$`,
+        'Expression inversée : une masse plus grande augmenterait la mobilité.',
+      ],
       [r`$\mu = e\tau m$`, 'Unité incorrecte.'],
-      [r`$\mu = \dfrac{e}{\tau m}$`, 'Des collisions plus espacées (τ grand) doivent AUGMENTER la mobilité.'],
+      [
+        r`$\mu = \dfrac{e}{\tau m}$`,
+        'Des collisions plus espacées (τ grand) doivent AUGMENTER la mobilité.',
+      ],
     ],
     correct: 0,
     explanation: 'Cours 1, diapo 8 : μ = eτ/m, en m²/(V·s).',
@@ -104,7 +125,8 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-v5',
     concepts: ['c1-derive'],
     difficulty: 2,
-    prompt: 'Avec τ = 3·10⁻¹⁴ s, au bout de combien de temps le régime permanent est-il pratiquement atteint (critère du cours) ?',
+    prompt:
+      'Avec τ = 3·10⁻¹⁴ s, au bout de combien de temps le régime permanent est-il pratiquement atteint (critère du cours) ?',
     value: 1.5e-13,
     unit: 's',
     explanation: r`Le terme $\vec K e^{-t/\tau}$ devient négligeable pour $t > 5\tau = 1{,}5\cdot10^{-13}$ s : quasi instantané.`,
@@ -115,7 +137,8 @@ export const QUESTIONS_C1 = [
   num({
     id: 'q-c1-j1',
     concepts: ['c1-densite', 'c0-unites'],
-    prompt: 'Un courant de 2 A traverse uniformément une section de 1 mm². Quelle est la densité de courant ?',
+    prompt:
+      'Un courant de 2 A traverse uniformément une section de 1 mm². Quelle est la densité de courant ?',
     value: 2e6,
     unit: 'A/m^2',
     explanation: r`$j = i/S = 2/10^{-6} = 2\cdot10^6$ A/m².`,
@@ -153,7 +176,8 @@ export const QUESTIONS_C1 = [
   num({
     id: 'q-c1-j4',
     concepts: ['c1-ohm-locale'],
-    prompt: 'Dans du cuivre (γ = 59,6·10⁶ S/m), le champ vaut 0,01 V/m. Quelle est la densité de courant ?',
+    prompt:
+      'Dans du cuivre (γ = 59,6·10⁶ S/m), le champ vaut 0,01 V/m. Quelle est la densité de courant ?',
     value: 5.96e5,
     unit: 'A/m^2',
     explanation: r`$j = \gamma E = 59{,}6\cdot10^6\times0{,}01 = 5{,}96\cdot10^5$ A/m².`,
@@ -165,7 +189,8 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-r1',
     concepts: ['c1-resistivite'],
     difficulty: 2,
-    prompt: 'Fil de cuivre : ρ = 1,7·10⁻⁸ Ω·m, longueur 10 m, diamètre 1 mm. Quelle est sa résistance ?',
+    prompt:
+      'Fil de cuivre : ρ = 1,7·10⁻⁸ Ω·m, longueur 10 m, diamètre 1 mm. Quelle est sa résistance ?',
     value: (1.7e-8 * 10) / (Math.PI * 0.5e-3 ** 2),
     unit: 'Ω',
     explanation: r`$S = \pi(0{,}5\cdot10^{-3})^2 \approx 7{,}85\cdot10^{-7}$ m², $R = \rho\ell/S \approx 0{,}217\ \Omega$.`,
@@ -191,7 +216,8 @@ export const QUESTIONS_C1 = [
     concepts: ['c1-resistivite'],
     prompt: 'Sur l’échelle de résistivité du cours, le silicium est classé parmi les conducteurs.',
     answer: false,
-    explanation: 'Le silicium (comme le germanium) est un semi-conducteur ; les métaux (cuivre, argent, or…) sont les conducteurs.',
+    explanation:
+      'Le silicium (comme le germanium) est un semi-conducteur ; les métaux (cuivre, argent, or…) sont les conducteurs.',
     source: C1('16'),
   }),
   match({
@@ -250,7 +276,8 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-t3',
     concepts: ['c1-temperature'],
     difficulty: 2,
-    prompt: 'Un métal pur a ρ₀ = 1,70 µΩ·cm. Deux impuretés ajoutent 0,10 et 0,05 µΩ·cm. Quelle est sa résistivité ?',
+    prompt:
+      'Un métal pur a ρ₀ = 1,70 µΩ·cm. Deux impuretés ajoutent 0,10 et 0,05 µΩ·cm. Quelle est sa résistivité ?',
     value: 1.85,
     unit: 'µΩ.cm',
     explanation: 'Les contributions s’additionnent : 1,70 + 0,10 + 0,05 = 1,85 µΩ·cm.',
@@ -272,7 +299,10 @@ export const QUESTIONS_C1 = [
     concepts: ['c1-composants'],
     prompt: 'Lequel de ces composants est actif ?',
     choices: [
-      ['Le transistor', 'Oui : il peut augmenter la puissance d’un signal grâce à une alimentation externe.'],
+      [
+        'Le transistor',
+        'Oui : il peut augmenter la puissance d’un signal grâce à une alimentation externe.',
+      ],
       ['La résistance', 'Passive : elle dissipe par effet Joule.'],
       ['La bobine', 'Passive.'],
       ['Le condensateur', 'Passif (« dans une moindre mesure », selon le cours).'],
@@ -285,8 +315,9 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-c2',
     concepts: ['c1-composants', 'c0-diviseurs'],
     difficulty: 3,
-    prompt: 'Diviseur R₁ = R₂ = 10 kΩ sous 5 V, sans suiveur, avec une charge R = 1 kΩ en parallèle sur R₂. Quelle tension aux bornes de la charge ?',
-    value: 5 * (10 / 11) / (10 + 10 / 11),
+    prompt:
+      'Diviseur R₁ = R₂ = 10 kΩ sous 5 V, sans suiveur, avec une charge R = 1 kΩ en parallèle sur R₂. Quelle tension aux bornes de la charge ?',
+    value: (5 * (10 / 11)) / (10 + 10 / 11),
     unit: 'V',
     explanation: r`$R_2 \parallel R = 10\cdot1/11 \approx 0{,}909$ kΩ, puis $u_s = \frac{0{,}909}{10{,}909}\times5 \approx 0{,}42$ V (cours 1, diapo 33).`,
     source: C1('33'),
@@ -308,7 +339,8 @@ export const QUESTIONS_C1 = [
   mcq({
     id: 'q-c1-c4',
     concepts: ['c1-composants'],
-    prompt: 'Montage pull-up (10 kΩ vers +3,3 V, bouton vers la masse) : quel niveau lit le microcontrôleur quand le bouton n’est PAS pressé ?',
+    prompt:
+      'Montage pull-up (10 kΩ vers +3,3 V, bouton vers la masse) : quel niveau lit le microcontrôleur quand le bouton n’est PAS pressé ?',
     choices: [
       ['Niveau haut (≈ 3,3 V)', 'Oui : la résistance « tire » l’entrée vers le haut.'],
       ['Niveau bas (0 V)', 'C’est le cas bouton pressé.'],
@@ -325,7 +357,10 @@ export const QUESTIONS_C1 = [
     difficulty: 2,
     prompt: 'Quels éléments parasites le cours utilise-t-il pour modéliser une résistance réelle ?',
     choices: [
-      ['Une inductance série, une capacité parallèle et une résistance de fuite parallèle', 'Oui (L_s, C_p, R_L).'],
+      [
+        'Une inductance série, une capacité parallèle et une résistance de fuite parallèle',
+        'Oui (L_s, C_p, R_L).',
+      ],
       ['Une capacité série uniquement', 'Incomplet et mal placé.'],
       ['Une diode en parallèle', 'Aucune diode dans ce modèle.'],
       ['Aucun : une résistance est toujours idéale', 'Faux aux très hautes fréquences.'],
@@ -349,7 +384,8 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-k2',
     concepts: ['c1-condensateur', 'c0-unites'],
     difficulty: 2,
-    prompt: 'Condensateur plan dans le vide : S = 1 cm², d = 0,1 mm. Quelle est sa capacité ? (ε₀ = 8,85·10⁻¹² F/m)',
+    prompt:
+      'Condensateur plan dans le vide : S = 1 cm², d = 0,1 mm. Quelle est sa capacité ? (ε₀ = 8,85·10⁻¹² F/m)',
     value: 8.85e-12,
     unit: 'F',
     explanation: r`$C = \varepsilon_0 S/d = 8{,}85\cdot10^{-12}\times10^{-4}/10^{-4} = 8{,}85$ pF.`,
@@ -358,7 +394,8 @@ export const QUESTIONS_C1 = [
   mcq({
     id: 'q-c1-k3',
     concepts: ['c1-condensateur'],
-    prompt: 'La tension aux bornes d’un condensateur idéal est constante. Que vaut le courant qui le traverse ?',
+    prompt:
+      'La tension aux bornes d’un condensateur idéal est constante. Que vaut le courant qui le traverse ?',
     choices: [
       ['Zéro', r`Oui : $i = C\,du/dt = 0$.`],
       ['C·u', 'C’est la charge, pas le courant.'],
@@ -387,9 +424,11 @@ export const QUESTIONS_C1 = [
     id: 'q-c1-k5',
     concepts: ['c1-condensateur'],
     difficulty: 2,
-    prompt: 'À charge Q fixée, remplir l’espace entre les armatures d’un diélectrique ε_r = 4 divise la tension par 4.',
+    prompt:
+      'À charge Q fixée, remplir l’espace entre les armatures d’un diélectrique ε_r = 4 divise la tension par 4.',
     answer: true,
-    explanation: 'C est multipliée par ε_r = 4, et u = Q/C est divisée par 4 (cf. livret, Q1.5–Q1.6).',
+    explanation:
+      'C est multipliée par ε_r = 4, et u = Q/C est divisée par 4 (cf. livret, Q1.5–Q1.6).',
     td: ['TD1'],
   }),
   num({

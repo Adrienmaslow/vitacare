@@ -47,7 +47,7 @@ const ALIASES: Record<string, string> = {
   ohms: 'Ω',
   Ohm: 'Ω',
   Ohms: 'Ω',
-  'Ω': 'Ω', // U+2126 (signe ohm) → U+03A9
+  Ω: 'Ω', // U+2126 (signe ohm) → U+03A9
   mho: 'S',
   siemens: 'S',
   volt: 'V',

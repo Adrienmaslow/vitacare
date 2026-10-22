@@ -20,7 +20,10 @@ export const LESSONS_C2: Lesson[] = [
         kind: 'text',
         md: r`Un atome est électriquement neutre : un noyau positif (protons + neutrons = nucléons) et un nuage de $Z$ électrons. Symbole $^{A}_{Z}X$ : $Z$ protons, $A$ nucléons, $N = A - Z$ neutrons.`,
       },
-      { kind: 'text', md: r`Exemple : $^{28}_{14}\text{Si}$ : 14 protons, 14 neutrons, 14 électrons.` },
+      {
+        kind: 'text',
+        md: r`Exemple : $^{28}_{14}\text{Si}$ : 14 protons, 14 neutrons, 14 électrons.`,
+      },
       { kind: 'heading', text: 'Couches électroniques (modèle de Bohr)' },
       {
         kind: 'text',
@@ -104,7 +107,11 @@ export const LESSONS_C2: Lesson[] = [
           '**Niveau de Fermi** : niveau le plus élevé occupable à 0 K (analogie du flotteur sur l’eau).',
         ],
       },
-      { kind: 'visual', visual: 'band-diagram', caption: 'Compare les trois matériaux et fais varier la température.' },
+      {
+        kind: 'visual',
+        visual: 'band-diagram',
+        caption: 'Compare les trois matériaux et fais varier la température.',
+      },
       {
         kind: 'list',
         items: [
@@ -189,7 +196,12 @@ export const LESSONS_C2: Lesson[] = [
         kind: 'text',
         md: 'Bore (ou indium) : 3 électrons de valence. Il manque un électron pour compléter les liaisons : le réseau en fournit un, ce qui crée un trou dans la bande de valence.',
       },
-      { kind: 'visual', visual: 'doping', caption: 'Choisis le dopant : observe l’électron excédentaire ou le trou créé, et l’ion fixe qui reste.' },
+      {
+        kind: 'visual',
+        visual: 'doping',
+        caption:
+          'Choisis le dopant : observe l’électron excédentaire ou le trou créé, et l’ion fixe qui reste.',
+      },
       {
         kind: 'list',
         items: [
@@ -219,7 +231,11 @@ export const LESSONS_C2: Lesson[] = [
         md: 'Équilibre thermodynamique : équilibre thermique (T uniforme), mécanique (pression uniforme) et chimique (pas de courant).',
       },
       { kind: 'formula', formulaId: 'f-action-masse' },
-      { kind: 'visual', visual: 'mass-action', caption: 'Fais varier le dopage : n × p reste égal à n_i².' },
+      {
+        kind: 'visual',
+        visual: 'mass-action',
+        caption: 'Fais varier le dopage : n × p reste égal à n_i².',
+      },
       { kind: 'formula', formulaId: 'f-dopage-n' },
       { kind: 'formula', formulaId: 'f-dopage-p' },
       {
@@ -295,7 +311,12 @@ export const LESSONS_C2: Lesson[] = [
         kind: 'text',
         md: 'Image du cours : une goutte de colorant dans une rivière est emportée par le courant (**dérive**, due à une baisse d’énergie potentielle) et s’élargit (**diffusion**, due à une différence de concentration).',
       },
-      { kind: 'visual', visual: 'conduction-diffusion', caption: 'À gauche : dérive dans un champ. À droite : diffusion depuis une zone concentrée, sans champ.' },
+      {
+        kind: 'visual',
+        visual: 'conduction-diffusion',
+        caption:
+          'À gauche : dérive dans un champ. À droite : diffusion depuis une zone concentrée, sans champ.',
+      },
       { kind: 'formula', formulaId: 'f-fick' },
       {
         kind: 'text',
@@ -332,11 +353,18 @@ export const LESSONS_C2: Lesson[] = [
           r`Ces charges créent un champ $\vec E_d$ (de N vers P) qui s’oppose à la diffusion, jusqu’à l’équilibre : niveaux de Fermi égaux.`,
         ],
       },
-      { kind: 'visual', visual: 'pn-junction', caption: 'Jonction à l’équilibre : ZCE, champ interne et barrière de potentiel.' },
+      {
+        kind: 'visual',
+        visual: 'pn-junction',
+        caption: 'Jonction à l’équilibre : ZCE, champ interne et barrière de potentiel.',
+      },
       { kind: 'formula', formulaId: 'f-barriere' },
       {
         kind: 'list',
-        items: ['À E_g fixé, plus N_A·N_D est grand, plus V₀ est grand.', 'Plus T est grand, plus V₀ est petit (n_i augmente).'],
+        items: [
+          'À E_g fixé, plus N_A·N_D est grand, plus V₀ est grand.',
+          'Plus T est grand, plus V₀ est petit (n_i augmente).',
+        ],
       },
       {
         kind: 'callout',
@@ -376,7 +404,11 @@ export const LESSONS_C2: Lesson[] = [
         kind: 'text',
         md: r`La région P est reliée au potentiel le plus BAS. La tension s’ajoute à la barrière : $V_{total} = V_0 + V_P$. La diffusion des majoritaires est empêchée : **la jonction est bloquante**.`,
       },
-      { kind: 'visual', visual: 'pn-junction', caption: 'Choisis la polarisation : la ZCE se rétrécit (directe) ou s’élargit (inverse).' },
+      {
+        kind: 'visual',
+        visual: 'pn-junction',
+        caption: 'Choisis la polarisation : la ZCE se rétrécit (directe) ou s’élargit (inverse).',
+      },
       {
         kind: 'list',
         items: [
