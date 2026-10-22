@@ -1,0 +1,45 @@
+// Génère les icônes PWA (PNG) à partir du logo SVG, via Chromium (Playwright).
+// Usage : npm run icons   (PW_CHROMIUM_PATH peut pointer vers un Chromium installé)
+import { chromium } from '@playwright/test';
+import { mkdirSync, writeFileSync } from 'node:fs';
+
+const out = new URL('../public/icons/', import.meta.url);
+mkdirSync(out, { recursive: true });
+
+const mark = (pad, radius) => `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d5fe6"/><stop offset="1" stop-color="#14a69b"/></linearGradient></defs>
+  <rect width="512" height="512" rx="${radius}" fill="#141b34"/>
+  <g transform="translate(${pad} ${pad}) scale(${(512 - 2 * pad) / 512})">
+    <rect x="160" y="160" width="192" height="192" rx="40" fill="url(#g)"/>
+    <g stroke="#e8eaf4" stroke-width="19" stroke-linecap="round" opacity="0.9">
+      <path d="M208 112v48M256 112v48M304 112v48M208 352v48M256 352v48M304 352v48M112 208h48M112 256h48M112 304h48M352 208h48M352 256h48M352 304h48"/>
+    </g>
+    <circle cx="256" cy="256" r="32" fill="#fff"/>
+  </g>
+</svg>`;
+
+const svgAny = mark(0, 112);
+const svgMaskable = mark(72, 0); // contenu dans la zone sûre (80 %)
+writeFileSync(new URL('favicon.svg', out), svgAny.trim());
+
+const browser = await chromium.launch(
+  process.env.PW_CHROMIUM_PATH ? { executablePath: process.env.PW_CHROMIUM_PATH } : {},
+);
+const page = await browser.newPage();
+async function render(svg, size, file, bg = 'transparent') {
+  await page.setViewportSize({ width: size, height: size });
+  await page.setContent(
+    `<html><body style="margin:0;background:${bg}"><img src="data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}" width="${size}" height="${size}"></body></html>`,
+  );
+  await page.screenshot({
+    path: new URL(file, out).pathname,
+    omitBackground: bg === 'transparent',
+  });
+}
+await render(svgAny, 192, 'icon-192.png');
+await render(svgAny, 512, 'icon-512.png');
+await render(svgMaskable, 512, 'icon-maskable-512.png', '#141b34');
+await render(mark(24, 0), 180, 'apple-touch-icon.png', '#141b34');
+await browser.close();
+console.log('Icônes générées dans public/icons/');

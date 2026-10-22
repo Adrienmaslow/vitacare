@@ -1,0 +1,459 @@
+import { mcq, num, order, tf } from './helpers';
+
+const r = String.raw;
+const C0 = (pages: string) => ({ doc: 'cours0' as const, pages });
+
+export const QUESTIONS_C0 = [
+  /* ---------------- Unités et conversions (ajout ECE STUDY) ---------------- */
+  num({
+    id: 'q-c0-u1',
+    concepts: ['c0-unites'],
+    prompt: 'Convertis une surface de 900 mm² en m².',
+    value: 9e-4,
+    unit: 'm^2',
+    explanation: r`$1\ \text{mm} = 10^{-3}\ \text{m}$ donc $1\ \text{mm}^2 = 10^{-6}\ \text{m}^2$ : $900\ \text{mm}^2 = 9\cdot10^{-4}\ \text{m}^2$.`,
+    td: ['TD1'],
+  }),
+  mcq({
+    id: 'q-c0-u2',
+    concepts: ['c0-unites'],
+    difficulty: 2,
+    prompt: r`À combien de $\Omega\cdot\text{m}$ correspond $1\ \mu\Omega\cdot\text{cm}$ ?`,
+    choices: [
+      [r`$10^{-8}\ \Omega\cdot\text{m}$`, r`Oui : $10^{-6}$ (micro) × $10^{-2}$ (cm → m).`],
+      [r`$10^{-4}\ \Omega\cdot\text{m}$`, 'Le centimètre a été converti dans le mauvais sens.'],
+      [r`$10^{-6}\ \Omega\cdot\text{m}$`, 'La conversion cm → m a été oubliée.'],
+      [r`$10^{-10}\ \Omega\cdot\text{m}$`, 'Le cm est au numérateur ici, pas au carré.'],
+    ],
+    correct: 0,
+    explanation: r`$1\ \mu\Omega\cdot\text{cm} = 10^{-6}\ \Omega \times 10^{-2}\ \text{m} = 10^{-8}\ \Omega\cdot\text{m}$.`,
+    td: ['TD1'],
+  }),
+  num({
+    id: 'q-c0-u3',
+    concepts: ['c0-unites'],
+    difficulty: 2,
+    prompt: r`Exprime une concentration de $5\cdot10^{14}\ \text{cm}^{-3}$ en $\text{m}^{-3}$.`,
+    value: 5e20,
+    unit: 'm^-3',
+    explanation: r`$1\ \text{m}^3 = 10^6\ \text{cm}^3$ : il y a $10^6$ fois plus de particules dans un m³. $5\cdot10^{14}\times10^6 = 5\cdot10^{20}\ \text{m}^{-3}$.`,
+    td: ['TD2'],
+  }),
+  tf({
+    id: 'q-c0-u4',
+    concepts: ['c0-unites'],
+    prompt: '0,26 Ω et 260 mΩ désignent la même résistance.',
+    answer: true,
+    explanation: '1 mΩ = 10⁻³ Ω, donc 260 mΩ = 0,260 Ω.',
+    td: ['TD1'],
+  }),
+  num({
+    id: 'q-c0-u5',
+    concepts: ['c0-unites'],
+    difficulty: 2,
+    prompt: 'Quelle est la section (en m²) d’un fil de diamètre 3 mm ?',
+    value: Math.PI * 1.5e-3 ** 2,
+    unit: 'm^2',
+    explanation: r`$S = \pi r^2$ avec $r = d/2 = 1{,}5\cdot10^{-3}$ m : $S \approx 7{,}07\cdot10^{-6}\ \text{m}^2$. Piège : utiliser le diamètre donne 4 fois trop.`,
+    td: ['TD1'],
+  }),
+
+  /* ---------------- Loi d'Ohm ---------------- */
+  num({
+    id: 'q-c0-o1',
+    concepts: ['c0-ohm'],
+    prompt:
+      'Une résistance de 100 Ω est traversée par un courant de 20 mA qui entre par sa borne +. Quelle est la tension à ses bornes ?',
+    value: 2,
+    unit: 'V',
+    explanation: r`$V = RI = 100 \times 0{,}020 = 2\ \text{V}$ (penser à convertir les mA en A).`,
+    source: C0('6'),
+    td: ['TD1'],
+  }),
+  mcq({
+    id: 'q-c0-o2',
+    concepts: ['c0-ohm'],
+    prompt:
+      'Le courant I entre dans la résistance R par la borne « − ». Que vaut V_AB (A = borne +, B = borne −) ?',
+    choices: [
+      [r`$V_{AB} = -RI$`, 'Oui : 1ʳᵉ formulation du cours, courant entrant par la borne −.'],
+      [r`$V_{AB} = +RI$`, 'C’est le cas où le courant entre par la borne +.'],
+      [r`$V_{AB} = RI/2$`, 'Aucun facteur ½ dans la loi d’Ohm.'],
+      [r`$V_{AB} = 0$`, 'Une résistance parcourue par un courant a une tension non nulle.'],
+    ],
+    correct: 0,
+    explanation:
+      'Cours 0, diapo 6 : si i entre par la borne +, V_AB = +RI ; s’il entre par la borne −, V_AB = −RI.',
+    source: C0('6'),
+  }),
+  num({
+    id: 'q-c0-o3',
+    concepts: ['c0-ohm'],
+    prompt: r`$V_A = 12$ V, $V_B = 4$ V, $R = 400\ \Omega$ entre A et B. Que vaut le courant de A vers B ?`,
+    value: 0.02,
+    unit: 'A',
+    explanation: r`2ᵉ formulation : $I = (V_A - V_B)/R = 8/400 = 20\ \text{mA}$.`,
+    source: C0('6'),
+  }),
+  tf({
+    id: 'q-c0-o4',
+    concepts: ['c0-ohm'],
+    prompt:
+      'Avec la 2ᵉ formulation de la loi d’Ohm, il faut d’abord choisir une convention générateur ou récepteur.',
+    answer: false,
+    explanation:
+      'Le cours souligne que la 2ᵉ formulation ne s’intéresse pas au sens du courant ni de la tension : le signe du résultat donne le sens réel.',
+    source: C0('6'),
+  }),
+
+  /* ---------------- Kirchhoff ---------------- */
+  num({
+    id: 'q-c0-k1',
+    concepts: ['c0-kirchhoff'],
+    prompt: 'En un nœud arrivent i₁ = 2 A et i₂ = 3 A ; en repartent i₃ = 1 A et i₄. Que vaut i₄ ?',
+    value: 4,
+    unit: 'A',
+    explanation: 'Entrants = sortants : 2 + 3 = 1 + i₄ ⇒ i₄ = 4 A.',
+    source: C0('7'),
+  }),
+  num({
+    id: 'q-c0-k2',
+    concepts: ['c0-kirchhoff'],
+    difficulty: 2,
+    prompt: r`Dans la maille de la diapo 7, $+V_1 - V_2 + V_3 - V_4 - V_5 = 0$. Avec $V_1 = 10$ V, $V_2 = 4$ V, $V_3 = 2$ V, $V_4 = 1$ V, que vaut $V_5$ ?`,
+    value: 7,
+    unit: 'V',
+    explanation: 'V₅ = V₁ − V₂ + V₃ − V₄ = 10 − 4 + 2 − 1 = 7 V.',
+    source: C0('7'),
+  }),
+  tf({
+    id: 'q-c0-k3',
+    concepts: ['c0-kirchhoff'],
+    prompt: 'La loi des nœuds traduit le fait que la charge ne s’accumule pas en un nœud.',
+    answer: true,
+    explanation: 'C’est la conservation de la charge : tout ce qui entre ressort.',
+  }),
+
+  /* ---------------- Diviseurs ---------------- */
+  num({
+    id: 'q-c0-d1',
+    concepts: ['c0-diviseurs'],
+    prompt:
+      'R₁ = 10 kΩ et R₂ = 10 kΩ en série sous V_s = 5 V. Quelle est la tension aux bornes de R₂ ?',
+    value: 2.5,
+    unit: 'V',
+    explanation: r`$V_2 = \frac{R_2}{R_1+R_2}V_s = \frac{10}{20}\times5 = 2{,}5$ V.`,
+    source: C0('9'),
+  }),
+  mcq({
+    id: 'q-c0-d2',
+    concepts: ['c0-diviseurs'],
+    formula: true,
+    prompt:
+      'Diviseur de courant : R₁ et R₂ en parallèle, courant total i₀. Que vaut le courant i₂ dans R₂ ?',
+    choices: [
+      [r`$i_2 = \dfrac{R_1}{R_1+R_2}\,i_0$`, 'Oui : l’AUTRE résistance au numérateur.'],
+      [
+        r`$i_2 = \dfrac{R_2}{R_1+R_2}\,i_0$`,
+        'C’est la forme du diviseur de tension : erreur classique.',
+      ],
+      [r`$i_2 = \dfrac{R_1+R_2}{R_1}\,i_0$`, 'Ce rapport est supérieur à 1 : i₂ dépasserait i₀.'],
+      [
+        r`$i_2 = \dfrac{R_1R_2}{R_1+R_2}\,i_0$`,
+        'C’est la résistance équivalente, pas un rapport sans dimension.',
+      ],
+    ],
+    correct: 0,
+    explanation:
+      'Plus R₂ est grande, moins elle reçoit de courant : le courant préfère le chemin le moins résistant.',
+    source: C0('9'),
+  }),
+  mcq({
+    id: 'q-c0-d3',
+    concepts: ['c0-diviseurs'],
+    prompt: 'Quelle condition faut-il vérifier pour appliquer le diviseur de tension à R₁ et R₂ ?',
+    choices: [
+      [
+        'R₁ et R₂ sont parcourues par le même courant (aucun courant ne part au point milieu).',
+        'Oui : c’est la condition « en série » du cours.',
+      ],
+      [
+        'R₁ et R₂ sont soumises à la même tension.',
+        'C’est la condition du diviseur de courant (parallèle).',
+      ],
+      ['R₁ = R₂.', 'La formule fonctionne pour toutes valeurs.'],
+      [
+        'La source doit être une source de courant.',
+        'Aucune condition sur la nature de la source.',
+      ],
+    ],
+    correct: 0,
+    explanation:
+      'Si une charge est branchée au point milieu, le diviseur ne s’applique plus tel quel (cours 1, diapo 33).',
+    source: C0('9'),
+  }),
+  num({
+    id: 'q-c0-d4',
+    concepts: ['c0-diviseurs'],
+    difficulty: 2,
+    prompt:
+      'R₁ = 1 kΩ et R₂ = 3 kΩ en parallèle se partagent i₀ = 4 mA. Que vaut le courant dans R₂ ?',
+    value: 1e-3,
+    unit: 'A',
+    explanation: r`$i_2 = \frac{R_1}{R_1+R_2}i_0 = \frac{1}{4}\times4\ \text{mA} = 1\ \text{mA}$.`,
+  }),
+
+  /* ---------------- Sources ---------------- */
+  mcq({
+    id: 'q-c0-s1',
+    concepts: ['c0-sources'],
+    prompt:
+      'Une source impose V₂ = 5·i₁, où i₁ est un courant ailleurs dans le circuit. De quel type de source s’agit-il ?',
+    choices: [
+      [
+        'Source de tension commandée par un courant.',
+        'Oui : elle impose une tension, dont la valeur dépend d’un courant.',
+      ],
+      ['Source de courant commandée par une tension.', 'Elle imposerait un courant i₂ = k·V₁.'],
+      ['Source de tension indépendante.', 'Sa valeur dépend de i₁ : elle est dépendante.'],
+      [
+        'Résistance de 5 Ω.',
+        'Une résistance relie la tension à SON propre courant, pas à un courant ailleurs.',
+      ],
+    ],
+    correct: 0,
+    explanation:
+      'Cours 0, diapo 3 : quatre sources dépendantes (tension/courant commandées par tension/courant).',
+    source: C0('3'),
+  }),
+  num({
+    id: 'q-c0-s2',
+    concepts: ['c0-transfo'],
+    prompt:
+      'Un générateur de Thévenin a V_Th = 10 V et R_Th = 50 Ω. Quel est le courant I_N du générateur de Norton équivalent ?',
+    value: 0.2,
+    unit: 'A',
+    explanation: r`$I_N = V_{Th}/R_{Th} = 10/50 = 0{,}2$ A, avec $R_N = R_{Th} = 50\ \Omega$.`,
+    source: C0('4'),
+  }),
+  tf({
+    id: 'q-c0-s3',
+    concepts: ['c0-transfo'],
+    prompt: 'Lors de la transformation MET ↔ MEN, la résistance est conservée : R_N = R_Th.',
+    answer: true,
+    explanation: 'Cours 0, diapo 4 : R_Th = R_N, V_Th = R_N·I_N.',
+    source: C0('4'),
+  }),
+
+  /* ---------------- Nœuds / mailles ---------------- */
+  mcq({
+    id: 'q-c0-nm1',
+    concepts: ['c0-noeuds-mailles'],
+    prompt: 'Dans la méthode des nœuds, quelles sont les inconnues ?',
+    choices: [
+      ['Les potentiels des nœuds.', 'Oui (la masse servant de référence).'],
+      ['Les courants de maille.', 'Ce sont les inconnues de la méthode des mailles.'],
+      ['Les résistances.', 'Elles sont connues.'],
+      ['Les puissances dissipées.', 'On les calcule éventuellement après.'],
+    ],
+    correct: 0,
+    explanation:
+      'On écrit la loi des nœuds en chaque nœud, puis on remplace les courants par (V_départ − V_arrivée)/R.',
+    source: C0('11'),
+  }),
+  mcq({
+    id: 'q-c0-nm2',
+    concepts: ['c0-noeuds-mailles'],
+    difficulty: 2,
+    prompt:
+      'Méthode des nœuds : une source de tension est « coincée » entre deux nœuds. Que fait-on ?',
+    choices: [
+      [
+        'On regroupe les deux nœuds en un macro-nœud.',
+        'Oui : on ne peut pas exprimer le courant de la source par la loi d’Ohm.',
+      ],
+      [
+        'On crée une super-maille.',
+        'C’est l’astuce de la méthode des mailles pour une source de courant partagée.',
+      ],
+      ['On supprime la source.', 'Cela changerait le circuit.'],
+      [
+        'On remplace la source par un fil.',
+        'C’est l’extinction d’une source (superposition), pas la méthode des nœuds.',
+      ],
+    ],
+    correct: 0,
+    explanation: 'Cours 0, diapos 11 et 13 : macro-nœud (nœuds) / super-maille (mailles).',
+    source: C0('11, 13'),
+  }),
+  num({
+    id: 'q-c0-nm3',
+    concepts: ['c0-noeuds-mailles'],
+    difficulty: 3,
+    prompt: r`Exemple du cours : le système $3V_A - V_B = 200$ et $6V_A - 13V_B = -12$. Que vaut $V_B$ ?`,
+    value: 37.45,
+    unit: 'V',
+    explanation: r`$V_B = 3V_A - 200$ ⇒ $6V_A - 39V_A + 2600 = -12$ ⇒ $V_A \approx 79{,}2$ V et $V_B \approx 37{,}5$ V.`,
+    source: C0('12'),
+  }),
+  order({
+    id: 'q-c0-nm4',
+    concepts: ['c0-noeuds-mailles'],
+    prompt: 'Remets dans l’ordre les étapes de la méthode des nœuds.',
+    items: [
+      'Compter les inconnues (potentiels des nœuds)',
+      'Écrire la loi des nœuds en chaque nœud',
+      'Remplacer les intensités grâce à la 2ᵉ formulation de la loi d’Ohm',
+      'Résoudre le système',
+    ],
+    explanation: 'Cours 0, diapo 11.',
+    source: C0('11'),
+  }),
+
+  /* ---------------- Superposition / Millman ---------------- */
+  mcq({
+    id: 'q-c0-sm1',
+    concepts: ['c0-superposition-millman'],
+    prompt:
+      'Pour appliquer la superposition, comment éteint-on une source de courant indépendante ?',
+    choices: [
+      [
+        'On la remplace par un circuit ouvert (un « trou »).',
+        'Oui : un courant nul, c’est une branche coupée.',
+      ],
+      ['On la remplace par un fil.', 'C’est ainsi qu’on éteint une source de TENSION.'],
+      ['On la remplace par une résistance de 1 Ω.', 'Rien de tel dans la méthode.'],
+      [
+        'On la laisse : seules les sources de tension s’éteignent.',
+        'On éteint toutes les sources indépendantes sauf une.',
+      ],
+    ],
+    correct: 0,
+    explanation:
+      'Cours 0, diapos 17-18 : source de courant neutralisée = trou ; source de tension neutralisée = fil. Les sources dépendantes ne s’éteignent jamais.',
+    source: C0('16-18'),
+  }),
+  tf({
+    id: 'q-c0-sm2',
+    concepts: ['c0-superposition-millman'],
+    prompt:
+      'Dans le théorème de Millman, une branche contenant une source de courant ajoute un terme 1/R au dénominateur.',
+    answer: false,
+    explanation: 'Les sources de courant n’apparaissent qu’au numérateur (Σ i_j).',
+    source: C0('19'),
+  }),
+  num({
+    id: 'q-c0-sm3',
+    concepts: ['c0-superposition-millman'],
+    prompt:
+      'Un nœud A est relié à un potentiel de 10 V par 1 kΩ et à la masse par 1 kΩ. Que vaut V_A (Millman) ?',
+    value: 5,
+    unit: 'V',
+    explanation: r`$V_A = \dfrac{10/1000 + 0/1000}{1/1000 + 1/1000} = 5$ V.`,
+    source: C0('19'),
+  }),
+
+  /* ---------------- Thévenin / Norton ---------------- */
+  mcq({
+    id: 'q-c0-tn1',
+    concepts: ['c0-thevenin-norton'],
+    prompt: 'Comment obtient-on la tension de Thévenin V_Th d’un circuit ?',
+    choices: [
+      ['C’est la tension à vide entre les bornes, charge retirée.', 'Oui.'],
+      ['C’est la tension aux bornes de la charge.', 'Il faut étudier le circuit SANS la charge.'],
+      [
+        'C’est le courant de court-circuit multiplié par la charge.',
+        'V_Th = R_N·I_N, pas R_charge·I_N.',
+      ],
+      ['C’est la somme des sources de tension.', 'Seulement dans des cas très particuliers.'],
+    ],
+    correct: 0,
+    explanation: 'Cours 0, diapo 21.',
+    source: C0('21'),
+  }),
+  mcq({
+    id: 'q-c0-tn2',
+    concepts: ['c0-thevenin-norton'],
+    prompt: 'Comment obtient-on R_Th (= R_N) ?',
+    choices: [
+      ['Résistance vue des bornes, sources indépendantes neutralisées.', 'Oui.'],
+      [
+        'Somme de toutes les résistances du circuit.',
+        'Il faut tenir compte des associations série/parallèle.',
+      ],
+      [
+        'V_Th divisé par le courant dans la charge.',
+        'Il faut le courant de court-circuit : R = V_Th / I_N.',
+      ],
+      ['Résistance de la charge.', 'La charge est retirée.'],
+    ],
+    correct: 0,
+    explanation: 'Exemple du cours : R_Th = (100 + 200)·400 / (100 + 200 + 400) ≈ 171,4 Ω.',
+    source: C0('21-22'),
+  }),
+  num({
+    id: 'q-c0-tn3',
+    concepts: ['c0-thevenin-norton', 'c0-diviseurs'],
+    difficulty: 2,
+    prompt:
+      'Un générateur de Thévenin (V_Th = 58,9 V, R_Th = 171,4 Ω) alimente une charge de 300 Ω. Quelle tension aux bornes de la charge ?',
+    value: 37.48,
+    unit: 'V',
+    explanation: r`Diviseur de tension : $\frac{300}{300+171{,}4}\times58{,}9 \approx 37{,}5$ V (cours 0, diapo 24).`,
+    source: C0('24'),
+  }),
+
+  /* ---------------- AOP ---------------- */
+  num({
+    id: 'q-c0-a1',
+    concepts: ['c0-aop'],
+    prompt: 'Montage inverseur : R_f = 10 kΩ, R₁ = 1 kΩ, V_in = 0,5 V. Que vaut V_out ?',
+    value: -5,
+    unit: 'V',
+    explanation: r`$V_{out} = -\frac{R_f}{R_1}V_{in} = -10 \times 0{,}5 = -5$ V.`,
+    source: C0('33'),
+  }),
+  mcq({
+    id: 'q-c0-a2',
+    concepts: ['c0-aop'],
+    prompt: 'AOP idéal en régime linéaire (contre-réaction) : quelles relations utilise-t-on ?',
+    choices: [
+      [r`$V^+ = V^-$ et $i^+ = i^- = 0$`, 'Oui : ε = 0 et courants d’entrée nuls.'],
+      [r`$V_{out} = 0$`, 'La sortie prend la valeur nécessaire pour annuler ε.'],
+      [r`$V_{out} = +V_{sat}$`, 'C’est le régime saturé, sans contre-réaction.'],
+      [r`$i^+ = i^-$ non nuls`, 'L’AOP idéal a une résistance d’entrée infinie.'],
+    ],
+    correct: 0,
+    explanation: 'Cours 0, diapos 30-31 : A_vol → ∞, R_i → ∞, R_o → 0.',
+    source: C0('30-31'),
+  }),
+  mcq({
+    id: 'q-c0-a3',
+    concepts: ['c0-aop'],
+    prompt: 'Quel est l’intérêt principal du montage suiveur ?',
+    choices: [
+      [
+        'Recopier une tension sans perturber le circuit qui la fournit.',
+        'Oui : résistance d’entrée infinie.',
+      ],
+      ['Multiplier la tension par 2.', 'Son gain vaut 1.'],
+      ['Inverser la tension.', 'C’est le montage inverseur.'],
+      ['Additionner deux tensions.', 'C’est le sommateur.'],
+    ],
+    correct: 0,
+    explanation:
+      'Cours 1, diapo 33 : sans suiveur, la charge de 1 kΩ fait chuter la sortie du diviseur de 2,5 V à 0,42 V.',
+    source: C0('32'),
+  }),
+  num({
+    id: 'q-c0-a4',
+    concepts: ['c0-aop'],
+    difficulty: 2,
+    prompt:
+      'Montage non inverseur : R_f = 9 kΩ (contre-réaction), R₁ = 1 kΩ (vers la masse), V_in = 1 V. Que vaut V_out ?',
+    value: 10,
+    unit: 'V',
+    explanation: r`$V_{out} = (1 + R_f/R_1)V_{in} = 10$ V.`,
+    source: C0('34'),
+  }),
+];
