@@ -9,10 +9,10 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
           <Logo className="text-white" />
           <nav aria-label="Navigation publique" className="hidden items-center gap-6 text-sm text-white/75 md:flex">
-            <a href="/#solution" className="hover:text-white">Solution</a>
-            <a href="/#fonctionnalites" className="hover:text-white">Fonctionnalités</a>
-            <a href="/#securite" className="hover:text-white">Sécurité</a>
-            <a href="/#faq" className="hover:text-white">FAQ</a>
+            <Link href="/#solution" className="hover:text-white">Solution</Link>
+            <Link href="/#fonctionnalites" className="hover:text-white">Fonctionnalités</Link>
+            <Link href="/#securite" className="hover:text-white">Sécurité</Link>
+            <Link href="/#faq" className="hover:text-white">FAQ</Link>
           </nav>
           <div className="flex gap-2">
             <Button variant="ghost" size="sm" className="text-white hover:bg-white/10" asChild><Link href="/login">Connexion</Link></Button>

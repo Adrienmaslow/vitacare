@@ -28,7 +28,7 @@ export function normalizeLabel(label: string): string {
     .replace(/[̀-ͯ]/g, "")
     .toUpperCase()
     .replace(/\b(CB|CARTE|PRLV|PRELEVEMENT|SEPA|VIR|VIREMENT|INST|PAIEMENT|ACHAT|FACTURE|RETRAIT|DAB)\b/g, " ")
-    .replace(/\bX{2,}\d+\b/g, " ")
+    .replace(/\b[X*]+\d{3,}\b/g, " ")
     .replace(/\b\d{2}[/.-]\d{2}([/.-]\d{2,4})?\b/g, " ")
     .replace(/\b\d{4,}\b/g, " ")
     .replace(/[^A-Z0-9 &'-]/g, " ")

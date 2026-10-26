@@ -75,7 +75,6 @@ export function kpis(s: FinancialSnapshot, availableBalance: Minor): Kpis {
   const current = series[series.length - 1]!;
   const complete = series.slice(0, -1).filter((p) => p.income > 0 || p.expenses > 0);
   const last3 = complete.slice(-3);
-  const last6 = complete.slice(-6);
   const warnings: string[] = [];
   if (complete.length < 1) warnings.push("Aucun mois complet enregistré : les ratios seront disponibles après ton premier mois d'utilisation.");
   else if (complete.length < 3) warnings.push(`Seulement ${complete.length} mois complet(s) : les moyennes sont indicatives.`);

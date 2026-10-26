@@ -95,7 +95,9 @@ export function detectMapping(parsed: ParsedCsv): ColumnMapping | null {
   let date = find(/^date( (d'?)?operation|op)?$|date operation|^date$|^jour/);
   if (date < 0) date = find(/date/);
   const booking = find(/date (de )?valeur|date comptable|date de comptabilisation/);
-  let label = find(/libelle|description|intitule|label|detail|operation$|nature|beneficiaire/);
+  const findExcept = (re: RegExp, except: number[]) => h.findIndex((x, i) => !except.includes(i) && re.test(x));
+  let label = findExcept(/libelle|description|intitule|label/, [date, booking]);
+  if (label < 0) label = findExcept(/detail|operation|nature|beneficiaire/, [date, booking]);
   const debit = find(/^debit|debit$|sortie|montant debit/);
   const credit = find(/^credit|credit$|entree|montant credit/);
   const amount = find(/^montant|amount|^somme|valeur$|montant \(eur\)|^eur$/);
@@ -136,14 +138,13 @@ export function parseDate(raw: string, format: ColumnMapping["dateFormat"]): ISO
   const s = raw.trim().slice(0, 10);
   const parts = s.split(/[-/.]/);
   if (parts.length !== 3) return null;
-  let [a, b, c] = parts as [string, string, string];
+  const [a, b, c] = parts as [string, string, string];
   let y: string, m: string, d: string;
   if (format === "ymd") [y, m, d] = [a, b, c];
   else if (format === "mdy") [m, d, y] = [a, b, c];
   else [d, m, y] = [a, b, c];
   if (y.length === 2) y = `20${y}`;
   const iso = `${y.padStart(4, "0")}-${m.padStart(2, "0")}-${d.padStart(2, "0")}`;
-  void a; void b; void c;
   return isValidISODate(iso) ? iso : null;
 }
 

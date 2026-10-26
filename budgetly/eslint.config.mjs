@@ -9,6 +9,11 @@ const config = [
   },
   {
     rules: {
+      // Interface en français : les apostrophes typographiques sont du texte normal, rendu sans risque par JSX.
+      "react/no-unescaped-entities": "off",
+      // Les formulaires d'édition s'initialisent à partir des données chargées : signalé en avertissement
+      // (refactorisation possible en composants remontés par clé, voir docs/ROADMAP.md).
+      "react-hooks/set-state-in-effect": "warn",
       "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
     },
   },

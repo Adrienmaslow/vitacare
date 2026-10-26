@@ -318,16 +318,21 @@ export function buildPlan(ctx: PlanContext, max = 5): ScoredAction[] {
   const scored = generateCandidates(ctx)
     .map((c) => scoreCandidate(c, { monthlyIncome: ctx.snapshot.profile?.monthly_income_minor ?? 0, dismissedTypes: ctx.dismissedTypes ?? [], preferredTypes }))
     .sort((a, b) => b.priority - a.priority || a.key.localeCompare(b.key));
-  const perType = new Map<ActionType, number>();
+  // Diversité : d'abord la meilleure action de chaque type, puis au plus une seconde par type.
   const out: ScoredAction[] = [];
+  const seen = new Set<ActionType>();
   for (const a of scored) {
-    const n = perType.get(a.type) ?? 0;
-    if (n >= 2) continue;
-    perType.set(a.type, n + 1);
-    out.push(a);
     if (out.length >= max) break;
+    if (!seen.has(a.type)) {
+      seen.add(a.type);
+      out.push(a);
+    }
   }
-  return out;
+  for (const a of scored) {
+    if (out.length >= max) break;
+    if (!out.includes(a) && out.filter((x) => x.type === a.type).length < 2) out.push(a);
+  }
+  return out.sort((a, b) => b.priority - a.priority || a.key.localeCompare(b.key));
 }
 
 export function toActionRow(a: ScoredAction, today: ISODate): Insert<"action_items"> {

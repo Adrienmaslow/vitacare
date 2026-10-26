@@ -92,6 +92,8 @@ export function parseAmount(raw: string | number | null | undefined): Minor | nu
   } else {
     m = AMOUNT_RE_COMMA_THOUSANDS.exec(s);
     if (!m) return null;
+    // "12,345" est ambigu (12,345 € ou 12 345 €) : on refuse plutôt que de deviner.
+    if (!m[3] && (m[2]!.match(/,/g) ?? []).length === 1) return null;
     sign = m[1];
     intPart = m[2]!.replace(/,/g, "");
     frac = m[3] ?? "";

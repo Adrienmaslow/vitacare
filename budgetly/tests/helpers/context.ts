@@ -13,7 +13,7 @@ export function makeCtx(store?: DataStore, today = TODAY): OpContext {
     store: store ?? new LocalStore(USER, emptyData(), undefined, () => new Date(`${today}T10:00:00Z`)),
     today,
     now: new Date(`${today}T10:00:00Z`),
-    mode: "demo",
+    mode: store?.kind === "pg" ? "live" : "demo",
     opportunityProviders: [new DemoOpportunityProvider(today)],
     coachAI: null,
   };

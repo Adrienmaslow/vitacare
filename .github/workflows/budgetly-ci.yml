@@ -1,0 +1,65 @@
+name: BUDGETLY CI
+
+on:
+  push:
+    paths: ["budgetly/**", ".github/workflows/budgetly-ci.yml"]
+  pull_request:
+    paths: ["budgetly/**", ".github/workflows/budgetly-ci.yml"]
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    working-directory: budgetly
+
+jobs:
+  quality:
+    name: Lint, types, tests unitaires et d'intégration
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: budgetly_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/budgetly_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: budgetly/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+
+  build-e2e:
+    name: Build et tests E2E (Playwright)
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: budgetly/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          CI: "true"
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: budgetly/playwright-report
+          retention-days: 7

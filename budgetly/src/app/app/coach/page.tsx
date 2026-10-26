@@ -32,7 +32,9 @@ export default function CoachPage() {
   const [useAI, setUseAI] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const aiConsent = profile.data?.consents.find((c) => c.purpose === "ai_coach")?.granted ?? false;
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: "smooth" }), [messages]);
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const ask = async (question: string) => {
     if (!question.trim() || busy) return;
