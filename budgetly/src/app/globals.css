@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------
+   Tokens BUDGETLY — couleurs de marque + sémantiques (clair / sombre)
+   ------------------------------------------------------------------ */
+:root {
+  --night: #0b1220;
+  --night-2: #17243b;
+  --brand: #7357f6;
+  --brand-strong: #5b3fe4;
+  --positive: #16a34a;
+  --warning: #b45309;
+  --danger: #dc2626;
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+  --foreground: #111827;
+  --muted: #5b6475;
+  --ring: #7357f6;
+  --brand-soft: #efebff;
+  --positive-soft: #e8f8ee;
+  --warning-soft: #fff4e0;
+  --danger-soft: #fdecec;
+  --chart-grid: #e5e7eb;
+}
+
+.dark {
+  --background: #0b1220;
+  --surface: #121b2e;
+  --surface-2: #17243b;
+  --border: #243352;
+  --foreground: #eef2ff;
+  --muted: #9aa6bf;
+  --ring: #9c87ff;
+  --brand: #8b74ff;
+  --brand-strong: #a594ff;
+  --positive: #22c55e;
+  --warning: #f59e0b;
+  --danger: #f87171;
+  --brand-soft: #241d4d;
+  --positive-soft: #0f2e1e;
+  --warning-soft: #33240b;
+  --danger-soft: #3a1518;
+  --chart-grid: #243352;
+}
+
+@theme inline {
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-positive: var(--positive);
+  --color-positive-soft: var(--positive-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-ring: var(--ring);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+.skeleton { position: relative; overflow: hidden; background: var(--surface-2); border-radius: 0.75rem; }
+.skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 60%, transparent), transparent); animation: shimmer 1.4s infinite; }
+
+.bg-grid { background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--brand) 18%, transparent) 1px, transparent 0); background-size: 22px 22px; }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+
+@media print {
+  aside, nav, header, .no-print, [data-sonner-toaster] { display: none !important; }
+  body { background: #fff; }
+  .lg\:pl-72 { padding-left: 0 !important; }
+}

@@ -1,0 +1,6 @@
+export const STATUS_LABELS = { student: "Étudiant·e", working_student: "Étudiant·e salarié·e", apprentice: "Apprenti·e / alternant·e", young_worker: "Jeune actif·ve", job_seeker: "En recherche d'emploi", other: "Autre" } as const;
+export const AGE_LABELS = { under_18: "Moins de 18 ans", "18_20": "18-20 ans", "21_25": "21-25 ans", "26_30": "26-30 ans", over_30: "Plus de 30 ans" } as const;
+export const HOUSING_LABELS = { family: "Chez mes parents / famille", crous: "Résidence CROUS", private_rent: "Location seul·e", shared_rent: "Colocation", owner: "Propriétaire / logé gratuitement", other: "Autre" } as const;
+export const INSTITUTION_LABELS = { university: "Université", grande_ecole: "Grande école", bts_iut: "BTS / BUT / IUT", school: "Lycée", apprenticeship: "CFA / alternance", other: "Autre", none: "Aucun" } as const;
+export const LEVEL_LABELS = { bac: "Bac", bac_1: "Bac +1", bac_2: "Bac +2", bac_3: "Bac +3", bac_4: "Bac +4", bac_5: "Bac +5", doctorate: "Doctorat", other: "Autre", none: "Non concerné" } as const;
+export const OBJECTIVE_LABELS = { budget: "Mieux gérer mon budget", avoid_overdraft: "Éviter les découverts", save: "Économiser", find_job: "Trouver un job étudiant", increase_income: "Augmenter mes revenus", discover_aids: "Découvrir les aides", reduce_spending: "Réduire mes dépenses", fund_project: "Financer un projet" } as const;

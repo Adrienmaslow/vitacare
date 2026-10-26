@@ -121,8 +121,10 @@ export function generateCandidates(ctx: PlanContext): ActionCandidate[] {
   if (f.minBalance.realistic.value < 0 || f.endBalance.realistic < 0) {
     const shortfall = -Math.min(f.minBalance.realistic.value, f.endBalance.realistic);
     const daysLeft = Math.max(1, diffDays(monthEnd, s.today));
-    const fixedLeft = f.scheduledExpenses;
-    const incomeLeft = f.expectedIncome;
+    // Plafond calculé strictement jusqu'à la fin du mois (pas de revenus du mois suivant).
+    const fm = forecast(s, daysLeft);
+    const fixedLeft = fm.scheduledExpenses;
+    const incomeLeft = fm.expectedIncome;
     const daily = Math.max(0, mulDiv(t.available + incomeLeft - fixedLeft, 1, daysLeft));
     out.push({
       key: `cashflow:plan:${startOfMonth(s.today)}`, type: "cashflow",
@@ -232,8 +234,10 @@ export function generateCandidates(ctx: PlanContext): ActionCandidate[] {
     });
   }
 
-  // 6. Objectifs en retard.
-  for (const g of s.goals.filter((x) => x.status === "active")) {
+  // 6. Objectifs en retard — mis en pause tant qu'un risque de découvert existe :
+  // on ne propose jamais d'épargner en creusant un découvert.
+  const cashflowRisk = f.minBalance.realistic.value < 0 || f.endBalance.realistic < 0;
+  for (const g of cashflowRisk ? [] : s.goals.filter((x) => x.status === "active")) {
     const p = goalProgress(g, s.allocations, s.today);
     if (p.onTrack === false && p.requiredMonthly) {
       out.push({
@@ -248,7 +252,7 @@ export function generateCandidates(ctx: PlanContext): ActionCandidate[] {
     }
   }
   const emergency = s.goals.find((g) => g.kind === "emergency" && g.status === "active");
-  if (!emergency && t.savings < 30000) {
+  if (!emergency && t.savings < 30000 && !cashflowRisk) {
     out.push({
       key: "savings:emergency-fund", type: "savings", title: "Commencer une épargne de précaution",
       description: "Même 10 € par mois aident à absorber un imprévu sans découvert.",
